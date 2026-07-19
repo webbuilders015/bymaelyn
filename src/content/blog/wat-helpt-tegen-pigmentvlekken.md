@@ -3,6 +3,8 @@ title: "Wat helpt echt tegen pigmentvlekken?"
 description: "Pigmentvlekken zijn hardnekkig, maar niet onbehandelbaar. We leggen uit hoe ze ontstaan en welke behandelingen en producten écht effect hebben."
 pubDate: 2026-07-15
 tags: ["Chemische peeling", "Huidverzorging"]
+heroImage: "/images/blog/generated/wat-helpt-tegen-pigmentvlekken.jpg"
+heroAlt: "Egale, stralende huid"
 ---
 
 Pigmentvlekken — ook wel ouderdomsvlekken of zonvlekken genoemd — ontstaan door een

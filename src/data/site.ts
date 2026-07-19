@@ -61,7 +61,7 @@ export const treatments = [
     slug: 'microdermabrasie',
     title: 'Microdermabrasie',
     short: 'Mechanische peeling voor een directe glow en verfijnde poriën.',
-    image: '/images/treatments/gezichtsbehandeling.jpg',
+    image: '/images/treatments/microdermabrasie.jpg',
   },
   {
     slug: 'waxen',

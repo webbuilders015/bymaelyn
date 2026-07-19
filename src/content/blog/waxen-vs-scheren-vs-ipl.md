@@ -3,6 +3,8 @@ title: "Waxen, scheren of IPL: welke ontharingsmethode past bij jou?"
 description: "Drie populaire manieren om ongewenste haargroei aan te pakken, met hun voor- en nadelen op een rij."
 pubDate: 2026-07-10
 tags: ["Waxen"]
+heroImage: "/images/blog/generated/waxen-vs-scheren-vs-ipl.jpg"
+heroAlt: "Waxen ontharingsbehandeling producten"
 ---
 
 Ongewenste haargroei verwijderen kan op verschillende manieren. De drie meest gekozen opties zijn

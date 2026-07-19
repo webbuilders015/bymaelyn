@@ -3,6 +3,8 @@ title: "De ideale skincare-routine vanaf je dertigste"
 description: "Vanaf je dertigste verandert je huid: de collageenproductie neemt af en de huid herstelt trager. Dit zijn de stappen die dan echt verschil maken."
 pubDate: 2026-07-05
 tags: ["Huidverzorging", "Gezichtsbehandeling"]
+heroImage: "/images/blog/generated/skincare-routine-vanaf-je-dertigste.jpg"
+heroAlt: "Skincare-routine met serums en verzorgingsproducten"
 ---
 
 Rond je dertigste begint je huid geleidelijk te veranderen: de collageenproductie neemt af, de

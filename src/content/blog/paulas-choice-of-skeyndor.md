@@ -3,6 +3,8 @@ title: "Paula's Choice of Skeyndor: welk merk past bij jouw huid?"
 description: "Wij werken met twee sterke skincare-merken in de salon. We leggen het verschil uit, zodat je weet welk merk het beste bij jouw huidbehoefte past."
 pubDate: 2026-07-12
 tags: ["Huidverzorging"]
+heroImage: "/images/blog/generated/paulas-choice-of-skeyndor.jpg"
+heroAlt: "Paula's Choice en Skeyndor skincare producten"
 ---
 
 In onze salon werken we met twee skincare-merken die allebei op hun eigen manier uitblinken:

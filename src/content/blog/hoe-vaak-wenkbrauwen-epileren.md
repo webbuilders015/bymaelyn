@@ -3,6 +3,8 @@ title: "Hoe vaak moet je je wenkbrauwen laten epileren?"
 description: "Wenkbrauwen groeien sneller terug dan je denkt. We leggen uit hoe vaak epileren nodig is en wat het verschil is met harsen."
 pubDate: 2026-07-08
 tags: ["Wenkbrauwstyling"]
+heroImage: "/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg"
+heroAlt: "Wenkbrauwen epileren behandeling"
 ---
 
 Goed gevormde wenkbrauwen maken meteen verschil in je uitstraling, maar hoe vaak moet je ze

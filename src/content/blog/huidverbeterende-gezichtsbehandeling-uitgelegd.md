@@ -3,6 +3,8 @@ title: "Huidverbeterende gezichtsbehandeling: wat is het en voor wie?"
 description: "Wat een huidverbeterende gezichtsbehandeling precies inhoudt, welke stappen erbij komen kijken en voor welk huidtype het geschikt is."
 pubDate: 2026-07-01
 tags: ["Gezichtsbehandeling", "Huidverzorging"]
+heroImage: "/images/blog/generated/huidverbeterende-gezichtsbehandeling-uitgelegd.jpg"
+heroAlt: "Huidverbeterende gezichtsbehandeling bij Art of Beauty by Maelyn"
 ---
 
 Een huidverbeterende gezichtsbehandeling is meer dan even ontspannen: het is een gerichte

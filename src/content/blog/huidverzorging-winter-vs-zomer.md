@@ -3,6 +3,8 @@ title: "Huidverzorging in de winter versus de zomer: dit verandert er"
 description: "Je huid heeft in de winter andere behoeften dan in de zomer. Zo pas je je routine per seizoen aan voor een gezonde, comfortabele huid."
 pubDate: 2026-07-18
 tags: ["Huidverzorging"]
+heroImage: "/images/blog/generated/huidverzorging-winter-vs-zomer.jpg"
+heroAlt: "Seizoensgebonden huidverzorging"
 ---
 
 Je huid reageert op temperatuur, luchtvochtigheid en zonuren — en dat betekent dat een routine

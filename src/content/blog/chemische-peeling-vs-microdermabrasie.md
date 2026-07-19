@@ -3,6 +3,8 @@ title: "Chemische peeling of microdermabrasie: wat is het verschil?"
 description: "Beide behandelingen vernieuwen de huid, maar op een andere manier. We leggen het verschil uit en helpen je kiezen wat het beste bij jouw huid past."
 pubDate: 2026-07-03
 tags: ["Chemische peeling", "Huidverzorging"]
+heroImage: "/images/blog/generated/chemische-peeling-vs-microdermabrasie.jpg"
+heroAlt: "Chemische peeling en microdermabrasie producten"
 ---
 
 Als je op zoek bent naar een frissere, gladdere huid kom je al snel twee termen tegen: chemische
