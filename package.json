@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "sync": "bash sync.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.3",
