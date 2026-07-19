@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/global.css';
 import { site } from '../data/site';
 
@@ -39,6 +40,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <SpeedInsights />
   </head>
   <body class="flex min-h-screen flex-col antialiased">
     <Header />
