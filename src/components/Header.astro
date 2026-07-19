@@ -4,10 +4,36 @@ import Logo from './Logo.astro';
 ---
 
 <header class="sticky top-0 z-50 border-b border-line/70 bg-bg/90 backdrop-blur">
-  <nav class="flex items-center justify-between gap-6 px-6 py-4 md:px-10" aria-label="Hoofdmenu">
-    <Logo markClass="h-7 w-7" textClass="text-[13px] md:text-[14px]" />
+  <!-- Mobile: hamburger left, logo centered, book button right -->
+  <nav class="grid grid-cols-3 items-center px-6 py-3 lg:hidden" aria-label="Hoofdmenu mobiel">
+    <button
+      id="menu-toggle"
+      type="button"
+      class="flex flex-col items-stretch justify-center gap-[6px] w-7 h-7 justify-self-start"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="block h-[2px] w-full bg-ink"></span>
+      <span class="block h-[2px] w-full bg-ink"></span>
+      <span class="block h-[2px] w-full bg-ink"></span>
+    </button>
 
-    <ul class="hidden items-center gap-7 text-[12px] uppercase tracking-[0.12em] lg:flex">
+    <Logo class="justify-self-center" imgClass="h-8" />
+
+    <a
+      href="/afspraak-maken/"
+      class="justify-self-end inline-flex h-9 items-center rounded-full bg-accent px-4 text-[11px] tracking-[0.1em] text-bg"
+    >
+      Boeken
+    </a>
+  </nav>
+
+  <!-- Desktop: logo left, nav center/right, book button right -->
+  <nav class="hidden items-center justify-between gap-6 px-10 py-4 lg:flex" aria-label="Hoofdmenu">
+    <Logo imgClass="h-9" />
+
+    <ul class="flex items-center gap-7 text-[12px] uppercase tracking-[0.12em]">
       {
         mainNav.map((item) => (
           <li class="group relative">
@@ -40,28 +66,10 @@ import Logo from './Logo.astro';
 
     <a
       href="/afspraak-maken/"
-      class="hidden h-10 items-center rounded-full bg-accent px-6 text-[12px] tracking-[0.1em] text-bg transition-colors duration-300 hover:bg-accent-dark lg:inline-flex"
+      class="inline-flex h-10 items-center rounded-full bg-accent px-6 text-[12px] tracking-[0.1em] text-bg transition-colors duration-300 hover:bg-accent-dark"
     >
       Afspraak maken
     </a>
-
-    <div class="flex items-center gap-3 lg:hidden">
-      <a href="/afspraak-maken/" class="inline-flex h-9 items-center rounded-full bg-accent px-4 text-[11px] tracking-[0.1em] text-bg">
-        Boeken
-      </a>
-      <button
-        id="menu-toggle"
-        type="button"
-        class="flex flex-col items-stretch justify-center gap-[6px] w-7 h-7"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-      >
-        <span class="block h-[2px] w-full bg-ink"></span>
-        <span class="block h-[2px] w-full bg-ink"></span>
-        <span class="block h-[2px] w-full bg-ink"></span>
-      </button>
-    </div>
   </nav>
 
   <div id="mobile-menu" class="hidden border-t border-line lg:hidden">
