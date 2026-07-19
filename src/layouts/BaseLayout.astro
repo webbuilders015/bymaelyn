@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import UspBar from '../components/UspBar.astro';
 import '../styles/global.css';
 import { site } from '../data/site';
 
@@ -42,6 +43,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
   </head>
   <body class="flex min-h-screen flex-col antialiased">
     <Header />
+    <UspBar />
     <main class="flex-1">
       <slot />
     </main>

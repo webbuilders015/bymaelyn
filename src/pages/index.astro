@@ -13,40 +13,41 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   title="Art of Beauty by Maelyn | Schoonheidsspecialist Delft"
   description={site.description}
 >
-  <section class="mx-auto max-w-6xl px-6 pb-16 pt-14 sm:pt-20" data-reveal>
-    <div class="grid items-center gap-12 lg:grid-cols-2">
-      <div>
-        <p class="text-[11px] uppercase tracking-[0.18em] text-accent">Schoonheidsspecialist in Delft</p>
-        <h1 class="mt-4 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-5xl">
-          Art of Beauty by Maelyn is een Anbos gecertificeerde schoonheidsspecialiste gevestigd op
-          de Bagijnhof 1 aan de rand van het centrum van Delft.
-        </h1>
-        <p class="mt-6 text-[15px] leading-relaxed text-ink-soft">
-          In deze schoonheidssalon in Delft kun je terecht voor huidverbeterende
-          gezichtsbehandelingen, ontspanningsmassages, wimperlifting, waxen en diverse losse
-          schoonheidsbehandelingen.
-        </p>
-        <p class="mt-4 text-[15px] leading-relaxed text-ink-soft">
-          Ben je op zoek naar een schoonheidssalon waar kwaliteit, ontspanning en huidverbetering
-          centraal staat? Dan ben je bij Art of Beauty by Maelyn in Delft aan het juiste adres!
-          Mocht er in de online agenda geen geschikt plekje meer beschikbaar zijn, stuur dan even
-          een <a href="/contact/" class="text-ink underline decoration-accent underline-offset-4">berichtje</a>,
-          dan kan ik altijd even kijken wat de mogelijkheden zijn.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-4">
-          <Button href={site.bookingUrl}>Afspraak maken</Button>
-          <Button href="/behandelingen/" variant="outline">Bekijk behandelingen</Button>
-        </div>
-      </div>
-      <div class="overflow-hidden rounded-3xl bg-bg-soft">
-        <img
-          src="/images/hero-salon.jpg"
-          alt="Art of Beauty by Maelyn, schoonheidssalon in Delft"
-          class="h-full w-full object-cover"
-          width="800"
-          height="960"
-        />
-      </div>
+  <section class="relative h-[62vh] min-h-[380px] w-full" data-reveal>
+    <img
+      src="/images/treatments/gezichtsbehandeling.jpg"
+      alt="Behandeling bij Art of Beauty by Maelyn"
+      class="h-full w-full object-cover"
+    />
+    <a
+      href={site.bookingUrl}
+      class="absolute bottom-5 right-5 inline-flex h-12 items-center rounded-full bg-accent px-6 text-[13px] tracking-[0.08em] text-bg shadow-lg shadow-ink/20 transition-colors hover:bg-accent-dark md:bottom-8 md:right-8"
+    >
+      Maak afspraak
+    </a>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-6 py-16 text-center md:py-20" data-reveal>
+    <p class="text-[11px] uppercase tracking-[0.18em] text-accent">Schoonheidsspecialist in Delft</p>
+    <h1 class="mt-4 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-5xl">
+      Art of Beauty by Maelyn is een Anbos gecertificeerde schoonheidsspecialiste gevestigd op de
+      Bagijnhof 1 aan de rand van het centrum van Delft.
+    </h1>
+    <p class="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+      In deze schoonheidssalon in Delft kun je terecht voor huidverbeterende
+      gezichtsbehandelingen, ontspanningsmassages, wimperlifting, waxen en diverse losse
+      schoonheidsbehandelingen.
+    </p>
+    <p class="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
+      Ben je op zoek naar een schoonheidssalon waar kwaliteit, ontspanning en huidverbetering
+      centraal staat? Dan ben je bij Art of Beauty by Maelyn in Delft aan het juiste adres!
+      Mocht er in de online agenda geen geschikt plekje meer beschikbaar zijn, stuur dan even
+      een <a href="/contact/" class="text-ink underline decoration-accent underline-offset-4">berichtje</a>,
+      dan kan ik altijd even kijken wat de mogelijkheden zijn.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button href={site.bookingUrl}>Afspraak maken</Button>
+      <Button href="/behandelingen/" variant="outline">Bekijk behandelingen</Button>
     </div>
   </section>
 

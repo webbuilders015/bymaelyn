@@ -36,6 +36,11 @@ export const site = {
     { label: 'Skincare webshop', url: 'https://shop.bymaelyn.nl' },
     { label: 'Sieraden webshop', url: 'https://jewellery-bymae.nl/' },
   ],
+  usps: [
+    'Anbos gecertificeerde schoonheidsspecialiste',
+    'Jarenlange ervaring',
+    'Huidverbeterende gezichtsbehandelingen',
+  ],
 };
 
 export const treatments = [
