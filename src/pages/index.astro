@@ -55,10 +55,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   <section class="bg-bg-soft px-6 py-16 md:px-10 md:py-20" data-reveal>
     <div class="mx-auto max-w-6xl">
       <p class="mb-8 text-[11px] uppercase tracking-[0.16em] text-ink-soft">Behandelingen</p>
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-5">
         {
           treatments.map((t) => (
-            <a href={`/${t.slug}/`} class="group flex h-full flex-col items-center">
+            <a href={`/${t.slug}/`} class="group flex h-full flex-col">
               <div class="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-bg transition-colors duration-300 group-hover:bg-accent/10">
                 <TreatmentIcon name={t.icon} class="h-12 w-12 text-accent-dark transition-transform duration-500 group-hover:scale-110 sm:h-14 sm:w-14" />
               </div>
