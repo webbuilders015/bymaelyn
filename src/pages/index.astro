@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
+import TreatmentIcon from '../components/TreatmentIcon.astro';
 import { site, treatments } from '../data/site';
 import { getCollection } from 'astro:content';
 
@@ -57,14 +58,9 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
         {
           treatments.map((t) => (
-            <a href={`/${t.slug}/`} class="group flex h-full flex-col">
-              <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-bg">
-                <img
-                  src={t.image}
-                  alt={t.title}
-                  class="h-full w-full select-none object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
+            <a href={`/${t.slug}/`} class="group flex h-full flex-col items-center">
+              <div class="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-bg transition-colors duration-300 group-hover:bg-accent/10">
+                <TreatmentIcon name={t.icon} class="h-12 w-12 text-accent-dark transition-transform duration-500 group-hover:scale-110 sm:h-14 sm:w-14" />
               </div>
               <div class="flex flex-1 flex-col items-center px-1 pt-5 text-center">
                 <span class="text-[15px] tracking-tight text-ink">{t.title}</span>
