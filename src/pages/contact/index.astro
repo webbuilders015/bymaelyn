@@ -20,11 +20,7 @@ import { site } from '../../data/site';
           antwoord te geven op je vraag.
         </p>
 
-        <!--
-          TODO: dit formulier heeft nog geen backend. Koppel bijvoorbeeld
-          Formspree, Netlify Forms of een eigen endpoint aan de action hieronder.
-        -->
-        <form class="mt-6 space-y-4" action="#" method="post">
+        <form id="contact-form" class="mt-6 space-y-4" method="post">
           <div>
             <label for="name" class="block text-sm font-medium text-ink">Naam</label>
             <input
@@ -66,10 +62,11 @@ import { site } from '../../data/site';
           </div>
           <button
             type="submit"
-            class="rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg hover:bg-accent-dark"
+            class="rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg transition-colors hover:bg-accent-dark disabled:opacity-60"
           >
             Versturen
           </button>
+          <p id="contact-form-status" class="text-sm" role="status"></p>
         </form>
       </div>
 
@@ -130,3 +127,46 @@ import { site } from '../../data/site';
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    if (button) button.disabled = true;
+    if (status) {
+      status.textContent = 'Bezig met versturen...';
+      status.className = 'text-sm text-ink-soft';
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        form.reset();
+        if (status) {
+          status.textContent = 'Bedankt! Je bericht is verstuurd, we nemen snel contact op.';
+          status.className = 'text-sm text-emerald-600';
+        }
+      } else {
+        if (status) {
+          status.textContent = result.error || 'Versturen is niet gelukt. Probeer het later opnieuw.';
+          status.className = 'text-sm text-red-600';
+        }
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Versturen is niet gelukt. Controleer je internetverbinding.';
+        status.className = 'text-sm text-red-600';
+      }
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>

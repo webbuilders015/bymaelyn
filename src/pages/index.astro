@@ -191,7 +191,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
           binnen 24 uur antwoord te geven op je vraag.
         </p>
 
-        <form class="mt-6 grid gap-4 sm:grid-cols-2" action="#" method="post">
+        <form id="home-contact-form" class="mt-6 grid gap-4 sm:grid-cols-2" method="post">
           <input
             type="text"
             name="name"
@@ -221,10 +221,11 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
           ></textarea>
           <button
             type="submit"
-            class="inline-flex h-12 w-fit items-center rounded-full bg-accent px-8 text-[13px] uppercase tracking-[0.08em] text-bg transition-colors hover:bg-accent-dark sm:col-span-2"
+            class="inline-flex h-12 w-fit items-center rounded-full bg-accent px-8 text-[13px] uppercase tracking-[0.08em] text-bg transition-colors hover:bg-accent-dark disabled:opacity-60 sm:col-span-2"
           >
             Verstuur
           </button>
+          <p id="home-contact-form-status" class="text-sm sm:col-span-2" role="status"></p>
         </form>
       </div>
 
@@ -262,3 +263,46 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const form = document.getElementById('home-contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('home-contact-form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    if (button) button.disabled = true;
+    if (status) {
+      status.textContent = 'Bezig met versturen...';
+      status.className = 'text-sm sm:col-span-2 text-ink-soft';
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        form.reset();
+        if (status) {
+          status.textContent = 'Bedankt! Je bericht is verstuurd, we nemen snel contact op.';
+          status.className = 'text-sm sm:col-span-2 text-emerald-600';
+        }
+      } else {
+        if (status) {
+          status.textContent = result.error || 'Versturen is niet gelukt. Probeer het later opnieuw.';
+          status.className = 'text-sm sm:col-span-2 text-red-600';
+        }
+      }
+    } catch {
+      if (status) {
+        status.textContent = 'Versturen is niet gelukt. Controleer je internetverbinding.';
+        status.className = 'text-sm sm:col-span-2 text-red-600';
+      }
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>
