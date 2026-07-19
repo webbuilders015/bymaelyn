@@ -46,5 +46,9 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
       <slot />
     </main>
     <Footer />
+    <script>
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
   </body>
 </html>
