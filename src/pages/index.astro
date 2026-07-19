@@ -187,6 +187,68 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   }
 
   <section class="px-6 py-16 md:px-10 md:py-24" data-reveal>
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl text-ink">Contact</h2>
+        <p class="mt-3 max-w-lg text-[13px] leading-relaxed text-ink-soft">
+          Voor vragen kun je contact opnemen via onderstaand contactformulier. We streven ernaar
+          binnen 24 uur antwoord te geven op je vraag.
+        </p>
+
+        <form class="mt-6 grid gap-4 sm:grid-cols-2" action="#" method="post">
+          <input
+            type="text"
+            name="name"
+            placeholder="Naam"
+            required
+            class="rounded-2xl border border-line bg-bg px-4 py-3 text-[14px] text-ink outline-none focus:border-accent"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="E-mailadres"
+            required
+            class="rounded-2xl border border-line bg-bg px-4 py-3 text-[14px] text-ink outline-none focus:border-accent"
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Telefoonnummer"
+            class="rounded-2xl border border-line bg-bg px-4 py-3 text-[14px] text-ink outline-none focus:border-accent sm:col-span-2"
+          />
+          <textarea
+            name="message"
+            placeholder="Je bericht"
+            rows="5"
+            required
+            class="rounded-2xl border border-line bg-bg px-4 py-3 text-[14px] text-ink outline-none focus:border-accent sm:col-span-2"
+          ></textarea>
+          <button
+            type="submit"
+            class="inline-flex h-12 w-fit items-center rounded-full bg-accent px-8 text-[13px] uppercase tracking-[0.08em] text-bg transition-colors hover:bg-accent-dark sm:col-span-2"
+          >
+            Verstuur
+          </button>
+        </form>
+      </div>
+
+      <div class="rounded-3xl border border-line bg-bg-soft p-8 md:p-10">
+        <h2 class="font-display text-2xl text-ink">Openingstijden</h2>
+        <ul class="mt-5 space-y-2.5 text-[14px] text-ink-soft">
+          {
+            site.openingHours.map((o) => (
+              <li class="flex items-center justify-between gap-4 border-b border-line/70 pb-2.5 last:border-0 last:pb-0">
+                <span>{o.day}</span>
+                <span class="text-ink">{o.hours}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 md:px-10 md:py-24" data-reveal>
     <div class="mx-auto max-w-6xl overflow-hidden rounded-3xl border border-line bg-bg-soft px-6 py-14 text-center md:px-12 md:py-20">
       <h2 class="font-display text-[30px] font-light leading-none tracking-tight text-ink md:text-[44px]">
         {site.name}
