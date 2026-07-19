@@ -7,6 +7,12 @@ import { site } from '../../data/site';
 <BaseLayout
   title="Contact - Art of Beauty by Maelyn"
   description="Meer informatie of vragen over onze schoonheidsbehandelingen? Neem hier contact op met onze schoonheidssalon in Delft!"
+  schema={{
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: 'Contact - Art of Beauty by Maelyn',
+    url: new URL('/contact/', site.url).toString(),
+  }}
 >
   <PageHero eyebrow="Contact" title="Neem contact met ons op" />
 

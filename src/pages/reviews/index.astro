@@ -2,24 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
-
-// TODO: de huidige site toont reviews via een los widget waarvan de tekst niet
-// statisch beschikbaar was. Vervang onderstaande placeholders door de echte
-// reviews (bijv. Google Reviews) zodra die zijn aangeleverd.
-const reviews = [
-  {
-    name: 'Plaatshouder review 1',
-    text: 'Voeg hier een echte review van een klant toe.',
-  },
-  {
-    name: 'Plaatshouder review 2',
-    text: 'Voeg hier een echte review van een klant toe.',
-  },
-  {
-    name: 'Plaatshouder review 3',
-    text: 'Voeg hier een echte review van een klant toe.',
-  },
-];
 ---
 
 <BaseLayout
@@ -33,15 +15,15 @@ const reviews = [
   />
 
   <section class="mx-auto max-w-4xl px-6 py-16">
-    <div class="grid gap-6 sm:grid-cols-3">
-      {
-        reviews.map((r) => (
-          <div class=" rounded-2xl border border-line bg-bg-soft p-6">
-            <p class="text-sm italic text-ink-soft">"{r.text}"</p>
-            <p class="mt-4 text-sm font-medium text-ink">{r.name}</p>
-          </div>
-        ))
-      }
+    <div class="overflow-hidden rounded-2xl border border-line bg-bg-soft">
+      <iframe
+        title="Reviews Art of Beauty by Maelyn"
+        src="https://art-of-beauty-by-maelyn.salonized.com/reviews?layout=embed"
+        width="100%"
+        height="900"
+        style="border:0;"
+        loading="lazy"
+      ></iframe>
     </div>
     <p class="mt-8 text-sm text-ink-soft">
       Massage of schoonheidsbehandeling bij ons gehad? We horen graag je ervaring.

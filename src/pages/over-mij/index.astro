@@ -2,11 +2,24 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mae-lyn van der Meer',
+  jobTitle: 'Schoonheidsspecialiste',
+  image: new URL('/images/maelyn-portret.jpg', site.url).toString(),
+  worksFor: { '@id': `${site.url}/#business` },
+  url: new URL('/over-mij/', site.url).toString(),
+};
 ---
 
 <BaseLayout
   title="Over mij - Art of Beauty by Maelyn"
   description="Mijn naam is Mae-lyn Van der Meer, gediplomeerd schoonheidsspecialiste. Ik verwelkom je graag in mijn schoonheidssalon op de Bagijnhof in Delft."
+  image="/images/maelyn-portret.jpg"
+  schema={personSchema}
 >
   <PageHero eyebrow="Over mij" title="Graag stel ik mij voor" />
 

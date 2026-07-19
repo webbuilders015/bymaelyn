@@ -3,11 +3,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
 import { site } from '../../data/site';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Waxen / harsen',
+  name: 'Waxen en harsen',
+  description: 'Professioneel en hygiënisch waxen/harsen van bikinilijn, oksels, benen, armen, rug en meer.',
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: 'Delft',
+  image: new URL('/images/treatments/waxen.webp', site.url).toString(),
+  offers: {
+    '@type': 'Offer',
+    url: site.bookingUrl,
+    availability: 'https://schema.org/InStock',
+  },
+};
 ---
 
 <BaseLayout
   title="Waxen / Harsen - Schoonheidssalon Art of Beauty by Maelyn Delft"
   description="In onze schoonheidssalon in Delft kunt u ook terecht voor het harsen/waxen van uw bikinilijn, rug, borst, buik, benen, armen en oksels. Maak snel een afspraak!"
+  image="/images/treatments/waxen.webp"
+  schema={serviceSchema}
 >
   <PageHero
     eyebrow="Behandeling"

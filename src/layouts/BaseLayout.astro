@@ -9,11 +9,87 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  type?: 'website' | 'article';
+  breadcrumbLabel?: string;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description = site.description, image } = Astro.props;
+const { title, description = site.description, image, type = 'website', breadcrumbLabel, schema } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images/og-default.jpg', Astro.site).toString();
+
+const dayNameMap: Record<string, string> = {
+  Maandag: 'Monday',
+  Dinsdag: 'Tuesday',
+  Woensdag: 'Wednesday',
+  Donderdag: 'Thursday',
+  Vrijdag: 'Friday',
+  Zaterdag: 'Saturday',
+  Zondag: 'Sunday',
+};
+
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BeautySalon',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  image: new URL('/images/og-default.jpg', Astro.site).toString(),
+  logo: new URL('/images/logo-mark.png', Astro.site).toString(),
+  telephone: site.contact.phone,
+  email: site.contact.email,
+  priceRange: '€€',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    postalCode: site.address.postalCode,
+    addressLocality: site.address.city,
+    addressCountry: 'NL',
+  },
+  sameAs: [site.social.facebook, site.social.instagram, site.googleReviewUrl].filter(Boolean),
+  openingHoursSpecification: site.openingHours
+    .filter((o) => o.hours !== 'Gesloten' && dayNameMap[o.day])
+    .map((o) => {
+      const [opens, closes] = o.hours.split(' - ');
+      return {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: dayNameMap[o.day],
+        opens,
+        closes,
+      };
+    }),
+};
+
+const humanize = (segment: string) =>
+  segment
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const breadcrumbSchema =
+  pathSegments.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', Astro.site).toString() },
+          ...pathSegments.map((segment, i) => {
+            const isLast = i === pathSegments.length - 1;
+            const url = new URL(`/${pathSegments.slice(0, i + 1).join('/')}/`, Astro.site).toString();
+            return {
+              '@type': 'ListItem',
+              position: i + 2,
+              name: isLast && breadcrumbLabel ? breadcrumbLabel : humanize(segment),
+              item: url,
+            };
+          }),
+        ],
+      }
+    : null;
+
+const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const allSchemas = [businessSchema, breadcrumbSchema, ...extraSchemas].filter(Boolean);
 ---
 
 <!doctype html>
@@ -28,7 +104,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
     <title>{title}</title>
     <meta name="description" content={description} />
 
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -40,6 +116,8 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    {allSchemas.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item)} is:inline />)}
   </head>
   <body class="flex min-h-screen flex-col antialiased">
     <Header />

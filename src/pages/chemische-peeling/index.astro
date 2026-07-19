@@ -18,11 +18,29 @@ const reasons = [
 ];
 
 const phases = ['Pre-Peel', 'Persoonlijke peeling', 'Post-Peel', 'Verzorging en bescherming'];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Chemische peeling',
+  name: 'Chemische peeling (Skeyndor Probiome Peel)',
+  description: 'Skeyndor Probiome Peel: professionele chemische peeling tegen rimpels, fotoveroudering, imperfecties en littekens.',
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: 'Delft',
+  image: new URL('/images/treatments/gezichtsbehandeling.jpg', site.url).toString(),
+  offers: {
+    '@type': 'Offer',
+    url: site.bookingUrl,
+    availability: 'https://schema.org/InStock',
+  },
+};
 ---
 
 <BaseLayout
   title="Chemische peeling - Art of Beauty by Maelyn"
   description="Skeyndor Probiome Peel: het meest effectieve niet-medisch alternatief voor rimpels, fotoveroudering, imperfecties en littekens."
+  image="/images/treatments/gezichtsbehandeling.jpg"
+  schema={serviceSchema}
 >
   <PageHero
     eyebrow="Behandeling"

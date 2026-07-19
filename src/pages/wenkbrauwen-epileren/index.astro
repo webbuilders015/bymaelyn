@@ -3,11 +3,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
 import { site } from '../../data/site';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Wenkbrauwen epileren / verven',
+  name: 'Wenkbrauwen epileren, harsen en verven',
+  description: 'Wenkbrauwen en wimpers epileren, harsen en verven bij Art of Beauty by Maelyn in Delft.',
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: 'Delft',
+  image: new URL('/images/treatments/wenkbrauwen.webp', site.url).toString(),
+  offers: {
+    '@type': 'Offer',
+    url: site.bookingUrl,
+    availability: 'https://schema.org/InStock',
+  },
+};
 ---
 
 <BaseLayout
   title="Wenkbrauwen epileren en verven - Art of Beauty by Maelyn Delft"
   description="Laat je wenkbrauwen epileren en verven evt. inclusief wimpers verven bij onze schoonheidssalon in Delft. Maak nu een afspraak!"
+  image="/images/treatments/wenkbrauwen.webp"
+  schema={serviceSchema}
 >
   <PageHero
     eyebrow="Behandeling"

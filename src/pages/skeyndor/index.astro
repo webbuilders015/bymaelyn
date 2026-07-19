@@ -11,11 +11,22 @@ const features = [
   'Goede prijs/kwaliteitverhouding',
   'Niet getest op dieren, maar op vrijwillige proefpersonen',
 ];
+
+const brandSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Brand',
+  name: 'Skeyndor',
+  description: 'Professionele, huidverbeterende cosmetica, verkrijgbaar bij Art of Beauty by Maelyn in Delft.',
+  logo: new URL('/images/brands/skeyndor.png', site.url).toString(),
+  url: new URL('/skeyndor/', site.url).toString(),
+};
 ---
 
 <BaseLayout
   title="Skeyndor - Art of Beauty by Maelyn"
   description="Massage en schoonheidsspecialiste gespecialiseerd in huidverbeterende gezichtsbehandelingen. Boek nu online je afspraak bij Art of Beauty by Maelyn in Delft."
+  image="/images/brands/skeyndor.png"
+  schema={brandSchema}
 >
   <PageHero eyebrow="Merk" title="Skeyndor" lead="Spaanse passie!" />
 

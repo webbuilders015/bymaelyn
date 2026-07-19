@@ -30,11 +30,22 @@ const pillars = [
     text: 'We doen er alles aan om onze ecologische voetafdruk te verkleinen en zoeken actief naar duurzame ingrediënten en recyclebare verpakkingen.',
   },
 ];
+
+const brandSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Brand',
+  name: "Paula's Choice",
+  description: "Wetenschappelijk onderbouwde huidverzorging, verkrijgbaar bij Art of Beauty by Maelyn in Delft.",
+  logo: new URL('/images/brands/paulas-choice.png', site.url).toString(),
+  url: new URL('/paulas-choice/', site.url).toString(),
+};
 ---
 
 <BaseLayout
   title="Paula's Choice verkooppunt - Art of Beauty by Maelyn"
   description="Paula's Choice nieuw in ons assortiment! Skincare producten van Paula's Choice! Ben jij op zoek naar een specifiek product? Neem dan contact met ons op!"
+  image="/images/brands/paulas-choice.png"
+  schema={brandSchema}
 >
   <PageHero eyebrow="Merk" title="Paula's Choice skincare" lead="Beauty begins with truth." />
 

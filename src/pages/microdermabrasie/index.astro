@@ -16,11 +16,29 @@ const reasons = [
 ];
 
 const steps = ['Huidanalyse & intake', 'Reiniging', 'Microdermabrasie', 'Kalmerend & beschermend masker'];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Microdermabrasie',
+  name: 'Microdermabrasie',
+  description: 'Mechanische peeling voor een directe glow en verfijnde poriën, bij Art of Beauty by Maelyn in Delft.',
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: 'Delft',
+  image: new URL('/images/treatments/microdermabrasie.jpg', site.url).toString(),
+  offers: {
+    '@type': 'Offer',
+    url: site.bookingUrl,
+    availability: 'https://schema.org/InStock',
+  },
+};
 ---
 
 <BaseLayout
   title="Microdermabrasie - Art of Beauty by Maelyn"
   description="Microdermabrasie bij Art of Beauty by Maelyn in Delft: een mechanische peeling voor een directe glow, verfijnde poriën en een frissere huid."
+  image="/images/treatments/microdermabrasie.jpg"
+  schema={serviceSchema}
 >
   <PageHero
     eyebrow="Behandeling"

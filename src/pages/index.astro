@@ -13,6 +13,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 <BaseLayout
   title="Art of Beauty by Maelyn | Schoonheidsspecialist Delft"
   description={site.description}
+  image="/images/hero-home.webp"
 >
   <section class="relative h-[62vh] min-h-[380px] w-full" data-reveal>
     <img

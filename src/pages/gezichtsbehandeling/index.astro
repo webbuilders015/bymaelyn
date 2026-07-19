@@ -69,11 +69,32 @@ const treatments = [
     steps: ['Huidanalyse', 'Reiniging', 'Milde peeling / scrub', 'Onzuiverheden verwijderen', 'Masker', 'Dagverzorging'],
   },
 ];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Gezichtsbehandeling',
+  name: 'Huidverbeterende gezichtsbehandeling',
+  description: 'Huidverbeterende gezichtsbehandelingen op maat bij Art of Beauty by Maelyn in Delft.',
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: 'Delft',
+  image: new URL('/images/treatments/gezichtsbehandeling.jpg', site.url).toString(),
+  offers: treatments.map((t) => ({
+    '@type': 'Offer',
+    name: t.name,
+    price: t.price.replace('€', '').replace(',', '.'),
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+    url: site.bookingUrl,
+  })),
+};
 ---
 
 <BaseLayout
   title="Facials / Gezichtsbehandeling - Art of Beauty by Maelyn Delft"
   description="Vind hier alle informatie over de verschillende facials / gezichtsbehandelingen welke wij aanbieden in onze schoonheidssalon in Delft!"
+  image="/images/treatments/gezichtsbehandeling.jpg"
+  schema={serviceSchema}
 >
   <PageHero
     eyebrow="Behandeling"

@@ -2,11 +2,29 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Cadeaubon Art of Beauty by Maelyn',
+  description: "Cadeaubon voor een schoonheidsbehandeling of skincare producten van Paula's Choice en Skeyndor bij Art of Beauty by Maelyn in Delft.",
+  image: new URL('/images/cadeaubon.jpg', site.url).toString(),
+  brand: { '@type': 'Brand', name: site.name },
+  offers: {
+    '@type': 'Offer',
+    url: 'https://shop.bymaelyn.nl/products/art-of-beauty-by-maelyn-cadeaubon',
+    priceCurrency: 'EUR',
+    availability: 'https://schema.org/InStock',
+  },
+};
 ---
 
 <BaseLayout
   title="Cadeaubon schoonheidssalon - Art of Beauty by Maelyn"
   description="Op zoek naar een leuk cadeau? Geef dan een cadeaubon voor een schoonheidsbehandeling of skincare producten van Paula's Choice!"
+  image="/images/cadeaubon.jpg"
+  schema={productSchema}
 >
   <PageHero
     eyebrow="Cadeau"
