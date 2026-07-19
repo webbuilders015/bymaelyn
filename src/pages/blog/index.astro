@@ -25,16 +25,26 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         posts.map((post) => (
           <a
             href={`/blog/${post.id}/`}
-            class="flex flex-col  rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+            class="group flex flex-col overflow-hidden rounded-2xl border border-line bg-bg-soft transition-colors hover:border-ink/40"
           >
-            <span class="text-xs uppercase tracking-wide text-accent">
-              {post.data.tags[0] ?? 'Skincare'}
-            </span>
-            <span class="mt-2 font-display text-xl text-ink">{post.data.title}</span>
-            <span class="mt-2 text-sm text-ink-soft">{post.data.description}</span>
-            <span class="mt-4 text-xs text-ink-soft/70">
-              {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </span>
+            <div class="aspect-[16/10] w-full overflow-hidden">
+              <img
+                src={post.data.heroImage}
+                alt={post.data.heroAlt}
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <span class="text-xs uppercase tracking-wide text-accent">
+                {post.data.tags[0] ?? 'Skincare'}
+              </span>
+              <span class="mt-2 font-display text-xl text-ink">{post.data.title}</span>
+              <span class="mt-2 text-sm text-ink-soft">{post.data.description}</span>
+              <span class="mt-4 text-xs text-ink-soft/70">
+                Maelyn &middot; {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </span>
+            </div>
           </a>
         ))
       }

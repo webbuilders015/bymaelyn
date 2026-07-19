@@ -58,6 +58,12 @@ export const treatments = [
     image: '/images/treatments/gezichtsbehandeling.jpg',
   },
   {
+    slug: 'microdermabrasie',
+    title: 'Microdermabrasie',
+    short: 'Mechanische peeling voor een directe glow en verfijnde poriën.',
+    image: '/images/treatments/gezichtsbehandeling.jpg',
+  },
+  {
     slug: 'waxen',
     title: 'Waxen',
     short: 'Ontharen op de vakkundige en hygiënische manier.',
@@ -68,12 +74,6 @@ export const treatments = [
     title: 'Wenkbrauwstyling',
     short: 'Wenkbrauwen epileren en in model brengen.',
     image: '/images/treatments/wenkbrauwen.webp',
-  },
-  {
-    slug: 'cadeaubon',
-    title: 'Cadeaubon',
-    short: 'Geef een behandeling cadeau aan iemand anders.',
-    image: '/images/cadeaubon.jpg',
   },
 ];
 

@@ -12,6 +12,17 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const others = allPosts.filter((p) => p.id !== post.id);
+const related = others
+  .map((p) => ({
+    post: p,
+    score: p.data.tags.filter((t) => post.data.tags.includes(t)).length,
+  }))
+  .sort((a, b) => b.score - a.score || b.post.data.pubDate.valueOf() - a.post.data.pubDate.valueOf())
+  .slice(0, 4)
+  .map((s) => s.post);
 ---
 
 <BaseLayout title={`${post.data.title} - Art of Beauty by Maelyn`} description={post.data.description}>
@@ -20,12 +31,100 @@ const { Content } = await render(post);
       {post.data.tags[0] ?? 'Skincare'}
     </p>
     <h1 class="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">{post.data.title}</h1>
-    <p class="mt-3 text-sm text-ink-soft/70">
-      {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
-    </p>
+
+    <div class="mt-5 flex items-center gap-3">
+      <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/15 text-[13px] font-semibold text-accent">
+        M
+      </span>
+      <span class="text-sm text-ink-soft">
+        Maelyn
+        <span class="mx-1.5 text-ink-soft/50">&middot;</span>
+        {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+      </span>
+    </div>
+
+    <div class="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-bg-soft">
+      <img src={post.data.heroImage} alt={post.data.heroAlt} class="h-full w-full object-cover" />
+    </div>
 
     <div class="prose-content mt-10 max-w-none text-ink-soft [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-ink [&_h3]:mt-6 [&_h3]:font-display [&_h3]:text-xl [&_h3]:text-ink [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5 [&_a]:text-accent [&_a]:underline">
       <Content />
     </div>
   </article>
+
+  {
+    related.length > 0 && (
+      <section class="border-t border-line bg-bg-soft px-6 py-16 md:px-10" data-reveal>
+        <div class="mx-auto max-w-5xl">
+          <p class="text-[11px] uppercase tracking-[0.16em] text-ink-soft">Gerelateerde artikelen</p>
+
+          <div class="relative mt-6">
+            <div
+              id="related-carousel"
+              class="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {related.map((p) => (
+                <a
+                  href={`/blog/${p.id}/`}
+                  class="group flex w-[260px] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-line bg-bg transition-colors hover:border-ink/40 sm:w-[300px]"
+                >
+                  <div class="aspect-[16/10] w-full overflow-hidden">
+                    <img
+                      src={p.data.heroImage}
+                      alt={p.data.heroAlt}
+                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <span class="text-[11px] uppercase tracking-wide text-accent">{p.data.tags[0] ?? 'Skincare'}</span>
+                    <span class="mt-2 font-display text-[16px] leading-snug text-ink">{p.data.title}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div class="mt-5 hidden justify-end gap-2 sm:flex">
+              <button
+                type="button"
+                id="related-prev"
+                aria-label="Vorige"
+                class="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-soft transition-colors hover:border-ink/40 hover:text-ink"
+              >
+                <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path d="M12.5 4.5l-6 5.5 6 5.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                id="related-next"
+                aria-label="Volgende"
+                class="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink-soft transition-colors hover:border-ink/40 hover:text-ink"
+              >
+                <svg viewBox="0 0 20 20" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                  <path d="M7.5 4.5l6 5.5-6 5.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 </BaseLayout>
+
+<script>
+  const track = document.getElementById('related-carousel');
+  const prev = document.getElementById('related-prev');
+  const next = document.getElementById('related-next');
+
+  const scrollByCard = (dir: number) => {
+    if (!track) return;
+    const card = track.querySelector<HTMLElement>('a');
+    const amount = (card?.offsetWidth ?? 280) + 20;
+    track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+  };
+
+  prev?.addEventListener('click', () => scrollByCard(-1));
+  next?.addEventListener('click', () => scrollByCard(1));
+</script>

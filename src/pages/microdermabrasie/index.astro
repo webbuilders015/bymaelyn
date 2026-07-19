@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const reasons = [
+  'Verwijdert de dode huidcellen van de bovenste huidlaag.',
+  'Geeft direct een frisse, stralende glow.',
+  'Verfijnt en minimaliseert de poriën.',
+  'Stimuleert de doorbloeding en celvernieuwing.',
+  'Vermindert oppervlakkige oneffenheden en littekentjes.',
+  'Verbetert de opname van verzorgingsproducten.',
+  'Geen hersteltijd nodig, ideaal voor een speciale gelegenheid.',
+  'Geschikt voor de meeste huidtypes.',
+];
+
+const steps = ['Huidanalyse & intake', 'Reiniging', 'Microdermabrasie', 'Kalmerend & beschermend masker'];
+---
+
+<BaseLayout
+  title="Microdermabrasie - Art of Beauty by Maelyn"
+  description="Microdermabrasie bij Art of Beauty by Maelyn in Delft: een mechanische peeling voor een directe glow, verfijnde poriën en een frissere huid."
+>
+  <PageHero
+    eyebrow="Behandeling"
+    title="Microdermabrasie"
+    lead="Een mechanische peeling die de dode huidlaag verwijdert voor een directe glow, verfijnde poriën en een frissere, gladdere huid."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Microdermabrasie is een niet-invasieve, mechanische peeling waarbij de bovenste, dode
+      huidlaag voorzichtig wordt weggeslepen met een diamanten kop of fijne kristallen. Het
+      resultaat: een direct zichtbare glow, een verfijnde huidstructuur en poriën die minder
+      opvallen. Deze behandeling voegen we graag toe aan ons aanbod voor iedereen die op korte
+      termijn een frissere huid wil, zonder hersteltijd.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Wat is microdermabrasie?</h2>
+    <p class="mt-4 text-ink-soft">
+      In tegenstelling tot een chemische peeling werkt microdermabrasie mechanisch: de dode
+      huidcellen worden fysiek weggeslepen in plaats van chemisch losgeweekt. Dit maakt het een
+      oppervlakkige behandeling die perfect is voor een snelle opfrisser, bijvoorbeeld voor een
+      speciale gelegenheid, of als aanvulling op een reguliere gezichtsbehandeling.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Twijfel je tussen microdermabrasie en een chemische peeling? Lees het verschil in onze
+      <a href="/blog/chemische-peeling-vs-microdermabrasie/" class="text-accent underline">blog</a>
+      of bespreek het tijdens de huidanalyse — samen bepalen we wat het beste bij jouw huid past.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Waarom microdermabrasie?</h2>
+    <ol class="mt-4 grid gap-2 sm:grid-cols-2">
+      {
+        reasons.map((r, i) => (
+          <li class="flex items-start gap-3 text-ink-soft">
+            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent/15 text-xs font-semibold text-accent">
+              {i + 1}
+            </span>
+            {r}
+          </li>
+        ))
+      }
+    </ol>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Hoe ziet een behandeling eruit?</h2>
+    <p class="mt-4 text-ink-soft">
+      Elke behandeling start met een huidanalyse en intakegesprek, zodat we de aanpak kunnen
+      afstemmen op jouw huidtype en wensen.
+    </p>
+    <ol class="mt-3 flex flex-wrap gap-3">
+      {
+        steps.map((step, i) => (
+          <li class="rounded-full border border-line bg-bg-soft px-4 py-2 text-sm text-ink-soft">
+            {i + 1}. {step}
+          </li>
+        ))
+      }
+    </ol>
+
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
+  </section>
+</BaseLayout>
