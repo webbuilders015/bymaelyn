@@ -13,6 +13,7 @@ import json
 import os
 import sys
 import time
+import urllib.error
 import urllib.request
 
 TOKEN = os.environ.get("REPLICATE_API_TOKEN") or (sys.argv[1] if len(sys.argv) > 1 else None)
@@ -21,20 +22,25 @@ if not TOKEN:
     sys.exit(1)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL = "black-forest-labs/flux-schnell"
+# nano-banana (Google) tends to render more photorealistic, less "AI glossy" results.
+MODEL = "google/nano-banana"
 API_URL = f"https://api.replicate.com/v1/models/{MODEL}/predictions"
 
 STYLE = (
-    "editorial beauty photography, soft natural light, warm neutral beige and "
-    "cream tones, subtle gold accent details, minimal clean aesthetic, shallow "
-    "depth of field, no visible text or logos, realistic photography style"
+    "candid documentary-style photograph, shot on a Canon EOS R5 with an 85mm "
+    "f/1.4 lens, natural soft window light, real skin texture with visible "
+    "pores and fine detail, unretouched, warm neutral beige and cream color "
+    "grade, subtle gold accent details, shallow depth of field, film-like "
+    "grain, photojournalistic, not airbrushed, not smoothed, not CGI, not "
+    "3D render, not digital illustration, not plastic looking, no visible "
+    "text, no logos, no readable labels, ultra realistic"
 )
 
 IMAGES = [
     (
         "public/images/blog/generated/huidverbeterende-gezichtsbehandeling-uitgelegd.jpg",
-        f"Facial treatment in a boutique skincare salon, esthetician applying a "
-        f"calming mask to a client's skin, {STYLE}",
+        f"A real esthetician's hands applying a clay facial mask to a client "
+        f"lying back in a boutique skincare salon chair, {STYLE}",
     ),
     (
         "public/images/blog/generated/chemische-peeling-vs-microdermabrasie.jpg",
@@ -44,19 +50,21 @@ IMAGES = [
     ),
     (
         "public/images/blog/generated/skincare-routine-vanaf-je-dertigste.jpg",
-        f"Elegant skincare routine flatlay, serums and moisturizer bottles with "
+        f"Skincare routine flatlay, serums and moisturizer bottles with "
         f"completely blank unlabeled surfaces, arranged on a soft cream "
         f"surface, soft morning light, {STYLE}",
     ),
     (
         "public/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg",
-        f"Close-up of eyebrow shaping treatment, tweezers and brow tools on a "
-        f"clean white towel, minimal salon setting, {STYLE}",
+        f"Close-up of a real eyebrow shaping treatment in progress, tweezers "
+        f"held near a client's brow, clean white towel beneath, minimal salon "
+        f"setting, {STYLE}",
     ),
     (
         "public/images/blog/generated/waxen-vs-scheren-vs-ipl.jpg",
         f"Still life representing smooth skin hair removal, soft cotton pads, "
-        f"warm oil bottle and clean towel on a light beige surface, {STYLE}",
+        f"a warm oil bottle with a completely blank unlabeled surface, and a "
+        f"clean folded towel on a light beige surface, {STYLE}",
     ),
     (
         "public/images/blog/generated/paulas-choice-of-skeyndor.jpg",
@@ -66,20 +74,21 @@ IMAGES = [
     ),
     (
         "public/images/blog/generated/wat-helpt-tegen-pigmentvlekken.jpg",
-        f"Close-up beauty photography of glowing even skin texture, soft focus, "
-        f"gold accent light reflection, {STYLE}",
+        f"Extreme close-up of real human skin on a cheek, natural texture, "
+        f"visible pores, even glowing tone, soft focus background, gold "
+        f"accent light reflection, {STYLE}",
     ),
     (
         "public/images/blog/generated/huidverzorging-winter-vs-zomer.jpg",
-        f"Split-mood still life representing seasonal skincare, on one side a "
-        f"warm cozy knit texture and rich cream jar with a completely blank "
-        f"unlabeled surface, on the other soft daylight and a light serum "
-        f"bottle with a completely blank unlabeled surface, {STYLE}",
+        f"Still life of a rich cream jar with a completely blank unlabeled "
+        f"surface nestled in a warm cozy knit blanket, soft directional "
+        f"sunlight, {STYLE}",
     ),
     (
         "public/images/treatments/microdermabrasie.jpg",
-        f"Microdermabrasion facial treatment, esthetician using a diamond-tip "
-        f"device on a client's cheek in a clean boutique salon, {STYLE}",
+        f"A real esthetician wearing gloves using a diamond-tip "
+        f"microdermabrasion device on a client's cheek, client lying back "
+        f"eyes closed in a clean boutique salon, {STYLE}",
     ),
 ]
 
@@ -100,8 +109,22 @@ def generate(prompt: str):
     req.add_header("Content-Type", "application/json")
     req.add_header("Prefer", "wait")
 
-    with urllib.request.urlopen(req, timeout=120) as resp:
-        result = json.load(resp)
+    max_retries = 6
+    backoff = 8
+    for attempt in range(1, max_retries + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                result = json.load(resp)
+            break
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429 and attempt < max_retries:
+                print(f"  rate limited, waiting {backoff}s before retry {attempt}/{max_retries} ...")
+                time.sleep(backoff)
+                backoff = min(backoff * 2, 60)
+                continue
+            raise
+    else:
+        raise RuntimeError("Gave up after repeated 429 responses")
 
     if result.get("error"):
         raise RuntimeError(result["error"])
@@ -134,7 +157,7 @@ def main() -> None:
             print(f"  saved -> {rel_path}")
         except Exception as exc:  # noqa: BLE001
             print(f"  ! error: {exc}")
-        time.sleep(1)
+        time.sleep(6)
 
     print("Done. Let Claude know the images are in place so it can wire them into the site.")
 
