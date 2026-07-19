@@ -20,6 +20,7 @@ export const site = {
   bookingUrl: 'https://art-of-beauty-by-maelyn.salonized.com/widget_bookings/new',
   social: {
     facebook: 'https://www.facebook.com/Artofbeautybymaelyn/',
+    instagram: 'https://www.instagram.com/artofbeauty.bymaelyn/',
   },
   googleReviewUrl: 'https://www.google.com/maps/place/?q=place_id:ChIJyW8INPO1xUcRAAPBA2Z3s1E',
   anbosUrl: 'https://www.anbos.nl/consument/schoonheidsspecialist/kies-voor-gediplomeerd',
