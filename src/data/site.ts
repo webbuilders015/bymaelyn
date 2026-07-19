@@ -21,6 +21,8 @@ export const site = {
   social: {
     facebook: 'https://www.facebook.com/Artofbeautybymaelyn/',
   },
+  googleReviewUrl: 'https://www.google.com/maps/place/?q=place_id:ChIJyW8INPO1xUcRAAPBA2Z3s1E',
+  anbosUrl: 'https://www.anbos.nl/consument/schoonheidsspecialist/kies-voor-gediplomeerd',
   openingHours: [
     { day: 'Maandag', hours: 'Gesloten' },
     { day: 'Dinsdag', hours: '09:00 - 18:00' },
@@ -85,6 +87,11 @@ export const brands = [
 ];
 
 export const mainNav = [
+  {
+    label: 'Webshops',
+    href: '#',
+    children: site.webshops.map((w) => ({ label: w.label, href: w.url })),
+  },
   {
     label: 'Over mij',
     href: '/over-mij/',
