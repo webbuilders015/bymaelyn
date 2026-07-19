@@ -25,7 +25,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         posts.map((post) => (
           <a
             href={`/blog/${post.id}/`}
-            class="flex flex-col  border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+            class="flex flex-col  rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
           >
             <span class="text-xs uppercase tracking-wide text-accent">
               {post.data.tags[0] ?? 'Skincare'}

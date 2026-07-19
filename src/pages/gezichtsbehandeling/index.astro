@@ -121,12 +121,12 @@ const treatments = [
       <div class="mt-8 space-y-6">
         {
           treatments.map((t) => (
-            <div class=" border border-line bg-bg p-6">
+            <div class=" rounded-2xl border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 class="font-display text-xl text-ink">
                   {t.name}
                   {t.badge && (
-                    <span class="ml-2 bg-accent/15 px-3 py-1 text-[11px] uppercase tracking-[0.08em] text-accent align-middle">
+                    <span class="ml-2 rounded-full bg-accent/15 px-3 py-1 text-[11px] uppercase tracking-[0.08em] text-accent align-middle">
                       {t.badge}
                     </span>
                   )}

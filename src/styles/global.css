@@ -4,6 +4,8 @@
 @import "@fontsource/syne/600.css";
 @import "@fontsource/syne/700.css";
 @import "@fontsource/syne/800.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/playfair-display/900.css";
 
 @theme {
   /* Apollo-style monochrome palette, brand gold as the only accent colour. */
@@ -17,6 +19,7 @@
 
   --font-display: "Syne", sans-serif;
   --font-body: "Syne", sans-serif;
+  --font-logo: "Playfair Display", serif;
 }
 
 html {

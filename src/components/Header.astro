@@ -1,5 +1,6 @@
 ---
-import { site, mainNav } from '../data/site';
+import { mainNav } from '../data/site';
+import Logo from './Logo.astro';
 ---
 
 <header class="sticky top-0 z-50 border-b border-line/70 bg-bg/90 backdrop-blur">
@@ -12,9 +13,9 @@ import { site, mainNav } from '../data/site';
               {item.label}
             </a>
             {item.children && (
-              <div class="invisible absolute left-0 top-full min-w-48 translate-y-1 border border-line bg-bg p-2 opacity-0 shadow-lg shadow-ink/5 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+              <div class="invisible absolute left-0 top-full min-w-48 translate-y-1 rounded-2xl border border-line bg-bg p-2 opacity-0 shadow-lg shadow-ink/5 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                 {item.children.map((child) => (
-                  <a href={child.href} class="block px-4 py-2 text-[12px] normal-case tracking-normal text-ink-soft hover:bg-bg-soft hover:text-ink">
+                  <a href={child.href} class="block rounded-xl px-4 py-2 text-[12px] normal-case tracking-normal text-ink-soft hover:bg-bg-soft hover:text-ink">
                     {child.label}
                   </a>
                 ))}
@@ -25,9 +26,7 @@ import { site, mainNav } from '../data/site';
       }
     </ul>
 
-    <a href="/" class="col-start-2 justify-self-center font-display text-[28px] font-light leading-none tracking-tight text-ink md:text-[34px]">
-      {site.name}
-    </a>
+    <Logo class="col-start-2 justify-self-center" markClass="h-7 w-7" textClass="text-[15px] md:text-[17px]" />
 
     <div class="col-start-3 hidden items-center justify-end gap-8 text-[12px] uppercase tracking-[0.14em] lg:flex">
       {
@@ -39,7 +38,7 @@ import { site, mainNav } from '../data/site';
       }
       <a
         href="/afspraak-maken/"
-        class="inline-flex h-10 items-center bg-accent px-6 text-[12px] tracking-[0.1em] text-bg transition-colors duration-300 hover:bg-accent-dark"
+        class="inline-flex h-10 items-center rounded-full bg-accent px-6 text-[12px] tracking-[0.1em] text-bg transition-colors duration-300 hover:bg-accent-dark"
       >
         Afspraak maken
       </a>
@@ -58,7 +57,7 @@ import { site, mainNav } from '../data/site';
       <span class="block h-[2px] w-full bg-ink"></span>
     </button>
     <div class="col-start-3 justify-self-end lg:hidden">
-      <a href="/afspraak-maken/" class="inline-flex h-9 items-center bg-accent px-4 text-[11px] tracking-[0.1em] text-bg">
+      <a href="/afspraak-maken/" class="inline-flex h-9 items-center rounded-full bg-accent px-4 text-[11px] tracking-[0.1em] text-bg">
         Boeken
       </a>
     </div>

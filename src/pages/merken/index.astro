@@ -16,7 +16,7 @@ import { brands } from '../../data/site';
         brands.map((b) => (
           <a
             href={`/${b.slug}/`}
-            class="group flex flex-col items-center border border-line bg-bg-soft p-10 text-center transition-colors hover:border-ink/40"
+            class="group flex flex-col items-center rounded-2xl border border-line bg-bg-soft p-10 text-center transition-colors hover:border-ink/40"
           >
             <img src={b.logo} alt={b.title} class="h-12 w-auto object-contain" loading="lazy" />
             <span class="mt-6 font-display text-xl text-ink group-hover:text-accent">

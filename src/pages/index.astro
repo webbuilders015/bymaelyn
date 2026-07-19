@@ -13,65 +13,74 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
   title="Art of Beauty by Maelyn | Schoonheidsspecialist Delft"
   description={site.description}
 >
-  <section class="relative h-[70svh] min-h-[420px] w-full">
-    <img
-      src="/images/hero-salon.jpg"
-      alt="Art of Beauty by Maelyn, schoonheidssalon in Delft"
-      class="h-full w-full object-cover object-center"
-    />
-    <div class="absolute inset-x-0 bottom-0 flex items-center justify-between px-6 py-5 text-[11px] uppercase tracking-[0.16em] text-white/90 md:px-10">
-      <span>Schoonheidssalon &mdash; Delft</span>
-      <span aria-hidden="true">&darr; Scroll</span>
+  <section class="mx-auto max-w-6xl px-6 pb-16 pt-14 sm:pt-20" data-reveal>
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <p class="text-[11px] uppercase tracking-[0.18em] text-accent">Schoonheidsspecialist in Delft</p>
+        <h1 class="mt-4 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-5xl">
+          Art of Beauty by Maelyn is een Anbos gecertificeerde schoonheidsspecialiste gevestigd op
+          de Bagijnhof 1 aan de rand van het centrum van Delft.
+        </h1>
+        <p class="mt-6 text-[15px] leading-relaxed text-ink-soft">
+          In deze schoonheidssalon in Delft kun je terecht voor huidverbeterende
+          gezichtsbehandelingen, ontspanningsmassages, wimperlifting, waxen en diverse losse
+          schoonheidsbehandelingen.
+        </p>
+        <p class="mt-4 text-[15px] leading-relaxed text-ink-soft">
+          Ben je op zoek naar een schoonheidssalon waar kwaliteit, ontspanning en huidverbetering
+          centraal staat? Dan ben je bij Art of Beauty by Maelyn in Delft aan het juiste adres!
+          Mocht er in de online agenda geen geschikt plekje meer beschikbaar zijn, stuur dan even
+          een <a href="/contact/" class="text-ink underline decoration-accent underline-offset-4">berichtje</a>,
+          dan kan ik altijd even kijken wat de mogelijkheden zijn.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href={site.bookingUrl}>Afspraak maken</Button>
+          <Button href="/behandelingen/" variant="outline">Bekijk behandelingen</Button>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-3xl bg-bg-soft">
+        <img
+          src="/images/hero-salon.jpg"
+          alt="Art of Beauty by Maelyn, schoonheidssalon in Delft"
+          class="h-full w-full object-cover"
+          width="800"
+          height="960"
+        />
+      </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-3xl px-6 py-16 text-center md:py-24" data-reveal>
-    <p class="text-[11px] uppercase tracking-[0.18em] text-accent">Schoonheidsspecialist in Delft</p>
-    <h1 class="mt-5 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-5xl">
-      Anbos gecertificeerde schoonheidsspecialiste, gevestigd op de Bagijnhof aan de rand van het
-      centrum van Delft.
-    </h1>
-    <p class="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-      In deze schoonheidssalon in Delft kun je terecht voor huidverbeterende
-      gezichtsbehandelingen, ontspanningsmassages, wimperlifting, waxen en diverse losse
-      schoonheidsbehandelingen. Mocht er in de online agenda geen geschikt plekje meer
-      beschikbaar zijn, stuur dan even een <a href="/contact/" class="text-ink underline decoration-accent underline-offset-4">berichtje</a>.
-    </p>
-    <div class="mt-9 flex flex-wrap justify-center gap-4">
-      <Button href={site.bookingUrl}>Afspraak maken</Button>
-      <Button href="/behandelingen/" variant="outline">Bekijk behandelingen</Button>
+  <section class="bg-bg-soft px-6 py-16 md:px-10 md:py-20" data-reveal>
+    <div class="mx-auto max-w-6xl">
+      <p class="mb-8 text-[11px] uppercase tracking-[0.16em] text-ink-soft">Behandelingen</p>
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
+        {
+          treatments.map((t) => (
+            <a href={`/${t.slug}/`} class="group flex h-full flex-col">
+              <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-bg">
+                <img
+                  src={t.image}
+                  alt={t.title}
+                  class="h-full w-full select-none object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex flex-1 flex-col items-center px-1 pt-5 text-center">
+                <span class="text-[15px] tracking-tight text-ink">{t.title}</span>
+                <p class="mt-1.5 max-w-[32ch] text-[12px] leading-relaxed text-ink-soft">{t.short}</p>
+              </div>
+              <span class="mx-1 mt-5 flex h-11 items-center justify-center rounded-full border border-ink/20 text-[12px] tracking-wide transition-colors duration-300 group-hover:bg-ink group-hover:text-bg">
+                Bekijken
+              </span>
+            </a>
+          ))
+        }
+      </div>
     </div>
   </section>
 
-  <section class="px-6 pb-20 md:px-10 md:pb-28" data-reveal>
-    <p class="mb-8 text-[11px] uppercase tracking-[0.16em] text-ink-soft">Behandelingen</p>
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:gap-10 lg:grid-cols-4">
-      {
-        treatments.map((t) => (
-          <a href={`/${t.slug}/`} class="group flex h-full flex-col">
-            <div class="relative aspect-square w-full overflow-hidden bg-bg-soft">
-              <img
-                src={t.image}
-                alt={t.title}
-                class="h-full w-full select-none object-cover transition-transform duration-[900ms] ease-out group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div class="flex flex-1 flex-col items-center px-1 pt-5 text-center">
-              <span class="text-[15px] tracking-tight text-ink">{t.title}</span>
-              <p class="mt-1.5 max-w-[32ch] text-[12px] leading-relaxed text-ink-soft">{t.short}</p>
-            </div>
-            <span class="mx-1 mt-5 flex h-11 items-center justify-center border border-ink/20 text-[12px] tracking-wide transition-colors duration-300 group-hover:bg-ink group-hover:text-bg">
-              Bekijken
-            </span>
-          </a>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="px-6 py-10 md:px-10 md:py-16" data-reveal>
-    <div class="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-16">
+  <section class="px-6 py-16 md:px-10 md:py-24" data-reveal>
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-16">
       <div class="order-2 md:order-1 md:col-span-5">
         <h2 class="font-display text-[26px] font-light leading-tight tracking-tight text-ink md:text-[34px]">
           Huidverbetering op maat
@@ -86,12 +95,12 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
             onderbouwde, effectieve huidverzorging &mdash; zonder loze beloftes.
           </p>
         </div>
-        <a href="/gezichtsbehandeling/" class="mt-10 inline-flex h-12 items-center border border-ink/20 px-10 text-[13px] transition-colors duration-300 hover:bg-ink hover:text-bg">
+        <a href="/gezichtsbehandeling/" class="mt-10 inline-flex h-12 items-center rounded-full border border-ink/20 px-10 text-[13px] transition-colors duration-300 hover:bg-ink hover:text-bg">
           Meer over onze behandelingen
         </a>
       </div>
       <div class="order-1 md:order-2 md:col-span-7">
-        <div class="relative aspect-[16/11] w-full overflow-hidden bg-bg-soft">
+        <div class="relative aspect-[16/11] w-full overflow-hidden rounded-3xl bg-bg-soft">
           <img
             src="/images/treatments/gezichtsbehandeling.jpg"
             alt="Gezichtsbehandeling bij Art of Beauty by Maelyn"
@@ -105,32 +114,37 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
   {
     posts.length > 0 && (
-      <section class="px-6 py-16 md:px-10 md:py-24" data-reveal>
-        <div class="flex items-end justify-between gap-4">
-          <p class="text-[11px] uppercase tracking-[0.16em] text-ink-soft">Van de blog</p>
-          <a href="/blog/" class="text-[12px] uppercase tracking-[0.1em] text-accent hover:opacity-70">
-            Alle artikelen
-          </a>
-        </div>
-        <div class="mt-8 grid gap-8 sm:grid-cols-3">
-          {posts.map((post) => (
-            <a href={`/blog/${post.id}/`} class="group flex flex-col">
-              <span class="text-[11px] uppercase tracking-[0.1em] text-accent">
-                {post.data.tags[0] ?? 'Skincare'}
-              </span>
-              <span class="mt-2 font-display text-[17px] tracking-tight text-ink group-hover:opacity-70">
-                {post.data.title}
-              </span>
-              <span class="mt-2 text-[13px] leading-relaxed text-ink-soft">{post.data.description}</span>
+      <section class="bg-bg-soft px-6 py-16 md:px-10 md:py-24" data-reveal>
+        <div class="mx-auto max-w-6xl">
+          <div class="flex items-end justify-between gap-4">
+            <p class="text-[11px] uppercase tracking-[0.16em] text-ink-soft">Van de blog</p>
+            <a href="/blog/" class="text-[12px] uppercase tracking-[0.1em] text-accent hover:opacity-70">
+              Alle artikelen
             </a>
-          ))}
+          </div>
+          <div class="mt-8 grid gap-6 sm:grid-cols-3">
+            {posts.map((post) => (
+              <a
+                href={`/blog/${post.id}/`}
+                class="group flex flex-col rounded-2xl border border-line bg-bg p-6 transition-colors hover:border-ink/40"
+              >
+                <span class="text-[11px] uppercase tracking-[0.1em] text-accent">
+                  {post.data.tags[0] ?? 'Skincare'}
+                </span>
+                <span class="mt-2 font-display text-[17px] tracking-tight text-ink">
+                  {post.data.title}
+                </span>
+                <span class="mt-2 text-[13px] leading-relaxed text-ink-soft">{post.data.description}</span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     )
   }
 
-  <section class="px-6 py-10 md:px-10 md:py-16" data-reveal>
-    <div class="relative aspect-[3/4] w-full overflow-hidden sm:aspect-[16/9] md:aspect-[16/7]">
+  <section class="px-6 py-16 md:px-10 md:py-24" data-reveal>
+    <div class="relative mx-auto aspect-[3/4] w-full max-w-6xl overflow-hidden rounded-3xl sm:aspect-[16/9] md:aspect-[16/7]">
       <img
         src="/images/hero-salon.jpg"
         alt="Art of Beauty by Maelyn"
@@ -148,7 +162,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
           </p>
           <a
             href={site.bookingUrl}
-            class="mt-7 inline-flex h-12 items-center bg-accent px-8 text-[12px] uppercase tracking-[0.1em] text-bg transition-colors hover:bg-accent-dark"
+            class="mt-7 inline-flex h-12 items-center rounded-full bg-accent px-8 text-[12px] uppercase tracking-[0.1em] text-bg transition-colors hover:bg-accent-dark"
           >
             Afspraak maken
           </a>
