@@ -73,20 +73,70 @@ import Logo from './Logo.astro';
   </nav>
 
   <div id="mobile-menu" class="hidden border-t border-line lg:hidden">
-    <ul class="flex flex-col gap-1 px-6 py-6 text-[15px] tracking-tight">
-      {
-        mainNav.map((item) => (
-          <a
-            href={item.href}
-            target={item.href.startsWith('http') ? '_blank' : undefined}
-            rel={item.href.startsWith('http') ? 'noopener' : undefined}
-            class="block px-2 py-2 text-ink-soft hover:text-ink"
-          >
-            {item.label}
-          </a>
-        ))
-      }
-    </ul>
+    <div id="menu-panel-root" class="menu-panel px-6 py-4">
+      <ul class="flex flex-col gap-1 text-[15px] tracking-tight">
+        {
+          mainNav.map((item, i) => (
+            <li>
+              {item.children ? (
+                <button
+                  type="button"
+                  class="menu-panel-trigger flex w-full items-center justify-between px-2 py-2.5 text-left text-ink-soft transition-colors hover:text-ink"
+                  data-target={`menu-panel-${i}`}
+                >
+                  <span>{item.label}</span>
+                  <svg viewBox="0 0 20 20" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                    <path d="M7.5 4.5l6 5.5-6 5.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              ) : (
+                <a
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel={item.href.startsWith('http') ? 'noopener' : undefined}
+                  class="block px-2 py-2.5 text-ink-soft hover:text-ink"
+                >
+                  {item.label}
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    {
+      mainNav.map(
+        (item, i) =>
+          item.children && (
+            <div id={`menu-panel-${i}`} class="menu-panel hidden px-6 py-4">
+              <button
+                type="button"
+                class="menu-panel-back mb-3 flex items-center gap-2 px-2 py-2 text-[12px] uppercase tracking-[0.1em] text-ink-soft transition-colors hover:text-ink"
+              >
+                <svg viewBox="0 0 20 20" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M12.5 4.5l-6 5.5 6 5.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {item.label}
+              </button>
+              <ul class="flex flex-col gap-1 text-[15px] tracking-tight">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      target={child.href.startsWith('http') ? '_blank' : undefined}
+                      rel={child.href.startsWith('http') ? 'noopener' : undefined}
+                      class="block px-2 py-2.5 text-ink-soft hover:text-ink"
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+      )
+    }
   </div>
 </header>
 
@@ -94,8 +144,30 @@ import Logo from './Logo.astro';
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
 
+  function resetToRootPanel() {
+    menu?.querySelectorAll<HTMLElement>('.menu-panel').forEach((panel) => panel.classList.add('hidden'));
+    document.getElementById('menu-panel-root')?.classList.remove('hidden');
+  }
+
   toggle?.addEventListener('click', () => {
     const isOpen = menu?.classList.toggle('hidden') === false;
     toggle.setAttribute('aria-expanded', String(isOpen));
+    if (isOpen) resetToRootPanel();
+  });
+
+  menu?.querySelectorAll<HTMLElement>('.menu-panel-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      if (!targetId) return;
+      document.getElementById('menu-panel-root')?.classList.add('hidden');
+      document.getElementById(targetId)?.classList.remove('hidden');
+    });
+  });
+
+  menu?.querySelectorAll<HTMLElement>('.menu-panel-back').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      btn.closest('.menu-panel')?.classList.add('hidden');
+      document.getElementById('menu-panel-root')?.classList.remove('hidden');
+    });
   });
 </script>
