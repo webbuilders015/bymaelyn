@@ -31,9 +31,9 @@ const looseTreatments = [
         treatments.map((t) => (
           <a
             href={`/${t.slug}/`}
-            class="group flex flex-col rounded-2xl border border-line bg-cream-dark/40 p-6 transition-shadow hover:shadow-lg hover:shadow-ink/5"
+            class="group flex flex-col  border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
           >
-            <span class="font-display text-lg text-ink group-hover:text-terracotta-dark">
+            <span class="font-display text-lg text-ink group-hover:text-accent">
               {t.title}
             </span>
             <span class="mt-2 text-sm text-ink-soft">{t.short}</span>

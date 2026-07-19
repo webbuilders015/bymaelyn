@@ -14,15 +14,15 @@ import { site } from '../../data/site';
     <p class="text-ink-soft">
       Plan direct online je afspraak in via onderstaande agenda. Staat de gewenste datum of tijd
       er niet tussen? Neem dan gerust contact met ons op via {' '}
-      <a href={`mailto:${site.contact.email}`} class="underline decoration-terracotta underline-offset-4">
+      <a href={`mailto:${site.contact.email}`} class="underline decoration-accent underline-offset-4">
         {site.contact.email}
       </a> of telefonisch via {' '}
-      <a href={site.contact.phoneHref} class="underline decoration-terracotta underline-offset-4">
+      <a href={site.contact.phoneHref} class="underline decoration-accent underline-offset-4">
         {site.contact.phone}
       </a>.
     </p>
 
-    <div class="mt-8 overflow-hidden rounded-3xl border border-line bg-cream">
+    <div class="mt-8 overflow-hidden border border-line bg-bg">
       <iframe
         title="Online afspraken agenda Art of Beauty by Maelyn"
         src={site.bookingUrl}

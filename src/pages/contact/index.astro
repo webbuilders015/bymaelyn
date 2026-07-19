@@ -32,7 +32,7 @@ import { site } from '../../data/site';
               id="name"
               name="name"
               required
-              class="mt-1 w-full rounded-xl border border-line bg-cream px-4 py-3 text-ink outline-none focus:border-terracotta"
+              class="mt-1 w-full rounded-xl border border-line bg-bg px-4 py-3 text-ink outline-none focus:border-accent"
             />
           </div>
           <div>
@@ -42,7 +42,7 @@ import { site } from '../../data/site';
               id="email"
               name="email"
               required
-              class="mt-1 w-full rounded-xl border border-line bg-cream px-4 py-3 text-ink outline-none focus:border-terracotta"
+              class="mt-1 w-full rounded-xl border border-line bg-bg px-4 py-3 text-ink outline-none focus:border-accent"
             />
           </div>
           <div>
@@ -51,7 +51,7 @@ import { site } from '../../data/site';
               type="tel"
               id="phone"
               name="phone"
-              class="mt-1 w-full rounded-xl border border-line bg-cream px-4 py-3 text-ink outline-none focus:border-terracotta"
+              class="mt-1 w-full rounded-xl border border-line bg-bg px-4 py-3 text-ink outline-none focus:border-accent"
             />
           </div>
           <div>
@@ -61,12 +61,12 @@ import { site } from '../../data/site';
               name="message"
               rows="5"
               required
-              class="mt-1 w-full rounded-xl border border-line bg-cream px-4 py-3 text-ink outline-none focus:border-terracotta"
+              class="mt-1 w-full rounded-xl border border-line bg-bg px-4 py-3 text-ink outline-none focus:border-accent"
             ></textarea>
           </div>
           <button
             type="submit"
-            class="rounded-full bg-terracotta px-6 py-3 text-sm font-medium text-cream hover:bg-terracotta-dark"
+            class="rounded-full bg-accent px-6 py-3 text-sm font-medium text-bg hover:bg-accent-dark"
           >
             Versturen
           </button>
@@ -77,15 +77,15 @@ import { site } from '../../data/site';
         <h2 class="font-display text-2xl text-ink">Contactinformatie</h2>
         <ul class="mt-4 space-y-2 text-ink-soft">
           <li>
-            <a href={site.address.mapsUrl} target="_blank" rel="noopener" class="hover:text-terracotta-dark">
+            <a href={site.address.mapsUrl} target="_blank" rel="noopener" class="hover:text-accent">
               {site.address.street}, {site.address.postalCode} {site.address.city}
             </a>
           </li>
           <li>
-            <a href={site.contact.phoneHref} class="hover:text-terracotta-dark">{site.contact.phone}</a>
+            <a href={site.contact.phoneHref} class="hover:text-accent">{site.contact.phone}</a>
           </li>
           <li>
-            <a href={`mailto:${site.contact.email}`} class="hover:text-terracotta-dark">{site.contact.email}</a>
+            <a href={`mailto:${site.contact.email}`} class="hover:text-accent">{site.contact.email}</a>
           </li>
         </ul>
 
@@ -115,7 +115,7 @@ import { site } from '../../data/site';
           bereikbaar: het centraal station ligt op loopafstand en de tramhalte zit vlakbij.
         </p>
 
-        <div class="mt-6 overflow-hidden rounded-3xl border border-line">
+        <div class="mt-6 overflow-hidden border border-line">
           <iframe
             title="Locatie Art of Beauty by Maelyn op de kaart"
             src="https://maps.google.com/maps?q=Art%20of%20Beauty%20by%20Maelyn%20Bagijnhof%20Delft&t=m&z=15&output=embed&iwloc=near"

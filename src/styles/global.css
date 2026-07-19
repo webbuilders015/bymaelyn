@@ -1,28 +1,22 @@
 @import "tailwindcss";
-@import "@fontsource/fraunces/400.css";
-@import "@fontsource/fraunces/500.css";
-@import "@fontsource/fraunces/600-italic.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
+@import "@fontsource/syne/400.css";
+@import "@fontsource/syne/500.css";
+@import "@fontsource/syne/600.css";
+@import "@fontsource/syne/700.css";
+@import "@fontsource/syne/800.css";
 
 @theme {
-  /* Warm, soft salon palette -- ivory / blush / terracotta / sage,
-     inspired by Apollo's editorial structure but light instead of clinical-dark. */
-  --color-cream: #faf6f1;
-  --color-cream-dark: #f2ebe1;
-  --color-blush: #f1dcd3;
-  --color-blush-dark: #e6c3b6;
-  --color-terracotta: #c17a5b;
-  --color-terracotta-dark: #a05f43;
-  --color-sage: #8a9a7e;
-  --color-sage-dark: #6e7d64;
-  --color-ink: #2c2620;
-  --color-ink-soft: #55493f;
-  --color-line: #e4d9cd;
+  /* Apollo-style monochrome palette, brand gold as the only accent colour. */
+  --color-bg: #e9ecec;
+  --color-bg-soft: #dedfdc;
+  --color-ink: #0c0d0d;
+  --color-ink-soft: #6b6d69;
+  --color-line: #d3d5d1;
+  --color-accent: #ac9351;
+  --color-accent-dark: #8f7940;
 
-  --font-display: "Fraunces", serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-body: "Syne", sans-serif;
 }
 
 html {
@@ -30,7 +24,7 @@ html {
 }
 
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-body);
 }
@@ -40,6 +34,18 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-blush-dark);
-  color: var(--color-ink);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Scroll reveal: elements fade + rise into view, mirroring Apollo's GSAP-driven reveals. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

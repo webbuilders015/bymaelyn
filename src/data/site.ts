@@ -41,26 +41,31 @@ export const treatments = [
     slug: 'gezichtsbehandeling',
     title: 'Gezichtsbehandeling',
     short: 'Huidverbeterende gezichtsbehandelingen op maat.',
+    image: '/images/treatments/gezichtsbehandeling.jpg',
   },
   {
     slug: 'chemische-peeling',
     title: 'Chemische peeling',
     short: 'Professionele peelings voor een frisse, egale huid.',
+    image: '/images/treatments/gezichtsbehandeling.jpg',
   },
   {
     slug: 'waxen',
     title: 'Waxen',
     short: 'Ontharen op de vakkundige en hygiënische manier.',
+    image: '/images/treatments/waxen.webp',
   },
   {
     slug: 'wenkbrauwen-epileren',
     title: 'Wenkbrauwstyling',
     short: 'Wenkbrauwen epileren en in model brengen.',
+    image: '/images/treatments/wenkbrauwen.webp',
   },
   {
     slug: 'cadeaubon',
     title: 'Cadeaubon',
     short: 'Geef een behandeling cadeau aan iemand anders.',
+    image: '/images/cadeaubon.jpg',
   },
 ];
 

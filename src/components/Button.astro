@@ -8,10 +8,10 @@ interface Props {
 const { href, variant = 'primary', class: className = '' } = Astro.props;
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-colors duration-200';
+  'inline-flex h-12 items-center justify-center gap-2 px-8 text-[13px] tracking-[0.08em] uppercase transition-colors duration-300';
 const variants = {
-  primary: 'bg-terracotta text-cream hover:bg-terracotta-dark',
-  outline: 'border border-ink/20 text-ink hover:border-terracotta hover:text-terracotta-dark',
+  primary: 'bg-accent text-bg hover:bg-accent-dark',
+  outline: 'border border-ink/20 text-ink hover:bg-ink hover:text-bg',
 };
 ---
 

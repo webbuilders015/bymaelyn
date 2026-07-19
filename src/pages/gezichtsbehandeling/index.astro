@@ -101,18 +101,32 @@ const treatments = [
     </p>
   </section>
 
-  <section class="bg-cream-dark/60 py-16">
+  <section class="px-6 md:px-10" data-reveal>
+    <a href={site.bookingUrl} class="group relative block aspect-[16/7] w-full overflow-hidden bg-bg-soft md:aspect-[16/6]">
+      <img
+        src="/images/treatments/gezichtsbehandeling.jpg"
+        alt="Gezichtsbehandeling bij Art of Beauty by Maelyn"
+        class="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+        loading="lazy"
+      />
+      <span class="absolute left-5 top-5 text-[11px] uppercase tracking-[0.18em] text-white/95 md:left-7 md:top-7">
+        Gezichtsbehandelingen
+      </span>
+    </a>
+  </section>
+
+  <section class="bg-bg-soft py-16">
     <div class="mx-auto max-w-4xl px-6">
       <h2 class="font-display text-2xl text-ink sm:text-3xl">Onze gezichtsbehandelingen</h2>
       <div class="mt-8 space-y-6">
         {
           treatments.map((t) => (
-            <div class="rounded-2xl border border-line bg-cream p-6">
+            <div class=" border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 class="font-display text-xl text-ink">
                   {t.name}
                   {t.badge && (
-                    <span class="ml-2 rounded-full bg-terracotta/15 px-3 py-1 text-xs font-medium uppercase tracking-wide text-terracotta-dark align-middle">
+                    <span class="ml-2 bg-accent/15 px-3 py-1 text-[11px] uppercase tracking-[0.08em] text-accent align-middle">
                       {t.badge}
                     </span>
                   )}
@@ -123,7 +137,7 @@ const treatments = [
               <ul class="mt-4 grid gap-x-6 gap-y-1 text-sm text-ink-soft sm:grid-cols-2">
                 {t.steps.map((step) => (
                   <li class="flex items-start gap-2">
-                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-terracotta-dark" />
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
                     {step}
                   </li>
                 ))}
@@ -133,7 +147,7 @@ const treatments = [
         }
       </div>
       <p class="mt-6 text-sm text-ink-soft">
-        Voor de meest actuele prijzen bekijk je onze <a href={site.bookingUrl} class="underline decoration-terracotta underline-offset-4">online afsprakenmodule</a>.
+        Voor de meest actuele prijzen bekijk je onze <a href={site.bookingUrl} class="underline decoration-accent underline-offset-4">online afsprakenmodule</a>.
       </p>
       <Button href={site.bookingUrl} class="mt-8">Afspraak maken</Button>
     </div>

@@ -20,7 +20,7 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
@@ -46,5 +46,21 @@ const ogImage = image ? new URL(image, Astro.site).toString() : new URL('/images
       <slot />
     </main>
     <Footer />
+
+    <script>
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          }
+        },
+        { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+      );
+
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    </script>
   </body>
 </html>
