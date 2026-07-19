@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+---
+
+<BaseLayout
+  title="Cadeaubon schoonheidssalon - Art of Beauty by Maelyn"
+  description="Op zoek naar een leuk cadeau? Geef dan een cadeaubon voor een schoonheidsbehandeling of skincare producten van Paula's Choice!"
+>
+  <PageHero
+    eyebrow="Cadeau"
+    title="Cadeaubon"
+    lead="Ben je op zoek naar een ontspannend en origineel cadeau voor de feestdagen, een verjaardag of een andere speciale gelegenheid? Geef dan een cadeaubon van Schoonheidssalon Art of Beauty by Maelyn."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <div class="grid gap-10 sm:grid-cols-2 sm:items-center">
+      <div class="prose-content text-ink-soft">
+        <p>
+          Met een cadeaubon voor onze schoonheidssalon kun je bijvoorbeeld een behandeling zoals
+          een gezichtsbehandeling, massage of wimperlift cadeau geven. Ook is het mogelijk om ieder
+          gewenst bedrag cadeau te geven, zodat de ontvanger van de cadeaubon zelf kan bepalen
+          welke behandeling hij of zij wil ondergaan.
+        </p>
+        <p class="mt-4">
+          Het is een fijn cadeau voor iemand die even helemaal tot rust wil komen en zich goed wil
+          laten verzorgen.
+        </p>
+        <p class="mt-4">
+          De cadeaubon kan ook gebruikt worden voor het aanschaffen van producten van onze
+          skincare merken Paula's Choice en Skeyndor.
+        </p>
+        <Button href="/contact/" class="mt-6">Neem contact op</Button>
+      </div>
+      <img
+        src="/images/cadeaubon.jpg"
+        alt="Cadeaubon Art of Beauty by Maelyn"
+        class="rounded-3xl object-cover"
+        width="600"
+        height="720"
+      />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site, treatments } from '../../data/site';
+
+const looseTreatments = [
+  'Epileren / harsen wenkbrauwen + verven',
+  'Verven wenkbrauwen en wimpers',
+  'Epileren / harsen wenkbrauwen',
+  'Verven wenkbrauwen',
+  'Verven wimpers',
+  'Harsen gelaat',
+];
+---
+
+<BaseLayout
+  title="Schoonheidsspecialist Delft - Art of Beauty by Maelyn"
+  description="Alle informatie over de verschillende schoonheidsbehandelingen, diverse massages, waxen, wenkbrauwen verven + harsen en andere behandelingen."
+>
+  <PageHero
+    eyebrow="Behandelingen & prijzen"
+    title="Je kunt bij schoonheidssalon Art of Beauty by Maelyn in Delft terecht voor diverse schoonheidsbehandelingen."
+    lead="Voor de meest actuele prijzen bekijk je onze online afsprakenmodule."
+  />
+
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <h2 class="font-display text-2xl text-ink sm:text-3xl">Gezichtsbehandelingen</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        treatments.map((t) => (
+          <a
+            href={`/${t.slug}/`}
+            class="group flex flex-col rounded-2xl border border-line bg-cream-dark/40 p-6 transition-shadow hover:shadow-lg hover:shadow-ink/5"
+          >
+            <span class="font-display text-lg text-ink group-hover:text-terracotta-dark">
+              {t.title}
+            </span>
+            <span class="mt-2 text-sm text-ink-soft">{t.short}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 grid gap-10 sm:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl text-ink">Losse behandelingen</h2>
+        <ul class="mt-4 space-y-2 text-ink-soft">
+          {looseTreatments.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="font-display text-2xl text-ink">Harsen</h2>
+        <p class="mt-2 text-sm text-ink-soft">
+          Voor het harsen is het belangrijk dat de haren minimaal 0,5 cm zijn.
+        </p>
+        <div class="mt-4 grid gap-6 sm:grid-cols-2">
+          <div>
+            <p class="font-medium text-ink">Vrouwen harsen</p>
+            <ul class="mt-2 space-y-1 text-ink-soft">
+              <li>Bikinilijn</li>
+              <li>Oksels</li>
+              <li>Boven- of onderbenen</li>
+              <li>Gehele benen</li>
+              <li>Gehele armen</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-medium text-ink">Mannen harsen</p>
+            <ul class="mt-2 space-y-1 text-ink-soft">
+              <li>Rug</li>
+              <li>Oksels</li>
+              <li>Boven- of onderbenen</li>
+              <li>Gehele benen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Button href={site.bookingUrl} class="mt-12">Afspraak maken</Button>
+  </section>
+</BaseLayout>

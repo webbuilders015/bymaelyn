@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const treatments = [
+  {
+    name: 'Power Hyaluronic Treatment',
+    duration: '60-75 min',
+    price: '€77,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling op basis van hyaluronzuur. Deze krachtige vochtbinder herstelt de natuurlijke vochtgraad van de huid en maakt de huid met (droogte) lijntjes en rimpeltjes weer comfortabel en volumineus. Geschikt voor elk huidtype, verkrijgt de huid een vitale en gezonde uitstraling.',
+    badge: 'Meest geboekt',
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Power Vitamine C Treatment',
+    duration: '60-75 min',
+    price: '€72,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling die zich richt op het neutraliseren van vrije radicalen en het verhelderen van de teint. Vitamine C stimuleert de celstofwisseling en de collageenproductie, voor een heldere, gelijkmatige en egale teint.',
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Art of Beauty Treatment',
+    duration: '50-60 min',
+    price: '€62,50',
+    description:
+      'Huidverzorgende gezichtsbehandeling die zich richt op de reiniging en hygiëne van de huid, geschikt voor elk huidtype. Door de dubbele reinigingsmethode wordt de huid optimaal gereinigd, gezuiverd en voelt de huid weer fris en comfortabel aan.',
+    steps: [
+      'Huidanalyse',
+      'Reiniging fase 1',
+      'Reiniging fase 2',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Gezicht- of nek-/schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Pure Cleanse Treatment (12 - 20 jaar)',
+    duration: '30-45 min',
+    price: '€41,50',
+    description:
+      'Speciaal gericht op tieners met een onrustige huid met onzuiverheden en/of ontstekingen. We gebruiken milde producten met een ontstekingsremmende, zuiverende en kalmerende werking, waardoor de huid minder rood en geïrriteerd is na afloop.',
+    steps: ['Huidanalyse', 'Reiniging', 'Milde peeling / scrub', 'Onzuiverheden verwijderen', 'Masker', 'Dagverzorging'],
+  },
+];
+---
+
+<BaseLayout
+  title="Facials / Gezichtsbehandeling - Art of Beauty by Maelyn Delft"
+  description="Vind hier alle informatie over de verschillende facials / gezichtsbehandelingen welke wij aanbieden in onze schoonheidssalon in Delft!"
+>
+  <PageHero
+    eyebrow="Behandeling"
+    title="Huidverbeterende gezichtsbehandeling"
+    lead="In onze schoonheidssalon in Delft bieden wij verschillende huidverbeterende gezichtsbehandelingen aan. Wij werken onder andere met de merken Paula's Choice en Skeyndor."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Een huidverbeterende gezichtsbehandeling is een schoonheidsbehandeling die is ontworpen om
+      de huidconditie te verbeteren en de huid te laten stralen. Dit kan gedaan worden door middel
+      van een reiniging, exfoliatie, massage en/of maskers. Sommige behandelingen bevatten ook
+      producten die specifiek gericht zijn op het verbeteren van de huid, zoals serum of crèmes
+      met vitamines en antioxidanten. Het is aan te raden om een professionele
+      schoonheidsspecialist te raadplegen om te bepalen welke behandeling het beste bij jouw
+      huidtype en -behoeften past.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Je kunt bij Art of Beauty by Maelyn terecht voor professionele, effectieve en ontspannen
+      gezichtsbehandelingen. De gezichtsbehandelingen zijn gericht op huidverbetering en werken in
+      op de diepere huidlagen: de huidstructuur verbetert en eventuele oneffenheden worden
+      verminderd. Elke lijn heeft een eigen huidverbeterende werking, geur en beleving. Door de
+      gezichtsbehandeling af te stemmen op de huidconditie en huidtype kunnen we samen werken aan
+      een gezonde huid!
+    </p>
+  </section>
+
+  <section class="bg-cream-dark/60 py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Onze gezichtsbehandelingen</h2>
+      <div class="mt-8 space-y-6">
+        {
+          treatments.map((t) => (
+            <div class="rounded-2xl border border-line bg-cream p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-xl text-ink">
+                  {t.name}
+                  {t.badge && (
+                    <span class="ml-2 rounded-full bg-terracotta/15 px-3 py-1 text-xs font-medium uppercase tracking-wide text-terracotta-dark align-middle">
+                      {t.badge}
+                    </span>
+                  )}
+                </h3>
+                <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
+              </div>
+              <p class="mt-3 text-ink-soft">{t.description}</p>
+              <ul class="mt-4 grid gap-x-6 gap-y-1 text-sm text-ink-soft sm:grid-cols-2">
+                {t.steps.map((step) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-terracotta-dark" />
+                    {step}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-6 text-sm text-ink-soft">
+        Voor de meest actuele prijzen bekijk je onze <a href={site.bookingUrl} class="underline decoration-terracotta underline-offset-4">online afsprakenmodule</a>.
+      </p>
+      <Button href={site.bookingUrl} class="mt-8">Afspraak maken</Button>
+    </div>
+  </section>
+</BaseLayout>

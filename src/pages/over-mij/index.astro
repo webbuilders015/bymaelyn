@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+---
+
+<BaseLayout
+  title="Over mij - Art of Beauty by Maelyn"
+  description="Mijn naam is Mae-lyn Van der Meer, gediplomeerd schoonheidsspecialiste. Ik verwelkom je graag in mijn schoonheidssalon op de Bagijnhof in Delft."
+>
+  <PageHero eyebrow="Over mij" title="Graag stel ik mij voor" />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <div class="grid gap-10 sm:grid-cols-2 sm:items-start">
+      <img
+        src="/images/maelyn-portret.jpg"
+        alt="Mae-lyn van der Meer, schoonheidsspecialiste bij Art of Beauty by Maelyn"
+        class="rounded-3xl object-cover"
+        width="600"
+        height="720"
+      />
+      <div class="prose-content text-ink-soft">
+        <p>
+          Graag stel ik mij als eigenaresse van Art of Beauty by Maelyn even voor. Mijn naam is
+          Mae-lyn van der Meer, gediplomeerd schoonheidsspecialiste sinds 2012, behaald bij het
+          Instituut Dangremond.
+        </p>
+        <p class="mt-4">
+          Na jaren ervaring te hebben opgedaan als schoonheidsspecialiste bij verschillende
+          schoonheidssalons, heb ik mijn grote droom werkelijkheid gemaakt en ben ik sinds
+          november 2021 trotse eigenaresse van "Art of Beauty by Maelyn" Schoonheidssalon in
+          Delft.
+        </p>
+        <p class="mt-4">
+          Ik ben gespecialiseerd in huidverbeterende gezichtsbehandelingen, massages,
+          wimperlifting en diverse andere schoonheidsbehandelingen.
+        </p>
+        <p class="mt-4">
+          Ik vind het erg belangrijk om mezelf te blijven ontwikkelen en op de hoogte te blijven
+          van alle nieuwe technieken als schoonheidsspecialiste, daarom ga ik regelmatig naar
+          trainingen om deze schoonheidsbehandelingen op het hoogste niveau in de schoonheidssalon
+          uit te kunnen voeren.
+        </p>
+        <p class="mt-4">
+          Ik kijk er naar uit om je te mogen ontvangen in mijn schoonheidssalon in Delft en samen
+          te werken aan een mooie en gezonde huid. Graag tot snel!
+        </p>
+        <Button href="/contact/" class="mt-8">Contact</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

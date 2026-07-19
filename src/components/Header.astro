@@ -1,0 +1,84 @@
+---
+import { site, mainNav } from '../data/site';
+import Button from './Button.astro';
+---
+
+<header class="sticky top-0 z-50 border-b border-line/70 bg-cream/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="/" class="font-display text-xl tracking-tight text-ink">
+      {site.name}
+    </a>
+
+    <nav class="hidden items-center gap-8 lg:flex" aria-label="Hoofdmenu">
+      {
+        mainNav.map((item) => (
+          <div class="group relative">
+            <a
+              href={item.href}
+              class="text-sm font-medium text-ink-soft transition-colors hover:text-terracotta-dark"
+            >
+              {item.label}
+            </a>
+            {item.children && (
+              <div class="invisible absolute left-0 top-full min-w-48 translate-y-1 rounded-2xl border border-line bg-cream p-2 opacity-0 shadow-lg shadow-ink/5 transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                {item.children.map((child) => (
+                  <a
+                    href={child.href}
+                    class="block rounded-xl px-4 py-2 text-sm text-ink-soft hover:bg-blush/40 hover:text-ink"
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </nav>
+
+    <div class="hidden lg:block">
+      <Button href="/afspraak-maken/">Afspraak maken</Button>
+    </div>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="flex flex-col gap-1.5 lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="h-0.5 w-6 bg-ink"></span>
+      <span class="h-0.5 w-6 bg-ink"></span>
+      <span class="h-0.5 w-6 bg-ink"></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-line lg:hidden">
+    <nav class="flex flex-col gap-1 px-6 py-4" aria-label="Mobiel menu">
+      {
+        mainNav.map((item) => (
+          <a href={item.href} class="rounded-lg px-2 py-2 text-ink-soft hover:bg-blush/40 hover:text-ink">
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href="/afspraak-maken/"
+        class="mt-2 rounded-full bg-terracotta px-6 py-3 text-center text-sm font-medium text-cream"
+      >
+        Afspraak maken
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+</script>

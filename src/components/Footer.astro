@@ -1,0 +1,79 @@
+---
+import { site, treatments } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line bg-cream-dark">
+  <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <p class="font-display text-lg text-ink">{site.name}</p>
+      <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+        Anbos gecertificeerde schoonheidssalon gevestigd op de {site.address.street} aan de rand van het
+        centrum in {site.address.city}.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-ink">Contact</p>
+      <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+        <li>
+          <a href={site.address.mapsUrl} class="hover:text-terracotta-dark" target="_blank" rel="noopener">
+            {site.address.street}, {site.address.postalCode} {site.address.city}
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${site.contact.email}`} class="hover:text-terracotta-dark">{site.contact.email}</a>
+        </li>
+        <li>
+          <a href={site.contact.phoneHref} class="hover:text-terracotta-dark">{site.contact.phone}</a>
+        </li>
+      </ul>
+      <p class="mt-4 text-xs text-ink-soft/70">
+        KVK-nummer: {site.kvk}<br />
+        BTW nummer: {site.btw}
+      </p>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-ink">Behandelingen</p>
+      <ul class="mt-3 space-y-2 text-sm text-ink-soft">
+        {
+          treatments.map((t) => (
+            <li>
+              <a href={`/${t.slug}/`} class="hover:text-terracotta-dark">
+                {t.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-ink">Openingstijden</p>
+      <ul class="mt-3 space-y-1 text-sm text-ink-soft">
+        {
+          site.openingHours
+            .filter((o) => o.hours !== 'Gesloten')
+            .map((o) => (
+              <li class="flex justify-between gap-4">
+                <span>{o.day}</span>
+                <span>{o.hours}</span>
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-line px-6 py-6">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-xs text-ink-soft/70 sm:flex-row">
+      <p>&copy; {year} {site.name}. Alle rechten voorbehouden.</p>
+      <div class="flex gap-4">
+        <a href="/algemene-voorwaarden/" class="hover:text-terracotta-dark">Algemene voorwaarden</a>
+        <a href="/algemene-voorwaarden/" class="hover:text-terracotta-dark">Annuleringsvoorwaarden</a>
+      </div>
+    </div>
+  </div>
+</footer>

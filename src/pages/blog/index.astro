@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog - Art of Beauty by Maelyn"
+  description="Tips, uitleg en inspiratie over huidverzorging, gezichtsbehandelingen en skincare van schoonheidssalon Art of Beauty by Maelyn in Delft."
+>
+  <PageHero
+    eyebrow="Blog"
+    title="Skincare-tips & huidverzorging"
+    lead="Praktische uitleg en inspiratie over gezichtsbehandelingen, huidverzorging en de behandelingen bij Art of Beauty by Maelyn."
+  />
+
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    {posts.length === 0 && <p class="text-ink-soft">Binnenkort verschijnen hier de eerste artikelen.</p>}
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        posts.map((post) => (
+          <a
+            href={`/blog/${post.id}/`}
+            class="flex flex-col rounded-2xl border border-line bg-cream-dark/40 p-6 transition-shadow hover:shadow-lg hover:shadow-ink/5"
+          >
+            <span class="text-xs uppercase tracking-wide text-terracotta-dark">
+              {post.data.tags[0] ?? 'Skincare'}
+            </span>
+            <span class="mt-2 font-display text-xl text-ink">{post.data.title}</span>
+            <span class="mt-2 text-sm text-ink-soft">{post.data.description}</span>
+            <span class="mt-4 text-xs text-ink-soft/70">
+              {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

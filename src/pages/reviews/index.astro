@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+
+// TODO: de huidige site toont reviews via een los widget waarvan de tekst niet
+// statisch beschikbaar was. Vervang onderstaande placeholders door de echte
+// reviews (bijv. Google Reviews) zodra die zijn aangeleverd.
+const reviews = [
+  {
+    name: 'Plaatshouder review 1',
+    text: 'Voeg hier een echte review van een klant toe.',
+  },
+  {
+    name: 'Plaatshouder review 2',
+    text: 'Voeg hier een echte review van een klant toe.',
+  },
+  {
+    name: 'Plaatshouder review 3',
+    text: 'Voeg hier een echte review van een klant toe.',
+  },
+];
+---
+
+<BaseLayout
+  title="Reviews - Art of Beauty by Maelyn"
+  description="Tevreden klanten staat bij ons op nummer 1. Massage of schoonheidsbehandeling bij ons in de schoonheidssalon gehad? Bekijk hier de reviews."
+>
+  <PageHero
+    eyebrow="Reviews"
+    title="Wat klanten over ons zeggen"
+    lead="Tevreden klanten staan bij ons op nummer 1."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <div class="grid gap-6 sm:grid-cols-3">
+      {
+        reviews.map((r) => (
+          <div class="rounded-2xl border border-line bg-cream-dark/40 p-6">
+            <p class="text-sm italic text-ink-soft">"{r.text}"</p>
+            <p class="mt-4 text-sm font-medium text-ink">{r.name}</p>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-8 text-sm text-ink-soft">
+      Massage of schoonheidsbehandeling bij ons gehad? We horen graag je ervaring.
+    </p>
+    <Button href="/contact/" variant="outline" class="mt-4">Deel je review</Button>
+  </section>
+</BaseLayout>

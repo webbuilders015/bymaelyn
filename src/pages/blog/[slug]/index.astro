@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={`${post.data.title} - Art of Beauty by Maelyn`} description={post.data.description}>
+  <article class="mx-auto max-w-3xl px-6 py-16">
+    <p class="text-sm font-medium uppercase tracking-[0.2em] text-terracotta-dark">
+      {post.data.tags[0] ?? 'Skincare'}
+    </p>
+    <h1 class="mt-4 font-display text-3xl leading-tight text-ink sm:text-4xl">{post.data.title}</h1>
+    <p class="mt-3 text-sm text-ink-soft/70">
+      {post.data.pubDate.toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+    </p>
+
+    <div class="prose-content mt-10 max-w-none text-ink-soft [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-2xl [&_h2]:text-ink [&_h3]:mt-6 [&_h3]:font-display [&_h3]:text-xl [&_h3]:text-ink [&_p]:mt-4 [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5 [&_a]:text-terracotta-dark [&_a]:underline">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

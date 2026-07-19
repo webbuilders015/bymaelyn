@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  title="Afspraak maken - Art of Beauty by Maelyn"
+  description="Maak eenvoudig online een afspraak bij Art of Beauty by Maelyn, schoonheidssalon in Delft."
+>
+  <PageHero eyebrow="Boeken" title="Maak een afspraak" />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Plan direct online je afspraak in via onderstaande agenda. Staat de gewenste datum of tijd
+      er niet tussen? Neem dan gerust contact met ons op via {' '}
+      <a href={`mailto:${site.contact.email}`} class="underline decoration-terracotta underline-offset-4">
+        {site.contact.email}
+      </a> of telefonisch via {' '}
+      <a href={site.contact.phoneHref} class="underline decoration-terracotta underline-offset-4">
+        {site.contact.phone}
+      </a>.
+    </p>
+
+    <div class="mt-8 overflow-hidden rounded-3xl border border-line bg-cream">
+      <iframe
+        title="Online afspraken agenda Art of Beauty by Maelyn"
+        src={site.bookingUrl}
+        width="100%"
+        height="900"
+        style="border:0;"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const features = [
+  'Dermatologisch getest',
+  'Kwalitatief zeer hoogwaardige natuurlijke producten met plantenextracten, gecombineerd met ingrediënten uit de zee',
+  'Voor elk huidprobleem een oplossing, zoals acne, ouderdomsvlekken, rimpels, onzuivere en vermoeide huid',
+  'Goede prijs/kwaliteitverhouding',
+  'Niet getest op dieren, maar op vrijwillige proefpersonen',
+];
+---
+
+<BaseLayout
+  title="Skeyndor - Art of Beauty by Maelyn"
+  description="Massage en schoonheidsspecialiste gespecialiseerd in huidverbeterende gezichtsbehandelingen. Boek nu online je afspraak bij Art of Beauty by Maelyn in Delft."
+>
+  <PageHero eyebrow="Merk" title="Skeyndor" lead="Spaanse passie!" />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Skeyndor is afgeleid van 'skin' (huid) en 'd'or' (van goud) en dat is precies wat dit
+      Spaanse professionele huidverzorgingsmerk uitstraalt. Skeyndor heeft een uitgebreid scala
+      aan schoonheidsproducten en effectieve schoonheidsbehandelingen met een uitstekende
+      prijs-kwaliteitverhouding. Dit alles onder het motto 'kwaliteit maakt verschil'.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      In thuisland Spanje is Skeyndor de onbetwiste nummer één op het gebied van professionele
+      huidverzorging. Het Spaanse merk staat voor wetenschap, innovatie, betrouwbaarheid en
+      elegantie. Met een eigen laboratorium en fabriek in Barcelona is Skeyndor continu bezig met
+      de nieuwste technologische ontwikkelingen en blijft Skeyndor innoveren. Skeyndor heeft een
+      uitgebreid productassortiment en een ruim aanbod aan salonbehandelingen van uitstekende
+      kwaliteit.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      De actieve ingrediënten van de producten worden perfect gecombineerd, wat resulteert in
+      doelgerichte cosmetica. De concepten van Skeyndor zijn uniek, innovatief en onderscheidend.
+    </p>
+
+    <ul class="mt-8 space-y-3">
+      {
+        features.map((f) => (
+          <li class="flex items-start gap-3 text-ink-soft">
+            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-terracotta-dark" />
+            {f}
+          </li>
+        ))
+      }
+    </ul>
+
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
+  </section>
+</BaseLayout>

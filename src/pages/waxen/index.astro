@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  title="Waxen / Harsen - Schoonheidssalon Art of Beauty by Maelyn Delft"
+  description="In onze schoonheidssalon in Delft kunt u ook terecht voor het harsen/waxen van uw bikinilijn, rug, borst, buik, benen, armen en oksels. Maak snel een afspraak!"
+>
+  <PageHero
+    eyebrow="Behandeling"
+    title="Waxen"
+    lead="In onze schoonheidssalon in Delft kun je terecht voor het verwijderen van ongewenste haargroei op diverse delen van je lichaam. We bieden zowel hars- als waxbehandelingen aan, afhankelijk van wat het beste bij jouw huid en haargroei past."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Bij het harsen of waxen wordt een dunne laag van het product aangebracht op de huid,
+      waarna een stofstrip wordt aangebracht en met een snelle beweging van de huid afgetrokken.
+      Dit verwijdert de haren van de wortel af en laat de huid glad en zacht achter. Het resultaat
+      kan enkele weken tot een maand aanhouden, afhankelijk van de groei van de haren.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Als professionele schoonheidsspecialiste heb ik de juiste kennis en ervaring om de
+      behandeling veilig en comfortabel voor je te maken. Voordat we starten met de behandeling,
+      zullen we altijd eerst je huid evalueren om te bepalen of je geschikt bent voor de
+      behandeling. Zo kunnen we ervoor zorgen dat je een positief resultaat behaalt zonder
+      complicaties.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Hoe lang blijft je haar weg na waxen?</h2>
+    <p class="mt-4 text-ink-soft">
+      Waxen is een tijdelijke ontharingsmethode die het haar met wortel en al verwijdert. Na het
+      harsen of waxen blijft het haar gemiddeld 3 tot 5 weken weg.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Wat mag je niet doen na het waxen?</h2>
+    <p class="mt-4 text-ink-soft">
+      Advies is om niet je huid aan te raken of wrijven na het waxen. Dit kan leiden tot
+      irritaties. Vermijd de sauna, heet douchen of baden, totdat de roodheid van de huid is
+      afgenomen. Ga niet direct zwemmen in zout of chloorwater.
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      <div class="rounded-2xl border border-line bg-cream-dark/40 p-6">
+        <h3 class="font-display text-lg text-ink">Voor vrouwen</h3>
+        <ul class="mt-3 space-y-1 text-ink-soft">
+          <li>Bikinilijn</li>
+          <li>Oksels</li>
+          <li>Boven- of onderbenen</li>
+          <li>Gehele benen</li>
+          <li>Gehele armen</li>
+        </ul>
+      </div>
+      <div class="rounded-2xl border border-line bg-cream-dark/40 p-6">
+        <h3 class="font-display text-lg text-ink">Voor mannen</h3>
+        <ul class="mt-3 space-y-1 text-ink-soft">
+          <li>Rug</li>
+          <li>Oksels</li>
+          <li>Boven- of onderbenen</li>
+          <li>Gehele benen</li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-4 text-sm text-ink-soft">
+      Voor het harsen is het belangrijk dat de haren minimaal 0,5 cm zijn.
+    </p>
+
+    <p class="mt-6 text-ink-soft">
+      Neem gerust <a href="/contact/" class="underline decoration-terracotta underline-offset-4">contact</a> met ons op om een afspraak te maken voor het harsen of waxen van diverse lichaamsdelen.
+    </p>
+    <Button href={site.bookingUrl} class="mt-6">Afspraak maken</Button>
+  </section>
+</BaseLayout>

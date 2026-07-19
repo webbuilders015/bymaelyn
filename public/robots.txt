@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bymaelyn.nl/sitemap-index.xml

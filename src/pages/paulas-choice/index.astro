@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site } from '../../data/site';
+
+const pillars = [
+  {
+    title: 'Wetenschap & waarheid',
+    text: 'We laten ons leiden door de waarheid, niet door trends. Onze producten worden altijd ondersteund en gecontroleerd door wetenschappelijk onderzoek.',
+  },
+  {
+    title: 'Zeer effectief',
+    text: 'We beloven geen wonderen, maar gaan voor resultaat. We werken alleen met effectieve ingrediënten, in de juiste concentraties en met stabiele pH-waarden.',
+  },
+  {
+    title: 'Niet irriterend',
+    text: 'We gebruiken alleen wat de huid verbetert, niets wat het niet nodig heeft. Elk product wordt eerst getest op mensen, in een onafhankelijk laboratorium.',
+  },
+  {
+    title: 'Veelzijdige producten',
+    text: 'Ieder product bevat antioxidanten, voedende en huidherstellende ingrediënten om de huid gezond te houden.',
+  },
+  {
+    title: 'Nooit op dieren getest',
+    text: 'We staan niet achter dierproeven en hebben onze producten dan ook nooit op dieren getest.',
+  },
+  {
+    title: 'Milieubewust',
+    text: 'We doen er alles aan om onze ecologische voetafdruk te verkleinen en zoeken actief naar duurzame ingrediënten en recyclebare verpakkingen.',
+  },
+];
+---
+
+<BaseLayout
+  title="Paula's Choice verkooppunt - Art of Beauty by Maelyn"
+  description="Paula's Choice nieuw in ons assortiment! Skincare producten van Paula's Choice! Ben jij op zoek naar een specifiek product? Neem dan contact met ons op!"
+>
+  <PageHero eyebrow="Merk" title="Paula's Choice skincare" lead="Beauty begins with truth." />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Jij verdient de beste keuzes op het gebied van huidverzorging. Daarom zijn wij trotse partner
+      en officieel verkooppunt van Paula's Choice in onze schoonheidssalon in Delft! De filosofie
+      van Paula's Choice? Smart, Safe Beauty. Huidverzorging moet goed zijn voor je huid en
+      producten moeten doen wat ze beloven, geen uitzonderingen. Met maar één doel: jou
+      vooruithelpen met effectieve, veilige samenstellingen. Elk product wordt ondersteund door
+      wetenschappelijk onderzoek. Eerlijke huidverzorging, omdat een gezonde huid geen mysterie
+      moet zijn.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Smart, Safe Beauty</h2>
+    <p class="mt-4 text-ink-soft">
+      Paula's Choice gebruikt alleen de beste natuurlijke en synthetische ingrediënten in hun
+      producten, om aan elke huidbehoefte te kunnen voldoen, ongeacht huidtype, huidprobleem en
+      leeftijd. De producten van Paula's Choice gebruiken geen ingrediënten waarvan onderzoek
+      heeft aangetoond dat ze irriterend zijn, uitdrogen of waarschijnlijk huidproblemen
+      verergeren. De continue toewijding aan Smart, Safe Beauty betekent dat je er altijd op kunt
+      vertrouwen dat de producten goed voor je huid zorgen.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Product filosofie</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      {
+        pillars.map((p) => (
+          <div class="rounded-2xl border border-line bg-cream-dark/40 p-6">
+            <h3 class="font-display text-lg text-ink">{p.title}</h3>
+            <p class="mt-2 text-sm text-ink-soft">{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 text-ink-soft">
+      Wil je advies of de producten van Paula's Choice aanschaffen? Maak dan hier gemakkelijk een
+      afspraak, zo kunnen wij in onze schoonheidssalon alle tijd nemen om jou van het juiste
+      advies en producten te voorzien. Staat de gewenste datum of tijd er niet tussen? Neem dan
+      gerust contact met ons op via {' '}
+      <a href={`mailto:${site.contact.email}`} class="underline decoration-terracotta underline-offset-4">
+        {site.contact.email}
+      </a> of telefonisch via {' '}
+      <a href={site.contact.phoneHref} class="underline decoration-terracotta underline-offset-4">
+        {site.contact.phone}
+      </a>.
+    </p>
+    <Button href={site.bookingUrl} class="mt-6">Afspraak maken</Button>
+  </section>
+</BaseLayout>
