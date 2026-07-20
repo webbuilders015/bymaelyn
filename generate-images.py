@@ -102,16 +102,22 @@ IMAGES = [
     ),
     (
         "public/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg",
-        "Extreme close-up macro photo of an eyebrow shaping treatment in a "
-        "luxurious salon, tightly cropped on just the eyebrow and upper eye "
-        "area: a simple plain steel tweezer tip precisely gripping a single "
-        "hair exactly at the natural lower edge of a well-groomed eyebrow, "
-        "the tweezer tip is in sharp focus touching the eyebrow hairs "
-        "themselves (not the forehead, not the hairline, not empty skin), "
-        "anatomically correct hand with only two fingertips holding the "
-        "tweezer visible at the very edge of frame and mostly cropped out, "
-        "client's eye closed looking relaxed, warm golden salon lighting, "
-        "shot on a 100mm macro lens with shallow depth of field, "
+        "Candid documentary photo of a real eyebrow treatment in progress "
+        "in a boutique beauty salon: a client reclining comfortably in a "
+        "cushioned treatment chair with her head resting on a headrest, "
+        "eyes closed, completely relaxed, wearing a soft robe or towel "
+        "around her shoulders, the esthetician standing beside the chair "
+        "leaning in slightly, holding a simple plain steel tweezer near the "
+        "client's brow with a natural, anatomically normal hand grip, the "
+        "tweezer tip resting gently right at the edge of her natural, "
+        "everyday eyebrow (not exaggerated, not overly groomed, ordinary "
+        "brow hairs of slightly uneven length), shot from a natural medium "
+        "distance (not an extreme macro) so the treatment chair, the "
+        "client's whole face and part of the salon room are visible, soft "
+        "realistic camera focus roll-off typical of a 50mm lens at f/2, "
+        "not hyper-detailed or over-sharpened, hair strands look soft and "
+        "photographic rather than painted or illustrated, warm natural "
+        "salon lighting, "
         f"{ANTI_AI}",
     ),
     (
