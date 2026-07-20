@@ -36,107 +36,123 @@ API_URL = f"https://api.replicate.com/v1/models/{MODEL}/predictions"
 
 # Things that reliably make an image read as "AI-generated" to the eye: perfect
 # symmetry, glassy/plastic skin, over-saturated colors, centered/staged
-# composition, and a suspiciously clean environment. This suffix pushes hard
-# against all of that. Per-image prompts below also vary lens/light/angle so
-# every shot doesn't come out with the identical "look".
+# composition, and a suspiciously clean environment. The previous version of
+# this suffix also pushed toward a cool, muted, slightly grey "Kinfolk"
+# editorial look, which read as dull/drab rather than luxurious. This version
+# keeps the realism cues but shifts the color direction to warm, golden and
+# rich instead - closer to a five-star spa than a moody lifestyle blog.
+# Per-image prompts below also vary lens/light/angle so every shot doesn't
+# come out with the identical "look".
 ANTI_AI = (
-    "authentic editorial photography for a boutique skincare salon website, "
-    "in the style of a real magazine feature (Kinfolk / Cereal magazine "
-    "aesthetic), shot handheld with slight natural imperfection, asymmetrical "
-    "off-center composition, real imperfect environment with authentic small "
-    "clutter, true-to-life muted color grading (not oversaturated, not "
-    "teal-and-orange), accurate white balance, visible natural film grain, "
-    "realistic uneven ambient light with soft shadows, skin has visible pores "
+    "luxurious spa and wellness photography for a high-end boutique beauty "
+    "salon website, warm golden-hour light, rich warm color grading in "
+    "warm ivory, champagne, honey and soft gold tones (never grey, never "
+    "cool, never desaturated, never dull or flat), glowing warm skin tones, "
+    "shot handheld with slight natural imperfection, asymmetrical off-center "
+    "composition, real environment with authentic small tasteful details, "
+    "accurate warm white balance, visible natural film grain, soft warm "
+    "directional light with gentle warm shadows, skin has visible pores "
     "texture and natural blemishes and is not airbrushed or smoothed, "
-    "imperfect natural hair flyaways, no perfect symmetry, no plastic or "
-    "glossy CGI look, no waxy skin, no uncanny valley, no beauty-filter "
-    "smoothing, no readable text or logos anywhere, not a 3D render, not "
-    "digital illustration, not a stock-photo studio setup"
+    "imperfect natural hair flyaways, an inviting relaxed calm atmosphere, "
+    "no perfect symmetry, no plastic or glossy CGI look, no waxy skin, no "
+    "uncanny valley, no beauty-filter smoothing, no readable text or logos "
+    "anywhere, not a 3D render, not digital illustration, not a flat grey "
+    "stock-photo look, not a cold clinical look"
 )
 
 IMAGES = [
     (
         "public/images/blog/generated/huidverbeterende-gezichtsbehandeling-uitgelegd.jpg",
-        "Candid over-the-shoulder photo in a small boutique beauty salon "
+        "Candid over-the-shoulder photo in a luxurious boutique beauty salon "
         "treatment room: an esthetician's hand gently spreading a clay mask "
         "along a client's jawline with a soft spatula, client reclined with "
-        "eyes closed, a rolled white towel around her hairline, warm late "
-        "afternoon window light from the side, shallow depth of field on a "
-        "50mm lens, realistic imperfect skin texture, "
+        "eyes closed looking utterly relaxed, a plush warm ivory towel "
+        "wrapped around her hairline, a small gold-rimmed dish and a sprig "
+        "of fresh eucalyptus on the side table, warm golden-hour sunlight "
+        "streaming through a sheer curtain, shallow depth of field on a "
+        "50mm lens, realistic imperfect skin texture with a healthy glow, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/chemische-peeling-vs-microdermabrasie.jpg",
-        "Overhead flatlay on a raw linen cloth: a small unlabeled amber "
-        "glass dropper bottle catching soft window light next to a "
-        "diamond-tip microdermabrasion wand resting on its side, a folded "
-        "muslin cloth beside it, natural uneven shadows, slightly imperfect "
+        "Overhead flatlay on a warm honey-toned linen cloth: a small "
+        "unlabeled amber glass dropper bottle glowing in warm golden "
+        "afternoon light next to a diamond-tip microdermabrasion wand "
+        "resting on its side, a small gold dish and a sprig of dried "
+        "flowers beside it, natural warm shadows, slightly imperfect "
         "asymmetrical arrangement (not centered, not perfectly aligned), "
-        "shot on 35mm with natural daylight, "
+        "shot on 35mm with warm natural daylight, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/skincare-routine-vanaf-je-dertigste.jpg",
-        "Morning bathroom counter flatlay, slightly from above at an angle: "
-        "a few unlabeled matte glass skincare bottles and a jar of cream "
-        "with the lid off and a small texture visible, a damp washcloth "
-        "nearby, soft directional morning sunlight casting long natural "
-        "shadows, realistic uneven arrangement, faint water droplets on the "
-        "counter, "
+        "Morning flatlay on a warm cream marble counter with soft brass "
+        "fixtures visible at the edge, slightly from above at an angle: a "
+        "few unlabeled frosted glass skincare bottles and a jar of cream "
+        "with the lid off and a small texture visible, a small sprig of "
+        "fresh eucalyptus, soft golden morning sunlight casting long warm "
+        "shadows, realistic uneven arrangement, faint water droplets "
+        "catching the light, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg",
-        "Close side-profile photo of an eyebrow shaping treatment: tweezers "
-        "held just above a client's brow by an out-of-focus hand in the "
-        "foreground, focus on the natural brow hair and skin texture, "
-        "client's eyes closed, soft diffused salon lighting, shot on a "
-        "85mm macro lens with shallow depth of field, "
+        "Close side-profile photo of an eyebrow shaping treatment in a "
+        "luxurious salon: tweezers held just above a client's brow by an "
+        "out-of-focus hand in the foreground, focus on the natural brow "
+        "hair and glowing warm skin texture, client's eyes closed looking "
+        "relaxed, warm golden salon lighting, shot on a 85mm macro lens "
+        "with shallow depth of field, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/waxen-vs-scheren-vs-ipl.jpg",
-        "Simple still life on a light oak table: a small stack of folded "
-        "waffle-weave cotton towels, a wooden bowl with cotton pads, and an "
-        "unlabeled amber oil bottle catching a sliver of window light, "
-        "natural soft shadows, slightly imperfect casual arrangement, shot "
-        "on 35mm, "
+        "Simple luxurious still life on a warm honey-toned wood table: a "
+        "small stack of folded waffle-weave ivory towels, a wooden bowl "
+        "with cotton pads, a small unlit candle, and an unlabeled amber oil "
+        "bottle glowing in warm afternoon sunlight, natural warm shadows, "
+        "slightly imperfect casual arrangement, shot on 35mm, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/paulas-choice-of-skeyndor.jpg",
-        "Flatlay of a small skincare collection on a warm cream stone "
-        "surface: two or three unlabeled frosted glass bottles of varying "
-        "heights and a low ceramic jar, arranged with realistic uneven "
-        "spacing (not symmetrical), soft raking window light creating long "
-        "natural shadows, subtle dust visible in the light, shot on 35mm, "
+        "Flatlay of a small premium skincare collection on warm travertine "
+        "marble: two or three unlabeled frosted glass bottles of varying "
+        "heights and a low ceramic jar, a small gold tray edge visible in "
+        "frame, arranged with realistic uneven spacing (not symmetrical), "
+        "warm golden raking light creating long natural shadows, subtle "
+        "dust visible in the light, shot on 35mm, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/wat-helpt-tegen-pigmentvlekken.jpg",
         "Natural close-up portrait crop of a woman's cheek and jaw turned "
-        "slightly away from camera, soft window light from one side, real "
-        "visible skin texture with faint natural pigmentation and pores, "
-        "a few loose flyaway hairs, shot on an 85mm portrait lens with "
-        "shallow depth of field, background softly blurred, "
+        "slightly away from camera, warm golden-hour window light from one "
+        "side giving her skin a healthy warm glow, real visible skin "
+        "texture with faint natural pigmentation and pores, a few loose "
+        "flyaway hairs, warm cozy interior softly blurred in the "
+        "background, shot on an 85mm portrait lens with shallow depth of "
+        "field, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/huidverzorging-winter-vs-zomer.jpg",
-        "Cozy still life: an unlabeled matte ceramic cream jar with the lid "
-        "resting beside it, sitting on a rumpled chunky knit blanket near a "
-        "window, soft cool daylight mixed with a warm interior light source, "
-        "realistic fabric texture and creases, shot on 35mm, "
+        "Cozy luxurious still life: an unlabeled matte ceramic cream jar "
+        "with the lid resting beside it, sitting on a rumpled honey-toned "
+        "chunky knit blanket near a window, warm golden lamp light mixing "
+        "with soft daylight, a small steaming cup of tea nearby, realistic "
+        "fabric texture and creases, shot on 35mm, "
         f"{ANTI_AI}",
     ),
     (
         "public/images/treatments/microdermabrasie.jpg",
-        "Candid three-quarter angle photo in a boutique salon treatment "
-        "room: an esthetician's gloved hand guiding a diamond-tip "
-        "microdermabrasion device along a client's cheekbone, client "
-        "reclined with eyes closed and a headband holding her hair back, "
-        "soft window light from the side, realistic skin texture, shot on "
-        "a 50mm lens with shallow depth of field, "
+        "Candid three-quarter angle photo in a luxurious boutique salon "
+        "treatment room: an esthetician's gloved hand guiding a "
+        "diamond-tip microdermabrasion device along a client's cheekbone, "
+        "client reclined with eyes closed and a headband holding her hair "
+        "back, looking utterly relaxed, warm golden window light from the "
+        "side giving her skin a healthy glow, realistic skin texture, shot "
+        "on a 50mm lens with shallow depth of field, "
         f"{ANTI_AI}",
     ),
 ]
