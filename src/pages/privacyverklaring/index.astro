@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { site } from '../../data/site';
+---
+
+<BaseLayout
+  title="Privacyverklaring - Art of Beauty by Maelyn"
+  description="Lees hier hoe Art of Beauty by Maelyn omgaat met jouw persoonsgegevens, welke gegevens wij verwerken en welke rechten je hebt."
+>
+  <PageHero eyebrow="Juridisch" title="Privacyverklaring" />
+
+  <section class="mx-auto max-w-3xl px-6 py-16 text-ink-soft [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-xl [&_h2]:text-ink [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_p]:mt-2">
+    <p>
+      {site.name} respecteert de privacy van iedereen die onze website bezoekt of gebruikmaakt van
+      onze diensten. In deze privacyverklaring leggen we uit welke persoonsgegevens wij verwerken,
+      waarom we dat doen en welke rechten je hebt.
+    </p>
+
+    <h2>1. Wie zijn wij</h2>
+    <p>
+      {site.name} is gevestigd op {site.address.street}, {site.address.postalCode} {site.address.city}.
+      KVK-nummer: {site.kvk}. BTW-nummer: {site.btw}. Voor vragen over deze privacyverklaring kun je
+      contact opnemen via <a href={`mailto:${site.contact.email}`} class="text-accent underline">{site.contact.email}</a> of
+      telefonisch via <a href={site.contact.phoneHref} class="text-accent underline">{site.contact.phone}</a>.
+    </p>
+
+    <h2>2. Welke gegevens verzamelen wij</h2>
+    <p>Wij verwerken persoonsgegevens in de volgende gevallen:</p>
+    <ul>
+      <li>
+        <strong>Contactformulier:</strong> wanneer je ons contactformulier invult, verwerken wij je
+        naam, e-mailadres, telefoonnummer (indien opgegeven) en je bericht. Deze gegevens worden
+        gebruikt om je vraag te beantwoorden en worden via de dienst Resend als e-mail naar ons
+        verzonden.
+      </li>
+      <li>
+        <strong>Online afspraken:</strong> voor het maken van een afspraak maken wij gebruik van het
+        boekingssysteem van Salonized. Wanneer je hier een afspraak boekt, worden je gegevens (zoals
+        naam, e-mailadres en telefoonnummer) verwerkt door Salonized. Voor meer informatie verwijzen
+        we je naar het privacybeleid van Salonized.
+      </li>
+      <li>
+        <strong>Reviews:</strong> op onze reviews-pagina tonen wij een widget van Salonized met
+        klantbeoordelingen. Hierbij worden geen persoonsgegevens van jou als bezoeker verzameld.
+      </li>
+    </ul>
+
+    <h2>3. Website- en bezoekstatistieken</h2>
+    <p>
+      Wij gebruiken Vercel Analytics en Vercel Speed Insights om te zien hoeveel bezoekers onze
+      website bezoekt en hoe snel de website laadt. Deze diensten zijn privacyvriendelijk: ze
+      plaatsen geen cookies en volgen bezoekers niet individueel. De verzamelde gegevens zijn
+      geanonimiseerd en niet naar jou als persoon te herleiden.
+    </p>
+
+    <h2>4. Bewaartermijn</h2>
+    <p>
+      Wij bewaren je gegevens niet langer dan noodzakelijk is voor het doel waarvoor ze zijn
+      verzameld, of zolang als wettelijk verplicht is (bijvoorbeeld voor onze boekhouding).
+    </p>
+
+    <h2>5. Delen met derden</h2>
+    <p>
+      Wij delen je gegevens uitsluitend met partijen die noodzakelijk zijn voor onze
+      dienstverlening, zoals Resend (verzenden van e-mail), Salonized (boekingen en reviews) en
+      Vercel (website hosting). Met deze partijen maken wij afspraken om de beveiliging en
+      vertrouwelijkheid van je gegevens te waarborgen. Wij verkopen jouw gegevens nooit aan derden.
+    </p>
+    <p>
+      Op de contactpagina tonen we een ingesloten Google Maps-kaart. Wanneer je hiermee
+      interacteert, kan Google eigen cookies plaatsen. Dit valt buiten onze invloed; raadpleeg
+      hiervoor het privacybeleid van Google.
+    </p>
+
+    <h2>6. Beveiliging</h2>
+    <p>
+      Wij nemen passende technische en organisatorische maatregelen om je persoonsgegevens te
+      beschermen tegen verlies of onrechtmatig gebruik.
+    </p>
+
+    <h2>7. Jouw rechten</h2>
+    <p>Je hebt het recht om:</p>
+    <ul>
+      <li>inzage te vragen in de persoonsgegevens die wij van je verwerken;</li>
+      <li>onjuiste gegevens te laten corrigeren;</li>
+      <li>je gegevens te laten verwijderen;</li>
+      <li>bezwaar te maken tegen de verwerking van je gegevens;</li>
+      <li>je gegevens over te laten dragen (dataportabiliteit).</li>
+    </ul>
+    <p>
+      Wil je gebruikmaken van een van deze rechten? Neem dan contact met ons op via {' '}
+      <a href={`mailto:${site.contact.email}`} class="text-accent underline">{site.contact.email}</a>.
+      Je hebt ook het recht om een klacht in te dienen bij de Autoriteit Persoonsgegevens.
+    </p>
+
+    <h2>8. Wijzigingen</h2>
+    <p>
+      Wij kunnen deze privacyverklaring van tijd tot tijd aanpassen. De meest actuele versie is
+      altijd op deze pagina te vinden.
+    </p>
+  </section>
+</BaseLayout>

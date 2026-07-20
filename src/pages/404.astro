@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import { site } from '../data/site';
+
+const quickLinks = [
+  { label: 'Behandelingen', href: '/behandelingen/', text: 'Bekijk al onze schoonheidsbehandelingen.' },
+  { label: 'Blog', href: '/blog/', text: 'Tips en uitleg over huidverzorging.' },
+  { label: 'Contact', href: '/contact/', text: 'Stel je vraag, we helpen je graag.' },
+];
+---
+
+<BaseLayout
+  title="Pagina niet gevonden - Art of Beauty by Maelyn"
+  description="Deze pagina bestaat niet (meer). Ga terug naar de homepage van Art of Beauty by Maelyn in Delft."
+>
+  <section class="border-b border-line px-6 py-20 text-center md:px-10 md:py-28" data-reveal>
+    <p class="font-display text-[64px] font-light leading-none tracking-tight text-accent sm:text-[96px]">404</p>
+    <h1 class="mt-4 font-display text-3xl font-light leading-tight tracking-tight text-ink sm:text-4xl">
+      Deze pagina konden we niet vinden
+    </h1>
+    <p class="mx-auto mt-5 max-w-md text-[15px] leading-relaxed text-ink-soft">
+      De pagina die je zoekt bestaat niet (meer) of is verplaatst. Ga terug naar de homepage of
+      bekijk een van onderstaande pagina's.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button href="/">Terug naar home</Button>
+      <Button href={site.bookingUrl} variant="outline">Afspraak maken</Button>
+    </div>
+  </section>
+
+  <section class="px-6 py-16 md:px-10 md:py-20" data-reveal>
+    <div class="mx-auto grid max-w-4xl gap-6 sm:grid-cols-3">
+      {
+        quickLinks.map((link) => (
+          <a
+            href={link.href}
+            class="group flex flex-col rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+          >
+            <span class="font-display text-lg text-ink transition-colors group-hover:text-accent">
+              {link.label}
+            </span>
+            <span class="mt-2 text-sm text-ink-soft">{link.text}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

@@ -2,7 +2,7 @@ export const site = {
   name: 'Art of Beauty by Maelyn',
   tagline: 'Schoonheidsspecialist in Delft',
   description:
-    'Schoonheidsspecialiste gespecialiseerd in huidverbeterende gezichtsbehandelingen, wimperlifting, massages, waxen en diverse andere schoonheidsbehandelingen.',
+    'Schoonheidsspecialiste gespecialiseerd in huidverbeterende gezichtsbehandelingen, chemische peelings, microdermabrasie, waxen en diverse andere schoonheidsbehandelingen.',
   url: 'https://bymaelyn.nl',
   address: {
     street: 'Bagijnhof 1',
