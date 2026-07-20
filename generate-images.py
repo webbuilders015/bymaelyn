@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 """
-Generates the blog + treatment images via Replicate (Flux) and saves them
-straight into the project's public/images folder.
+Generates the blog + treatment images via Replicate (nano-banana) and saves
+them straight into the project's public/images folder.
 
 Usage:
     REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py
 or:
     python3 generate-images.py r8_xxx
+
+Add --force (or FORCE=1) to regenerate images that already exist on disk,
+e.g. after improving the prompts:
+    REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py --force
 """
 
 import json
@@ -16,79 +20,124 @@ import time
 import urllib.error
 import urllib.request
 
-TOKEN = os.environ.get("REPLICATE_API_TOKEN") or (sys.argv[1] if len(sys.argv) > 1 else None)
+TOKEN = os.environ.get("REPLICATE_API_TOKEN") or next(
+    (a for a in sys.argv[1:] if not a.startswith("-")), None
+)
 if not TOKEN:
-    print("Usage: REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py")
+    print("Usage: REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py [--force]")
     sys.exit(1)
+
+FORCE = "--force" in sys.argv or os.environ.get("FORCE") == "1"
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # nano-banana (Google) tends to render more photorealistic, less "AI glossy" results.
 MODEL = "google/nano-banana"
 API_URL = f"https://api.replicate.com/v1/models/{MODEL}/predictions"
 
-STYLE = (
-    "candid documentary-style photograph, shot on a Canon EOS R5 with an 85mm "
-    "f/1.4 lens, natural soft window light, real skin texture with visible "
-    "pores and fine detail, unretouched, warm neutral beige and cream color "
-    "grade, subtle gold accent details, shallow depth of field, film-like "
-    "grain, photojournalistic, not airbrushed, not smoothed, not CGI, not "
-    "3D render, not digital illustration, not plastic looking, no visible "
-    "text, no logos, no readable labels, ultra realistic"
+# Things that reliably make an image read as "AI-generated" to the eye: perfect
+# symmetry, glassy/plastic skin, over-saturated colors, centered/staged
+# composition, and a suspiciously clean environment. This suffix pushes hard
+# against all of that. Per-image prompts below also vary lens/light/angle so
+# every shot doesn't come out with the identical "look".
+ANTI_AI = (
+    "authentic editorial photography for a boutique skincare salon website, "
+    "in the style of a real magazine feature (Kinfolk / Cereal magazine "
+    "aesthetic), shot handheld with slight natural imperfection, asymmetrical "
+    "off-center composition, real imperfect environment with authentic small "
+    "clutter, true-to-life muted color grading (not oversaturated, not "
+    "teal-and-orange), accurate white balance, visible natural film grain, "
+    "realistic uneven ambient light with soft shadows, skin has visible pores "
+    "texture and natural blemishes and is not airbrushed or smoothed, "
+    "imperfect natural hair flyaways, no perfect symmetry, no plastic or "
+    "glossy CGI look, no waxy skin, no uncanny valley, no beauty-filter "
+    "smoothing, no readable text or logos anywhere, not a 3D render, not "
+    "digital illustration, not a stock-photo studio setup"
 )
 
 IMAGES = [
     (
         "public/images/blog/generated/huidverbeterende-gezichtsbehandeling-uitgelegd.jpg",
-        f"A real esthetician's hands applying a clay facial mask to a client "
-        f"lying back in a boutique skincare salon chair, {STYLE}",
+        "Candid over-the-shoulder photo in a small boutique beauty salon "
+        "treatment room: an esthetician's hand gently spreading a clay mask "
+        "along a client's jawline with a soft spatula, client reclined with "
+        "eyes closed, a rolled white towel around her hairline, warm late "
+        "afternoon window light from the side, shallow depth of field on a "
+        "50mm lens, realistic imperfect skin texture, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/chemische-peeling-vs-microdermabrasie.jpg",
-        f"Still life of two skincare treatment concepts side by side, glass "
-        f"skincare bottles with completely blank unlabeled surfaces and a "
-        f"diamond-tip microdermabrasion device on a marble surface, {STYLE}",
+        "Overhead flatlay on a raw linen cloth: a small unlabeled amber "
+        "glass dropper bottle catching soft window light next to a "
+        "diamond-tip microdermabrasion wand resting on its side, a folded "
+        "muslin cloth beside it, natural uneven shadows, slightly imperfect "
+        "asymmetrical arrangement (not centered, not perfectly aligned), "
+        "shot on 35mm with natural daylight, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/skincare-routine-vanaf-je-dertigste.jpg",
-        f"Skincare routine flatlay, serums and moisturizer bottles with "
-        f"completely blank unlabeled surfaces, arranged on a soft cream "
-        f"surface, soft morning light, {STYLE}",
+        "Morning bathroom counter flatlay, slightly from above at an angle: "
+        "a few unlabeled matte glass skincare bottles and a jar of cream "
+        "with the lid off and a small texture visible, a damp washcloth "
+        "nearby, soft directional morning sunlight casting long natural "
+        "shadows, realistic uneven arrangement, faint water droplets on the "
+        "counter, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg",
-        f"Close-up of a real eyebrow shaping treatment in progress, tweezers "
-        f"held near a client's brow, clean white towel beneath, minimal salon "
-        f"setting, {STYLE}",
+        "Close side-profile photo of an eyebrow shaping treatment: tweezers "
+        "held just above a client's brow by an out-of-focus hand in the "
+        "foreground, focus on the natural brow hair and skin texture, "
+        "client's eyes closed, soft diffused salon lighting, shot on a "
+        "85mm macro lens with shallow depth of field, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/waxen-vs-scheren-vs-ipl.jpg",
-        f"Still life representing smooth skin hair removal, soft cotton pads, "
-        f"a warm oil bottle with a completely blank unlabeled surface, and a "
-        f"clean folded towel on a light beige surface, {STYLE}",
+        "Simple still life on a light oak table: a small stack of folded "
+        "waffle-weave cotton towels, a wooden bowl with cotton pads, and an "
+        "unlabeled amber oil bottle catching a sliver of window light, "
+        "natural soft shadows, slightly imperfect casual arrangement, shot "
+        "on 35mm, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/paulas-choice-of-skeyndor.jpg",
-        f"Flatlay of premium skincare bottles and jars with completely blank "
-        f"unlabeled surfaces, neutral white and amber glass packaging, minimal "
-        f"luxury skincare aesthetic, {STYLE}",
+        "Flatlay of a small skincare collection on a warm cream stone "
+        "surface: two or three unlabeled frosted glass bottles of varying "
+        "heights and a low ceramic jar, arranged with realistic uneven "
+        "spacing (not symmetrical), soft raking window light creating long "
+        "natural shadows, subtle dust visible in the light, shot on 35mm, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/wat-helpt-tegen-pigmentvlekken.jpg",
-        f"Extreme close-up of real human skin on a cheek, natural texture, "
-        f"visible pores, even glowing tone, soft focus background, gold "
-        f"accent light reflection, {STYLE}",
+        "Natural close-up portrait crop of a woman's cheek and jaw turned "
+        "slightly away from camera, soft window light from one side, real "
+        "visible skin texture with faint natural pigmentation and pores, "
+        "a few loose flyaway hairs, shot on an 85mm portrait lens with "
+        "shallow depth of field, background softly blurred, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/blog/generated/huidverzorging-winter-vs-zomer.jpg",
-        f"Still life of a rich cream jar with a completely blank unlabeled "
-        f"surface nestled in a warm cozy knit blanket, soft directional "
-        f"sunlight, {STYLE}",
+        "Cozy still life: an unlabeled matte ceramic cream jar with the lid "
+        "resting beside it, sitting on a rumpled chunky knit blanket near a "
+        "window, soft cool daylight mixed with a warm interior light source, "
+        "realistic fabric texture and creases, shot on 35mm, "
+        f"{ANTI_AI}",
     ),
     (
         "public/images/treatments/microdermabrasie.jpg",
-        f"A real esthetician wearing gloves using a diamond-tip "
-        f"microdermabrasion device on a client's cheek, client lying back "
-        f"eyes closed in a clean boutique salon, {STYLE}",
+        "Candid three-quarter angle photo in a boutique salon treatment "
+        "room: an esthetician's gloved hand guiding a diamond-tip "
+        "microdermabrasion device along a client's cheekbone, client "
+        "reclined with eyes closed and a headband holding her hair back, "
+        "soft window light from the side, realistic skin texture, shot on "
+        "a 50mm lens with shallow depth of field, "
+        f"{ANTI_AI}",
     ),
 ]
 
@@ -144,8 +193,8 @@ def download(url: str, rel_path: str) -> None:
 def main() -> None:
     for rel_path, prompt in IMAGES:
         full_path = os.path.join(BASE_DIR, rel_path)
-        if os.path.exists(full_path):
-            print(f"Skipping {rel_path} (already exists)")
+        if os.path.exists(full_path) and not FORCE:
+            print(f"Skipping {rel_path} (already exists, use --force to regenerate)")
             continue
         print(f"Generating {rel_path} ...")
         try:
