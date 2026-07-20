@@ -117,7 +117,6 @@ export const mainNav = [
     href: '/merken/',
     children: brands.map((b) => ({ label: b.title, href: `/${b.slug}/` })),
   },
-  { label: 'Blog', href: '/blog/' },
   { label: 'Reviews', href: '/reviews/' },
   { label: 'Contact', href: '/contact/' },
 ];
