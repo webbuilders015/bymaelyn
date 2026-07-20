@@ -108,10 +108,10 @@ const serviceSchema = {
       Elke behandeling start met een huidanalyse en intakegesprek, zodat we de aanpak kunnen
       afstemmen op jouw huidtype en wensen.
     </p>
-    <ol class="mt-3 flex flex-wrap gap-3">
+    <ol class="mt-3 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
       {
         steps.map((step, i) => (
-          <li class="rounded-full border border-line bg-bg-soft px-4 py-2 text-sm text-ink-soft">
+          <li class="flex items-center justify-center rounded-2xl border border-line bg-bg-soft px-4 py-2 text-center text-sm text-ink-soft sm:rounded-full">
             {i + 1}. {step}
           </li>
         ))

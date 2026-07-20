@@ -106,10 +106,10 @@ const serviceSchema = {
       voor de peeling — er is een peeling voor elk huidtype.
     </p>
     <p class="mt-3 font-medium text-ink">4 fases om elke huid tot leven te brengen:</p>
-    <ol class="mt-3 flex flex-wrap gap-3">
+    <ol class="mt-3 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
       {
         phases.map((phase, i) => (
-          <li class="rounded-full rounded-2xl border border-line bg-bg-soft px-4 py-2 text-sm text-ink-soft">
+          <li class="flex items-center justify-center rounded-2xl border border-line bg-bg-soft px-4 py-2 text-center text-sm text-ink-soft sm:rounded-full">
             {i + 1}. {phase}
           </li>
         ))
