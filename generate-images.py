@@ -11,6 +11,10 @@ or:
 Add --force (or FORCE=1) to regenerate images that already exist on disk,
 e.g. after improving the prompts:
     REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py --force
+
+Add --only=<tekst> to regenerate just one image whose path/filename contains
+that text, instead of all 9, e.g. to redo only the wenkbrauwen image:
+    REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py --force --only=wenkbrauwen
 """
 
 import json
@@ -24,10 +28,11 @@ TOKEN = os.environ.get("REPLICATE_API_TOKEN") or next(
     (a for a in sys.argv[1:] if not a.startswith("-")), None
 )
 if not TOKEN:
-    print("Usage: REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py [--force]")
+    print("Usage: REPLICATE_API_TOKEN=r8_xxx python3 generate-images.py [--force] [--only=tekst]")
     sys.exit(1)
 
 FORCE = "--force" in sys.argv or os.environ.get("FORCE") == "1"
+ONLY = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--only=")), None) or os.environ.get("ONLY")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # nano-banana (Google) tends to render more photorealistic, less "AI glossy" results.
@@ -97,12 +102,16 @@ IMAGES = [
     ),
     (
         "public/images/blog/generated/hoe-vaak-wenkbrauwen-epileren.jpg",
-        "Close side-profile photo of an eyebrow shaping treatment in a "
-        "luxurious salon: tweezers held just above a client's brow by an "
-        "out-of-focus hand in the foreground, focus on the natural brow "
-        "hair and glowing warm skin texture, client's eyes closed looking "
-        "relaxed, warm golden salon lighting, shot on a 85mm macro lens "
-        "with shallow depth of field, "
+        "Extreme close-up macro photo of an eyebrow shaping treatment in a "
+        "luxurious salon, tightly cropped on just the eyebrow and upper eye "
+        "area: a simple plain steel tweezer tip precisely gripping a single "
+        "hair exactly at the natural lower edge of a well-groomed eyebrow, "
+        "the tweezer tip is in sharp focus touching the eyebrow hairs "
+        "themselves (not the forehead, not the hairline, not empty skin), "
+        "anatomically correct hand with only two fingertips holding the "
+        "tweezer visible at the very edge of frame and mostly cropped out, "
+        "client's eye closed looking relaxed, warm golden salon lighting, "
+        "shot on a 100mm macro lens with shallow depth of field, "
         f"{ANTI_AI}",
     ),
     (
@@ -208,6 +217,8 @@ def download(url: str, rel_path: str) -> None:
 
 def main() -> None:
     for rel_path, prompt in IMAGES:
+        if ONLY and ONLY.lower() not in rel_path.lower():
+            continue
         full_path = os.path.join(BASE_DIR, rel_path)
         if os.path.exists(full_path) and not FORCE:
             print(f"Skipping {rel_path} (already exists, use --force to regenerate)")
