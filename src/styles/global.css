@@ -26,6 +26,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Footer "Behandelingen"/"Salon" accordions: collapsed by default on mobile to
+   save scroll space, but always shown expanded on desktop regardless of the
+   native <details> open/closed state (desktop toggling is disabled via
+   pointer-events-none on the summary). */
+@media (min-width: 768px) {
+  details.footer-nav:not([open]) > *:not(summary) {
+    display: block;
+  }
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);
