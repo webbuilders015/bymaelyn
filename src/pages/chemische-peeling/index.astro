@@ -26,6 +26,21 @@ const reasons = [
 
 const phases = ['Pre-Peel', 'Persoonlijke peeling', 'Post-Peel', 'Verzorging en bescherming'];
 
+const treatments = [
+  {
+    name: 'Probiome Peel',
+    price: '€105,00',
+    description:
+      'Eén Probiome Peel behandeling: een gerichte peeling-sessie op basis van postbiotica die de huid diepgaand vernieuwt, met een zichtbaar resultaat vanaf de eerste dag.',
+  },
+  {
+    name: 'Probiome Peel Kuur',
+    price: '€300,00',
+    description:
+      'Een kuur van meerdere Probiome Peel behandelingen achter elkaar, voor een dieper en langduriger resultaat. Ideaal bij hardnekkige pigmentvlekken, littekens of een uitgesproken egalisatiewens.',
+  },
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -129,19 +144,22 @@ const serviceSchema = {
       }
     </ol>
 
-    <h2 class="mt-12 font-display text-2xl text-ink">Prijzen</h2>
-    <div class="mt-4 space-y-3">
-      <div class="flex items-center justify-between rounded-2xl border border-line bg-bg-soft px-5 py-4">
-        <span class="text-ink">Probiome Peel</span>
-        <span class="font-medium text-ink">€105,00</span>
-      </div>
-      <div class="flex items-center justify-between rounded-2xl border border-line bg-bg-soft px-5 py-4">
-        <span class="text-ink">Probiome Peel Kuur</span>
-        <span class="font-medium text-ink">€300,00</span>
-      </div>
+    <h2 class="mt-12 font-display text-2xl text-ink">Behandelingen &amp; prijzen</h2>
+    <div class="mt-4 space-y-4">
+      {
+        treatments.map((t) => (
+          <div class="rounded-2xl border border-line bg-bg-soft p-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-display text-lg text-ink">{t.name}</h3>
+              <span class="text-sm font-medium text-ink-soft">{t.price}</span>
+            </div>
+            <p class="mt-3 text-ink-soft">{t.description}</p>
+          </div>
+        ))
+      }
     </div>
-    <p class="mt-3 text-sm text-ink-soft">
-      De Art of Beauty Treatment is ook uit te breiden met microdermabrasie als
+    <p class="mt-4 text-sm text-ink-soft">
+      Liever de Art of Beauty Treatment uitgebreid met microdermabrasie? Bekijk de
       <a href="/gezichtsbehandeling/" class="text-accent underline decoration-accent underline-offset-4">Art of Beauty Diamond Treatment</a>
       (€89,50).
     </p>

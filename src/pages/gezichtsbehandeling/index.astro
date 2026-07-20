@@ -137,25 +137,9 @@ const upgradeTreatments = [
     href: '/microdermabrasie/',
     linkLabel: 'Meer over microdermabrasie',
   },
-  {
-    name: 'Probiome Peel',
-    price: '€105,00',
-    description:
-      'Skeyndor Probiome Peel: het meest effectieve niet-medisch alternatief voor rimpels, fotoveroudering, imperfecties en littekens.',
-    href: '/chemische-peeling/',
-    linkLabel: 'Meer over de Probiome Peel',
-  },
-  {
-    name: 'Probiome Peel Kuur',
-    price: '€300,00',
-    description:
-      'Een kuur van meerdere Probiome Peel behandelingen achter elkaar, voor een dieper en langduriger resultaat.',
-    href: '/chemische-peeling/',
-    linkLabel: 'Meer over de Probiome Peel',
-  },
 ];
 
-const allTreatmentsForSchema = [...baseTreatments, ...powerTreatments, ...upgradeTreatments];
+const allTreatmentsForSchema = [...powerTreatments, ...baseTreatments, ...upgradeTreatments];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -224,40 +208,12 @@ const serviceSchema = {
 
   <section class="bg-bg-soft py-16">
     <div class="mx-auto max-w-4xl px-6">
-      <h2 class="font-display text-2xl text-ink sm:text-3xl">Gezichtsbehandelingen</h2>
-      <p class="mt-2 text-sm text-ink-soft">Dit zijn de onderhouds- en verzorgingsbehandelingen.</p>
-      <div class="mt-8 space-y-6">
-        {
-          baseTreatments.map((t) => (
-            <div class="rounded-2xl border border-line bg-bg p-6">
-              <div class="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 class="font-display text-xl text-ink">{t.name}</h3>
-                <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
-              </div>
-              <p class="mt-3 text-ink-soft">{t.description}</p>
-              <ul class="mt-4 grid gap-x-6 gap-y-1 text-sm text-ink-soft sm:grid-cols-2">
-                {t.steps.map((step) => (
-                  <li class="flex items-start gap-2">
-                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
-                    {step}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <section class="py-16">
-    <div class="mx-auto max-w-4xl px-6">
       <h2 class="font-display text-2xl text-ink sm:text-3xl">Power Treatments</h2>
       <p class="mt-2 text-sm text-ink-soft">Gerichte huidverbetering met hoogwaardige actieve ingrediënten.</p>
       <div class="mt-8 space-y-6">
         {
           powerTreatments.map((t) => (
-            <div class="rounded-2xl border border-line bg-bg-soft p-6">
+            <div class="rounded-2xl border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 class="font-display text-xl text-ink">{t.name}</h3>
                 <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
@@ -301,14 +257,54 @@ const serviceSchema = {
               </ul>
 
               {t.diamondCompatible ? (
-                <span class="mt-5 inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1.5 text-[11px] text-accent">
-                  Uit te breiden met de Diamond Upgrade (+ € 20)
-                </span>
+                <div class="mt-5 rounded-xl border border-accent/30 bg-accent/5 px-4 py-3">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
+                    Uit te breiden met de Diamond Upgrade (+ € 20)
+                  </p>
+                  <p class="mt-1 text-xs text-ink-soft">
+                    We voegen dan een microdermabrasie-stap toe die dieper in de huidlaag reikt,
+                    voor een extra stralend en verfijnd resultaat.
+                  </p>
+                </div>
               ) : (
-                <span class="mt-5 inline-flex items-center gap-1.5 rounded-full bg-line/60 px-3 py-1.5 text-[11px] text-ink-soft">
-                  Niet te combineren met de Diamond Upgrade
-                </span>
+                <div class="mt-5 rounded-xl border border-line bg-line/30 px-4 py-3">
+                  <p class="text-[11px] font-semibold uppercase tracking-[0.08em] text-ink-soft">
+                    Niet te combineren met de Diamond Upgrade
+                  </p>
+                  <p class="mt-1 text-xs text-ink-soft">
+                    Deze behandeling werkt al zeer intensief op de huid, daarom voegen we hier geen
+                    extra microdermabrasie-stap aan toe.
+                  </p>
+                </div>
               )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Basis gezichtsbehandelingen</h2>
+      <p class="mt-2 text-sm text-ink-soft">Onze onderhouds- en verzorgingsbehandelingen.</p>
+      <div class="mt-8 space-y-6">
+        {
+          baseTreatments.map((t) => (
+            <div class="rounded-2xl border border-line bg-bg-soft p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-xl text-ink">{t.name}</h3>
+                <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
+              </div>
+              <p class="mt-3 text-ink-soft">{t.description}</p>
+              <ul class="mt-4 grid gap-x-6 gap-y-1 text-sm text-ink-soft sm:grid-cols-2">
+                {t.steps.map((step) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
+                    {step}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))
         }
@@ -326,7 +322,7 @@ const serviceSchema = {
         met de Power Retinol Lift Treatment.
       </p>
 
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-8 max-w-sm">
         {
           upgradeTreatments.map((t) => (
             <div class="flex flex-col rounded-2xl border border-line bg-bg p-6">
@@ -342,6 +338,13 @@ const serviceSchema = {
           ))
         }
       </div>
+
+      <p class="mt-6 text-sm text-ink-soft">
+        Op zoek naar een chemische peeling? Bekijk de{' '}
+        <a href="/chemische-peeling/" class="text-accent underline decoration-accent underline-offset-4">
+          Probiome Peel en Probiome Peel Kuur
+        </a>.
+      </p>
     </div>
   </section>
 
