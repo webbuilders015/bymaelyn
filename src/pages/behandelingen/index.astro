@@ -13,6 +13,11 @@ const looseTreatments = [
   'Harsen gelaat',
 ];
 
+const facialSlugs = ['gezichtsbehandeling', 'chemische-peeling', 'microdermabrasie'];
+const facialTreatments = treatments.filter((t) => facialSlugs.includes(t.slug));
+const wenkbrauwTreatment = treatments.find((t) => t.slug === 'wenkbrauwen-epileren');
+const waxTreatment = treatments.find((t) => t.slug === 'waxen');
+
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -43,12 +48,12 @@ const itemListSchema = {
 
   <section class="mx-auto max-w-6xl px-6 py-16">
     <h2 class="font-display text-2xl text-ink sm:text-3xl">Gezichtsbehandelingen</h2>
-    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
-        treatments.map((t) => (
+        facialTreatments.map((t) => (
           <a
             href={`/${t.slug}/`}
-            class="group flex flex-col  rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+            class="group flex flex-col rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
           >
             <span class="font-display text-lg text-ink group-hover:text-accent">
               {t.title}
@@ -59,43 +64,76 @@ const itemListSchema = {
       }
     </div>
 
-    <div class="mt-16 grid gap-10 sm:grid-cols-2">
-      <div>
-        <h2 class="font-display text-2xl text-ink">Losse behandelingen</h2>
-        <ul class="mt-4 space-y-2 text-ink-soft">
-          {looseTreatments.map((item) => <li>{item}</li>)}
-        </ul>
+    <div class="mt-16">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Wenkbrauwen &amp; wimpers</h2>
+      <div class="mt-6 grid gap-8 sm:grid-cols-2">
+        {
+          wenkbrauwTreatment && (
+            <a
+              href={`/${wenkbrauwTreatment.slug}/`}
+              class="group flex h-full flex-col rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+            >
+              <span class="font-display text-lg text-ink group-hover:text-accent">
+                {wenkbrauwTreatment.title}
+              </span>
+              <span class="mt-2 text-sm text-ink-soft">{wenkbrauwTreatment.short}</span>
+            </a>
+          )
+        }
+        <div>
+          <p class="font-medium text-ink">Losse behandelingen</p>
+          <ul class="mt-3 space-y-2 text-ink-soft">
+            {looseTreatments.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
       </div>
+    </div>
 
-      <div>
-        <h2 class="font-display text-2xl text-ink">Harsen</h2>
-        <p class="mt-2 text-sm text-ink-soft">
-          Voor het harsen is het belangrijk dat de haren minimaal 0,5 cm zijn.
-        </p>
-        <div class="mt-4 grid gap-6 sm:grid-cols-2">
-          <div>
-            <p class="font-medium text-ink">Vrouwen harsen</p>
-            <ul class="mt-2 space-y-1 text-ink-soft">
-              <li>Bikinilijn</li>
-              <li>Oksels</li>
-              <li>Boven- of onderbenen</li>
-              <li>Gehele benen</li>
-              <li>Gehele armen</li>
-            </ul>
-          </div>
-          <div>
-            <p class="font-medium text-ink">Mannen harsen</p>
-            <ul class="mt-2 space-y-1 text-ink-soft">
-              <li>Rug</li>
-              <li>Oksels</li>
-              <li>Boven- of onderbenen</li>
-              <li>Gehele benen</li>
-            </ul>
+    <div class="mt-16">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Waxen &amp; harsen</h2>
+      <div class="mt-6 grid gap-8 sm:grid-cols-2">
+        {
+          waxTreatment && (
+            <a
+              href={`/${waxTreatment.slug}/`}
+              class="group flex h-full flex-col rounded-2xl border border-line bg-bg-soft p-6 transition-colors hover:border-ink/40"
+            >
+              <span class="font-display text-lg text-ink group-hover:text-accent">
+                {waxTreatment.title}
+              </span>
+              <span class="mt-2 text-sm text-ink-soft">{waxTreatment.short}</span>
+            </a>
+          )
+        }
+        <div>
+          <p class="text-sm text-ink-soft">
+            Voor het harsen is het belangrijk dat de haren minimaal 0,5 cm zijn.
+          </p>
+          <div class="mt-4 grid gap-6 sm:grid-cols-2">
+            <div>
+              <p class="font-medium text-ink">Vrouwen harsen</p>
+              <ul class="mt-2 space-y-1 text-ink-soft">
+                <li>Bikinilijn</li>
+                <li>Oksels</li>
+                <li>Boven- of onderbenen</li>
+                <li>Gehele benen</li>
+                <li>Gehele armen</li>
+              </ul>
+            </div>
+            <div>
+              <p class="font-medium text-ink">Mannen harsen</p>
+              <ul class="mt-2 space-y-1 text-ink-soft">
+                <li>Rug</li>
+                <li>Oksels</li>
+                <li>Boven- of onderbenen</li>
+                <li>Gehele benen</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <Button href={site.bookingUrl} class="mt-12">Afspraak maken</Button>
+    <Button href={site.bookingUrl} class="mt-16">Afspraak maken</Button>
   </section>
 </BaseLayout>
