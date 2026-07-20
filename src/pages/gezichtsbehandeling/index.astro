@@ -4,50 +4,13 @@ import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
 import { site } from '../../data/site';
 
-const treatments = [
-  {
-    name: 'Power Hyaluronic Treatment',
-    duration: '60-75 min',
-    price: '€77,50',
-    description:
-      'Huidverbeterende gezichtsbehandeling op basis van hyaluronzuur. Deze krachtige vochtbinder herstelt de natuurlijke vochtgraad van de huid en maakt de huid met (droogte) lijntjes en rimpeltjes weer comfortabel en volumineus. Geschikt voor elk huidtype, verkrijgt de huid een vitale en gezonde uitstraling.',
-    badge: 'Meest geboekt',
-    steps: [
-      'Huidanalyse',
-      'Reiniging',
-      'Peeling',
-      'Onzuiverheden verwijderen',
-      'Wenkbrauwen harsen / epileren',
-      'Uitgebreide gezicht-, nek- en schoudermassage',
-      'Masker',
-      'Dag- of nachtverzorging',
-      'Adviesgesprek',
-    ],
-  },
-  {
-    name: 'Power Vitamine C Treatment',
-    duration: '60-75 min',
-    price: '€72,50',
-    description:
-      'Huidverbeterende gezichtsbehandeling die zich richt op het neutraliseren van vrije radicalen en het verhelderen van de teint. Vitamine C stimuleert de celstofwisseling en de collageenproductie, voor een heldere, gelijkmatige en egale teint.',
-    steps: [
-      'Huidanalyse',
-      'Reiniging',
-      'Peeling',
-      'Onzuiverheden verwijderen',
-      'Wenkbrauwen harsen / epileren',
-      'Uitgebreide gezicht-, nek- en schoudermassage',
-      'Masker',
-      'Dag- of nachtverzorging',
-      'Adviesgesprek',
-    ],
-  },
+const baseTreatments = [
   {
     name: 'Art of Beauty Treatment',
     duration: '50-60 min',
     price: '€62,50',
     description:
-      'Huidverzorgende gezichtsbehandeling die zich richt op de reiniging en hygiëne van de huid, geschikt voor elk huidtype. Door de dubbele reinigingsmethode wordt de huid optimaal gereinigd, gezuiverd en voelt de huid weer fris en comfortabel aan.',
+      'Huidverzorgende gezichtsbehandeling die zich richt op de reiniging en hygiëne van de huid, geschikt voor elk huidtype. Door de dubbele reinigingsmethode wordt de huid optimaal gereinigd, gezuiverd en voelt de huid weer fris en comfortabel aan. Deze behandeling kan worden uitgevoerd met Paula’s Choice of Skeyndor en is eventueel uit te breiden met onze losse behandelingen.',
     steps: [
       'Huidanalyse',
       'Reiniging fase 1',
@@ -70,6 +33,130 @@ const treatments = [
   },
 ];
 
+const powerTreatments = [
+  {
+    name: 'Power Oxygen Treatment',
+    tagline: 'Detox & bescherming voor een frisse, vermoeide huid.',
+    duration: '60-75 min',
+    price: '€77,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling op basis van een zuurstofrijk complex. Ideaal voor een doffe, vermoeide huid die last heeft van een drukke levensstijl of stadslucht. Deze behandeling laat de huid als het ware weer ademen en werkt als een detox- en energieboost.',
+    idealFor: ['Rokers', 'Een drukke levensstijl', 'Stadslucht en vervuiling', 'Doffe, vermoeide huid'],
+    result: ['Frisse uitstraling', 'Directe glow', 'Gezonde huidbarrière', 'Bescherming tegen vrije radicalen'],
+    diamondCompatible: true,
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Ampullen met Oxygen Complex',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Power Hydration Treatment',
+    tagline: 'Intensieve hydratatie voor een zachte, volle en comfortabele huid.',
+    duration: '60-75 min',
+    price: '€77,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling op basis van hyaluronzuur. Deze krachtige vochtbinder herstelt de natuurlijke vochtgraad van de huid en maakt een droge of vochtarme huid met (droogte) lijntjes weer comfortabel en volumineus. Geschikt voor elk huidtype.',
+    idealFor: ['Droge huid', 'Vochtarme huid', 'Trekkerig gevoel', 'Fijne droogtelijntjes'],
+    result: ['Intens gehydrateerde huid', 'Zachtere huid', 'Vollere uitstraling', 'Minder droogtelijntjes'],
+    diamondCompatible: true,
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Ampullen met hyaluronzuur',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Power C Glow Treatment',
+    tagline: 'Glow & egalisatie voor een stralende huid met een gezonde teint.',
+    duration: '60-75 min',
+    price: '€72,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling op basis van vitamine C. Ideaal bij een grauwe teint, pigmentvlekjes of de eerste tekenen van huidveroudering. Vitamine C stimuleert de celvernieuwing en collageenproductie, voor een heldere, gelijkmatige en egale teint.',
+    idealFor: ['Grauwe huid', 'Ongelijkmatige teint', 'Pigmentvlekjes', 'Eerste lijntjes'],
+    result: ['Meer glow', 'Egalere huid', 'Sterke antioxidantenbescherming', 'Stimulatie van collageen'],
+    diamondCompatible: true,
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Ampullen met vitamine C',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+  {
+    name: 'Power Retinol Lift Treatment',
+    tagline: 'Intensieve huidverjonging voor een stevigere, gladdere huid met minder rimpels.',
+    duration: '60-75 min',
+    price: '€82,50',
+    description:
+      'Huidverbeterende gezichtsbehandeling op basis van Pure Retinol, de meest intensieve anti-aging behandeling uit de Power-lijn. Ideaal bij diepere rimpels, huidverslapping, zonneschade of acne-littekens. Deze behandeling herstelt en verstevigt de huid en egaliseert het huidoppervlak, waardoor kleine littekens en huidvlekjes minder zichtbaar worden en de aanmaak van collageen en elastine wordt gestimuleerd.',
+    idealFor: ['Diepere rimpels', 'Huidverslapping', 'Zonneschade', 'Acne-littekens', 'Pigment'],
+    result: ['Gladdere huid', 'Minder rimpels', 'Verfijnde huidstructuur', 'Stevigere huid'],
+    diamondCompatible: false,
+    steps: [
+      'Huidanalyse',
+      'Reiniging',
+      'Peeling',
+      'Onzuiverheden verwijderen',
+      'Wenkbrauwen harsen / epileren',
+      'Ampullen met Pure Retinol',
+      'Uitgebreide gezicht-, nek- en schoudermassage',
+      'Masker',
+      'Dag- of nachtverzorging',
+      'Adviesgesprek',
+    ],
+  },
+];
+
+const upgradeTreatments = [
+  {
+    name: 'Art of Beauty Diamond Treatment',
+    price: '€89,50',
+    description:
+      'De Art of Beauty Treatment, uitgebreid met microdermabrasie om dieper in de huidlaag te komen voor een extra stralend resultaat.',
+    href: '/microdermabrasie/',
+    linkLabel: 'Meer over microdermabrasie',
+  },
+  {
+    name: 'Probiome Peel',
+    price: '€105,00',
+    description:
+      'Skeyndor Probiome Peel: het meest effectieve niet-medisch alternatief voor rimpels, fotoveroudering, imperfecties en littekens.',
+    href: '/chemische-peeling/',
+    linkLabel: 'Meer over de Probiome Peel',
+  },
+  {
+    name: 'Probiome Peel Kuur',
+    price: '€300,00',
+    description:
+      'Een kuur van meerdere Probiome Peel behandelingen achter elkaar, voor een dieper en langduriger resultaat.',
+    href: '/chemische-peeling/',
+    linkLabel: 'Meer over de Probiome Peel',
+  },
+];
+
+const allTreatmentsForSchema = [...baseTreatments, ...powerTreatments, ...upgradeTreatments];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -79,7 +166,7 @@ const serviceSchema = {
   provider: { '@id': `${site.url}/#business` },
   areaServed: 'Delft',
   image: new URL('/images/treatments/gezichtsbehandeling.jpg', site.url).toString(),
-  offers: treatments.map((t) => ({
+  offers: allTreatmentsForSchema.map((t) => ({
     '@type': 'Offer',
     name: t.name,
     price: t.price.replace('€', '').replace(',', '.'),
@@ -116,9 +203,8 @@ const serviceSchema = {
       Je kunt bij Art of Beauty by Maelyn terecht voor professionele, effectieve en ontspannen
       gezichtsbehandelingen. De gezichtsbehandelingen zijn gericht op huidverbetering en werken in
       op de diepere huidlagen: de huidstructuur verbetert en eventuele oneffenheden worden
-      verminderd. Elke lijn heeft een eigen huidverbeterende werking, geur en beleving. Door de
-      gezichtsbehandeling af te stemmen op de huidconditie en huidtype kunnen we samen werken aan
-      een gezonde huid!
+      verminderd. Door de gezichtsbehandeling af te stemmen op de huidconditie en huidtype kunnen
+      we samen werken aan een gezonde huid!
     </p>
   </section>
 
@@ -138,20 +224,14 @@ const serviceSchema = {
 
   <section class="bg-bg-soft py-16">
     <div class="mx-auto max-w-4xl px-6">
-      <h2 class="font-display text-2xl text-ink sm:text-3xl">Onze gezichtsbehandelingen</h2>
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Gezichtsbehandelingen</h2>
+      <p class="mt-2 text-sm text-ink-soft">Dit zijn de onderhouds- en verzorgingsbehandelingen.</p>
       <div class="mt-8 space-y-6">
         {
-          treatments.map((t) => (
-            <div class=" rounded-2xl border border-line bg-bg p-6">
+          baseTreatments.map((t) => (
+            <div class="rounded-2xl border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 class="font-display text-xl text-ink">
-                  {t.name}
-                  {t.badge && (
-                    <span class="ml-2 rounded-full bg-accent/15 px-3 py-1 text-[11px] uppercase tracking-[0.08em] text-accent align-middle">
-                      {t.badge}
-                    </span>
-                  )}
-                </h3>
+                <h3 class="font-display text-xl text-ink">{t.name}</h3>
                 <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
               </div>
               <p class="mt-3 text-ink-soft">{t.description}</p>
@@ -167,7 +247,107 @@ const serviceSchema = {
           ))
         }
       </div>
-      <p class="mt-6 text-sm text-ink-soft">
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Power Treatments</h2>
+      <p class="mt-2 text-sm text-ink-soft">Gerichte huidverbetering met hoogwaardige actieve ingrediënten.</p>
+      <div class="mt-8 space-y-6">
+        {
+          powerTreatments.map((t) => (
+            <div class="rounded-2xl border border-line bg-bg-soft p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-xl text-ink">{t.name}</h3>
+                <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
+              </div>
+              <p class="mt-2 text-sm font-medium text-accent">{t.tagline}</p>
+              <p class="mt-3 text-ink-soft">{t.description}</p>
+
+              <div class="mt-5 grid gap-6 sm:grid-cols-2">
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.1em] text-ink-soft">Ideaal voor</p>
+                  <ul class="mt-2 space-y-1 text-sm text-ink-soft">
+                    {t.idealFor.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-[11px] uppercase tracking-[0.1em] text-ink-soft">Resultaat</p>
+                  <ul class="mt-2 space-y-1 text-sm text-ink-soft">
+                    {t.result.map((item) => (
+                      <li class="flex items-start gap-2">
+                        <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <p class="mt-5 text-[11px] uppercase tracking-[0.1em] text-ink-soft">Behandeling</p>
+              <ul class="mt-2 grid gap-x-6 gap-y-1 text-sm text-ink-soft sm:grid-cols-2">
+                {t.steps.map((step) => (
+                  <li class="flex items-start gap-2">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent-dark" />
+                    {step}
+                  </li>
+                ))}
+              </ul>
+
+              {t.diamondCompatible ? (
+                <span class="mt-5 inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1.5 text-[11px] text-accent">
+                  Uit te breiden met de Diamond Upgrade (+ € 20)
+                </span>
+              ) : (
+                <span class="mt-5 inline-flex items-center gap-1.5 rounded-full bg-line/60 px-3 py-1.5 text-[11px] text-ink-soft">
+                  Niet te combineren met de Diamond Upgrade
+                </span>
+              )}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-soft py-16">
+    <div class="mx-auto max-w-4xl px-6">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Uitbreiding mogelijk</h2>
+      <p class="mt-2 text-ink-soft">
+        Met de <strong class="font-medium text-ink">Diamond Upgrade</strong> (+ € 20) breid je een
+        behandeling uit met microdermabrasie, om nog dieper in de huidlaag te komen. Deze upgrade
+        is te combineren met de Power C Glow, Power Hydration en Power Oxygen Treatment, maar niet
+        met de Power Retinol Lift Treatment.
+      </p>
+
+      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          upgradeTreatments.map((t) => (
+            <div class="flex flex-col rounded-2xl border border-line bg-bg p-6">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-lg text-ink">{t.name}</h3>
+              </div>
+              <span class="mt-1 text-sm font-medium text-ink-soft">{t.price}</span>
+              <p class="mt-3 flex-1 text-sm text-ink-soft">{t.description}</p>
+              <a href={t.href} class="mt-4 text-sm text-accent underline decoration-accent underline-offset-4">
+                {t.linkLabel}
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12">
+    <div class="mx-auto max-w-4xl px-6">
+      <p class="text-sm text-ink-soft">
         Voor de meest actuele prijzen bekijk je onze <a href={site.bookingUrl} class="underline decoration-accent underline-offset-4">online afsprakenmodule</a>.
       </p>
       <Button href={site.bookingUrl} class="mt-8">Afspraak maken</Button>

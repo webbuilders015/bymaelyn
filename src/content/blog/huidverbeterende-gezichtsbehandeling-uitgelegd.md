@@ -32,8 +32,8 @@ bouwen aan het resultaat.
 ## Welke gezichtsbehandelingen bieden wij aan?
 
 Niet elke huid heeft dezelfde aanpak nodig, daarom hebben we verschillende behandelingen in ons
-aanbod. De Power Hyaluronic Treatment is gericht op intensieve vochtinbreng en is een sterke keuze
-bij een droge huid met lijntjes. De Power Vitamine C Treatment richt zich juist op het
+aanbod. De Power Hydration Treatment is gericht op intensieve vochtinbreng en is een sterke keuze
+bij een droge huid met lijntjes. De Power C Glow Treatment richt zich juist op het
 neutraliseren van vrije radicalen en het verhelderen van de teint, ideaal bij een doffe of
 ongelijkmatige huid. De Art of Beauty Treatment is een uitgebreide reinigende behandeling die bij
 elk huidtype past, en de Pure Cleanse Treatment is speciaal ontwikkeld voor tieners met een

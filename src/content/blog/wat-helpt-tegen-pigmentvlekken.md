@@ -38,7 +38,7 @@ eerste behandeling. Doordat de bovenste huidlagen sneller vernieuwen, krijgt opg
 minder kans om zich op te stapelen.
 
 **Vitamine C.** Deze antioxidant remt de aanmaak van melanine en zorgt voor een helderdere,
-egalere teint — de basis van onze Power Vitamine C Treatment. Vitamine C werkt daarnaast
+egalere teint — de basis van onze Power C Glow Treatment. Vitamine C werkt daarnaast
 beschermend tegen vrije radicalen, wat helpt om nieuwe pigmentvorming te voorkomen.
 
 **Dagelijkse SPF.** Zonder consequente zonbescherming keert pigment na een behandeling vaak

@@ -37,7 +37,7 @@ specifiek aansluit bij wat jouw huid nodig heeft.
 Skeyndor is een Spaans merk dat zich vooral onderscheidt in de salon: geavanceerde
 behandelconcepten zoals de Probiome Peel, met een eigen laboratorium in Barcelona dat continu
 innoveert. Skeyndor is de basis van veel van onze in-salon gezichtsbehandelingen en peelings,
-zoals de Power Hyaluronic en Power Vitamine C Treatment.
+zoals de Power Hydration en Power C Glow Treatment.
 
 Waar Paula's Choice vooral gericht is op dagelijks thuisgebruik, is Skeyndor ontwikkeld voor
 intensievere, professionele toepassing tijdens een behandeling in de salon. De concentraties

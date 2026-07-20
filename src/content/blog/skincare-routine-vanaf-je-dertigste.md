@@ -30,14 +30,14 @@ Een goede reiniging is de basis waarop de rest van je routine pas echt werkt.
 ## 2. Antioxidanten overdag
 
 Een serum met vitamine C beschermt de huid tegen vrije radicalen en zorgt voor een helderdere,
-egalere teint. Dit is precies waar onze Power Vitamine C Treatment op inspeelt. Breng een
+egalere teint. Dit is precies waar onze Power C Glow Treatment op inspeelt. Breng een
 antioxidant-serum aan vóór je dagcrème en SPF, zodat het zijn beschermende werking gedurende de
 dag kan doen.
 
 ## 3. Hydrateren met hyaluronzuur
 
 Vanaf je dertigste verliest de huid vocht sneller. Hyaluronzuur bindt vocht in de huid en
-vermindert de zichtbaarheid van droogtelijntjes — de basis van onze Power Hyaluronic Treatment.
+vermindert de zichtbaarheid van droogtelijntjes — de basis van onze Power Hydration Treatment.
 Breng hyaluronzuur idealiter aan op een licht vochtige huid, zodat het product optimaal vocht kan
 vasthouden.
 
