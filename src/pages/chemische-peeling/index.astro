@@ -31,13 +31,17 @@ const treatments = [
     name: 'Probiome Peel',
     price: '€105,00',
     description:
-      'Eén Probiome Peel behandeling: een gerichte peeling-sessie op basis van postbiotica die de huid diepgaand vernieuwt, met een zichtbaar resultaat vanaf de eerste dag.',
+      'Een chemische peeling met liefde voor de huid, zonder downtime. Deze innovatieve behandeling herstelt en verjongt de huid door gebruik te maken van probiotica. Het stimuleert de natuurlijke balans van de huid en verbetert de textuur en uitstraling, waardoor een gezondere en stralende teint wordt bevorderd. We kiezen voor deze behandeling wanneer we een effectief niet-medisch alternatief willen voor rimpels, fotoveroudering, imperfecties en littekens.',
+    extra:
+      'Bij deze behandeling ontvang je een gratis thuiskit met 3 producten om de huid na de behandeling 7 à 10 dagen te onderhouden voor een goed herstel.',
   },
   {
     name: 'Probiome Peel Kuur',
     price: '€300,00',
     description:
-      'Een kuur van meerdere Probiome Peel behandelingen achter elkaar, voor een dieper en langduriger resultaat. Ideaal bij hardnekkige pigmentvlekken, littekens of een uitgesproken egalisatiewens.',
+      'Voor optimaal resultaat kun je de Probiome Peel in kuurvorm boeken. Deze kuur bestaat uit 3 behandelingen om de 3 à 4 weken en helpt de huid intensief te herstellen, verfijnen en de natuurlijke huidbalans te verbeteren. Ideaal bij onder andere fijne lijntjes, een doffe huid, imperfecties en huidveroudering.',
+    extra:
+      'Na elke behandeling ontvang je een gratis thuiskit met 3 producten om de huid na de peeling optimaal te ondersteunen.',
   },
 ];
 
@@ -91,7 +95,7 @@ const serviceSchema = {
       helpt verwijderen en celregeneratie stimuleert voor een nieuwe en jeugdige huid.
     </p>
 
-    <h2 id="probiome-peel" class="mt-12 scroll-mt-24 font-display text-2xl text-ink">Wat is een chemische peeling?</h2>
+    <h2 class="mt-12 font-display text-2xl text-ink">Wat is een chemische peeling?</h2>
     <p class="mt-4 text-ink-soft">
       Probiome Peel is een hoogwaardige behandeling die de huid diepgaand vernieuwt met zichtbare
       resultaten vanaf de eerste dag. Het is een specifieke combinatie van zuren die voldoet aan
@@ -145,16 +149,17 @@ const serviceSchema = {
     </ol>
 
     <h2 class="mt-12 font-display text-2xl text-ink">Behandelingen &amp; prijzen</h2>
-    <div class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+    <div class="mt-4 space-y-4">
       {
         treatments.map((t) => (
-          <a
-            href="#probiome-peel"
-            class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-4 py-3 transition-colors hover:border-accent/50"
-          >
-            <span class="text-sm font-medium text-ink">{t.name}</span>
-            <span class="shrink-0 text-xs text-ink-soft">{t.price}</span>
-          </a>
+          <div class="rounded-2xl border border-line bg-bg-soft p-6">
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 class="font-display text-lg text-ink">{t.name}</h3>
+              <span class="text-sm font-medium text-ink-soft">{t.price}</span>
+            </div>
+            <p class="mt-3 text-ink-soft">{t.description}</p>
+            <p class="mt-3 text-sm text-ink-soft">{t.extra}</p>
+          </div>
         ))
       }
     </div>
