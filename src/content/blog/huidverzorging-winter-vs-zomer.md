@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Huidverzorging"]
 heroImage: "/images/blog/generated/huidverzorging-winter-vs-zomer.jpg"
 heroAlt: "Seizoensgebonden huidverzorging"
+faq:
+  - question: "Moet ik in de winter mijn SPF overslaan?"
+    answer: "Nee, SPF blijft het hele jaar door belangrijk, ook op bewolkte dagen."
+  - question: "Hoe merk ik dat mijn huid een andere routine nodig heeft?"
+    answer: "Let op signalen zoals trekkerigheid, extra glans, plotselinge onzuiverheden of gevoeligheid — dat zijn vaak tekenen dat je routine niet meer aansluit bij het seizoen."
+  - question: "Kan ik het hele jaar door dezelfde gezichtsbehandeling laten doen?"
+    answer: "Dat kan, maar we passen de intensiteit en producten regelmatig aan op basis van de actuele conditie van je huid, zodat de behandeling altijd optimaal aansluit."
 ---
 
 Je huid reageert op temperatuur, luchtvochtigheid en zonuren — en dat betekent dat een routine
@@ -56,19 +63,6 @@ Ongeacht het seizoen blijft een regelmatige gezichtsbehandeling waardevol om de 
 te houden en tijdig bij te sturen als de huid verandert. Tijdens elke behandeling kijken we
 opnieuw naar de actuele staat van je huid, zodat de aanpak altijd aansluit bij wat je huid op dat
 moment nodig heeft — ongeacht het seizoen.
-
-## Veelgestelde vragen
-
-**Moet ik in de winter mijn SPF overslaan?**
-Nee, SPF blijft het hele jaar door belangrijk, ook op bewolkte dagen.
-
-**Hoe merk ik dat mijn huid een andere routine nodig heeft?**
-Let op signalen zoals trekkerigheid, extra glans, plotselinge onzuiverheden of gevoeligheid — dat
-zijn vaak tekenen dat je routine niet meer aansluit bij het seizoen.
-
-**Kan ik het hele jaar door dezelfde gezichtsbehandeling laten doen?**
-Dat kan, maar we passen de intensiteit en producten regelmatig aan op basis van de actuele conditie
-van je huid, zodat de behandeling altijd optimaal aansluit.
 
 Twijfel je wat jouw huid dit seizoen nodig heeft? Bekijk onze
 [gezichtsbehandelingen](/gezichtsbehandeling/) of [maak een afspraak](/afspraak-maken/) voor

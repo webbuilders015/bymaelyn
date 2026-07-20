@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Huidverzorging", "Gezichtsbehandeling"]
 heroImage: "/images/blog/generated/skincare-routine-vanaf-je-dertigste.jpg"
 heroAlt: "Skincare-routine met serums en verzorgingsproducten"
+faq:
+  - question: "Moet ik vanaf mijn dertigste meteen anti-aging producten gebruiken?"
+    answer: "Niet per se agressieve producten, maar wel gerichte ondersteuning zoals antioxidanten, hyaluronzuur en dagelijkse SPF maken al een merkbaar verschil."
+  - question: "Hoeveel stappen moet mijn dagelijkse routine minimaal bevatten?"
+    answer: "Reiniging, een serum afgestemd op je huiddoel, hydratatie en SPF overdag zijn de basis. 's Avonds vervang je de SPF door een nachtverzorging."
+  - question: "Wanneer merk ik het effect van een aangepaste routine?"
+    answer: "De meeste mensen zien na 4 tot 8 weken consequent gebruik de eerste zichtbare verbeteringen in textuur en uitstraling van de huid."
 ---
 
 Rond je dertigste begint je huid geleidelijk te veranderen: de collageenproductie neemt af, de
@@ -62,20 +69,6 @@ Thuisverzorging is belangrijk, maar een regelmatige gezichtsbehandeling houdt je
 conditie en signaleert veranderingen vroegtijdig. Tijdens elke behandeling bekijken we hoe je huid
 reageert op je huidige routine, en stellen we deze zo nodig bij — zodat je thuisverzorging en
 salonbehandeling elkaar blijven versterken.
-
-## Veelgestelde vragen
-
-**Moet ik vanaf mijn dertigste meteen anti-aging producten gebruiken?**
-Niet per se agressieve producten, maar wel gerichte ondersteuning zoals antioxidanten,
-hyaluronzuur en dagelijkse SPF maken al een merkbaar verschil.
-
-**Hoeveel stappen moet mijn dagelijkse routine minimaal bevatten?**
-Reiniging, een serum afgestemd op je huiddoel, hydratatie en SPF overdag zijn de basis. 's Avonds
-vervang je de SPF door een nachtverzorging.
-
-**Wanneer merk ik het effect van een aangepaste routine?**
-De meeste mensen zien na 4 tot 8 weken consequent gebruik de eerste zichtbare verbeteringen in
-textuur en uitstraling van de huid.
 
 Benieuwd welke behandeling en producten het beste bij jouw huid passen? Bekijk onze
 [gezichtsbehandelingen](/gezichtsbehandeling/) of [maak een afspraak](/afspraak-maken/) voor een

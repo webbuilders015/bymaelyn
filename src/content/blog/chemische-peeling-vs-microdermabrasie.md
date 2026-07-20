@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Chemische peeling", "Huidverzorging"]
 heroImage: "/images/blog/generated/chemische-peeling-vs-microdermabrasie.jpg"
 heroAlt: "Chemische peeling en microdermabrasie producten"
+faq:
+  - question: "Doet een chemische peeling pijn?"
+    answer: "De meeste klanten ervaren tijdens de Probiome Peel een licht tintelend of warm gevoel, maar geen pijn. De behandeling is opgebouwd uit fases die de huid geleidelijk voorbereiden, behandelen en weer kalmeren."
+  - question: "Hoe vaak kun je microdermabrasie of een chemische peeling laten doen?"
+    answer: "Voor de meeste huidtypes raden we een behandeling elke 4 tot 6 weken aan, zodat de huid tussen de behandelingen door voldoende tijd heeft om te herstellen en het effect goed opbouwt."
+  - question: "Is de behandeling geschikt voor een gevoelige huid?"
+    answer: "Tijdens de huidanalyse bekijken we altijd eerst je huidtype en gevoeligheid, zodat we de behandeling en intensiteit hierop kunnen afstemmen."
 ---
 
 Als je op zoek bent naar een frissere, gladdere huid kom je al snel twee termen tegen: chemische
@@ -60,21 +67,6 @@ Heb je vooral behoefte aan een snelle opfrisser voor een speciale gelegenheid, z
 nasleep? Dan kan microdermabrasie voldoende zijn. Wil je structurele verbetering van
 pigmentvlekken, acne-littekens of een doffe teint, en heb je iets meer tijd voor herstel? Dan is
 een chemische peeling de meest effectieve keuze.
-
-## Veelgestelde vragen
-
-**Doet een chemische peeling pijn?**
-De meeste klanten ervaren tijdens de Probiome Peel een licht tintelend of warm gevoel, maar geen
-pijn. De behandeling is opgebouwd uit fases die de huid geleidelijk voorbereiden, behandelen en
-weer kalmeren.
-
-**Hoe vaak kun je microdermabrasie of een chemische peeling laten doen?**
-Voor de meeste huidtypes raden we een behandeling elke 4 tot 6 weken aan, zodat de huid tussen de
-behandelingen door voldoende tijd heeft om te herstellen en het effect goed opbouwt.
-
-**Is de behandeling geschikt voor een gevoelige huid?**
-Tijdens de huidanalyse bekijken we altijd eerst je huidtype en gevoeligheid, zodat we de
-behandeling en intensiteit hierop kunnen afstemmen.
 
 Tijdens een intakegesprek bekijken we samen welke aanpak het beste bij jouw huidtype en wensen
 past. Lees meer over onze [chemische peeling](/chemische-peeling/) en

@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Gezichtsbehandeling", "Huidverzorging"]
 heroImage: "/images/blog/generated/huidverbeterende-gezichtsbehandeling-uitgelegd.jpg"
 heroAlt: "Huidverbeterende gezichtsbehandeling bij Art of Beauty by Maelyn"
+faq:
+  - question: "Hoe lang duurt een gezichtsbehandeling?"
+    answer: "Afhankelijk van de gekozen behandeling duurt een afspraak tussen de 30 en 75 minuten."
+  - question: "Is een huidverbeterende gezichtsbehandeling geschikt voor een gevoelige huid?"
+    answer: "Ja, we passen de intensiteit en producten altijd aan op basis van de huidanalyse vooraf, ook bij een gevoelige huid."
+  - question: "Kan ik make-up dragen na de behandeling?"
+    answer: "We raden aan de huid de rest van de dag zoveel mogelijk met rust te laten, zodat de verzorgingsproducten optimaal kunnen intrekken."
 ---
 
 Een huidverbeterende gezichtsbehandeling is meer dan even ontspannen: het is een gerichte
@@ -53,19 +60,6 @@ Voor de meeste huidtypes is een behandeling elke 4 tot 6 weken een goed ritme om
 zichtbaar te verbeteren en in conditie te houden. Dit sluit ook aan bij de natuurlijke
 vernieuwingscyclus van de huid. Daarnaast helpt een goede thuisroutine, afgestemd tijdens het
 adviesgesprek, om het resultaat tussen de behandelingen door vast te houden.
-
-## Veelgestelde vragen
-
-**Hoe lang duurt een gezichtsbehandeling?**
-Afhankelijk van de gekozen behandeling duurt een afspraak tussen de 30 en 75 minuten.
-
-**Is een huidverbeterende gezichtsbehandeling geschikt voor een gevoelige huid?**
-Ja, we passen de intensiteit en producten altijd aan op basis van de huidanalyse vooraf, ook bij
-een gevoelige huid.
-
-**Kan ik make-up dragen na de behandeling?**
-We raden aan de huid de rest van de dag zoveel mogelijk met rust te laten, zodat de
-verzorgingsproducten optimaal kunnen intrekken.
 
 Benieuwd welke behandeling het beste bij jouw huid past? [Maak een afspraak](/afspraak-maken/) of
 bekijk ons volledige [behandelingenoverzicht](/gezichtsbehandeling/).

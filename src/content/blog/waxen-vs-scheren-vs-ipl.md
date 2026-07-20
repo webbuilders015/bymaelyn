@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Waxen"]
 heroImage: "/images/blog/generated/waxen-vs-scheren-vs-ipl.jpg"
 heroAlt: "Waxen ontharingsbehandeling producten"
+faq:
+  - question: "Hoe lang moeten de haren zijn voor het waxen?"
+    answer: "Minimaal 0,5 cm, zodat de was goed grip heeft op het haar."
+  - question: "Kan ik na het waxen in de zon of zwemmen?"
+    answer: "We raden aan om direct na het waxen de huid niet bloot te stellen aan intensieve zon, chloorwater of zout water, totdat eventuele roodheid is weggetrokken."
+  - question: "Is waxen pijnlijker dan scheren?"
+    answer: "Waxen kan een kort, scherp gevoel geven op het moment van verwijderen, maar de meeste klanten ervaren dit als goed te doen en van korte duur."
 ---
 
 Ongewenste haargroei verwijderen kan op verschillende manieren. De drie meest gekozen opties zijn
@@ -58,18 +65,5 @@ Voor de meeste mensen is waxen de beste balans tussen resultaat, gemak en prijs 
 niet aan een langdurig IPL-traject wilt beginnen. Twijfel je welke methode het beste bij jouw
 huid en haargroei past? Wij denken graag mee tijdens een intake, waarbij we ook rekening houden
 met je huidtype, gevoeligheid en het gewenste eindresultaat.
-
-## Veelgestelde vragen
-
-**Hoe lang moeten de haren zijn voor het waxen?**
-Minimaal 0,5 cm, zodat de was goed grip heeft op het haar.
-
-**Kan ik na het waxen in de zon of zwemmen?**
-We raden aan om direct na het waxen de huid niet bloot te stellen aan intensieve zon, chloorwater
-of zout water, totdat eventuele roodheid is weggetrokken.
-
-**Is waxen pijnlijker dan scheren?**
-Waxen kan een kort, scherp gevoel geven op het moment van verwijderen, maar de meeste klanten
-ervaren dit als goed te doen en van korte duur.
 
 Bekijk onze [waxbehandelingen](/waxen/) of [maak een afspraak](/afspraak-maken/).

@@ -6,6 +6,13 @@ updatedDate: 2026-07-20
 tags: ["Chemische peeling", "Huidverzorging"]
 heroImage: "/images/blog/generated/wat-helpt-tegen-pigmentvlekken.jpg"
 heroAlt: "Egale, stralende huid"
+faq:
+  - question: "Kunnen pigmentvlekken volledig verdwijnen?"
+    answer: "Bij veel mensen worden pigmentvlekken aanzienlijk minder zichtbaar, maar volledige verdwijning kan per persoon en type pigmentatie verschillen. Tijdens de huidanalyse geven we een realistische inschatting."
+  - question: "Hoe snel zie ik resultaat?"
+    answer: "Sommige klanten zien al na de eerste behandeling een verschil, maar het volledige effect bouwt zich meestal op over meerdere behandelingen."
+  - question: "Is een chemische peeling veilig bij een gevoelige huid?"
+    answer: "Ja, mits de intensiteit wordt afgestemd op jouw huidtype. Dit bepalen we altijd vooraf tijdens de huidanalyse."
 ---
 
 Pigmentvlekken — ook wel ouderdomsvlekken of zonvlekken genoemd — ontstaan door een
@@ -60,21 +67,6 @@ zonlicht op het heetst van de dag, en om agressief schrobben of knijpen bij acne
 kan namelijk juist nieuwe post-inflammatoire pigmentvlekken veroorzaken. Een rustige, opbouwende
 thuisroutine met producten die passen bij jouw huidtype ondersteunt het resultaat van de
 salonbehandeling het beste.
-
-## Veelgestelde vragen
-
-**Kunnen pigmentvlekken volledig verdwijnen?**
-Bij veel mensen worden pigmentvlekken aanzienlijk minder zichtbaar, maar volledige verdwijning kan
-per persoon en type pigmentatie verschillen. Tijdens de huidanalyse geven we een realistische
-inschatting.
-
-**Hoe snel zie ik resultaat?**
-Sommige klanten zien al na de eerste behandeling een verschil, maar het volledige effect bouwt
-zich meestal op over meerdere behandelingen.
-
-**Is een chemische peeling veilig bij een gevoelige huid?**
-Ja, mits de intensiteit wordt afgestemd op jouw huidtype. Dit bepalen we altijd vooraf tijdens de
-huidanalyse.
 
 Wil je weten welke aanpak bij jouw pigmentvlekken past? Bekijk onze
 [chemische peeling](/chemische-peeling/) of [maak een afspraak](/afspraak-maken/) voor een
