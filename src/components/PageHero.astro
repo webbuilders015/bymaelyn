@@ -1,17 +1,18 @@
 ---
 interface Props {
   eyebrow?: string;
-  title: string;
+  title?: string;
   lead?: string;
+  as?: 'h1' | 'h2';
 }
 
-const { eyebrow, title, lead } = Astro.props;
+const { eyebrow, title, lead, as: Tag = 'h1' } = Astro.props;
 ---
 
 <section class="border-b border-line px-6 py-20 md:px-10 md:py-28">
   <div class="mx-auto max-w-3xl text-center" data-reveal>
     {eyebrow && <p class="text-[11px] uppercase tracking-[0.18em] text-accent">{eyebrow}</p>}
-    <h1 class="mt-5 break-words font-display text-[26px] font-light leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">{title}</h1>
+    {title && <Tag class="mt-5 break-words font-display text-[26px] font-light leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">{title}</Tag>}
     {lead && <p class="mx-auto mt-6 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{lead}</p>}
   </div>
 </section>

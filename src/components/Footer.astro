@@ -46,33 +46,65 @@ const salonLinks = [
       </div>
 
       <div class="md:col-span-3">
-        <h4 class="mb-5 text-[12px] font-semibold uppercase tracking-[0.08em] text-ink">Behandelingen</h4>
-        <ul class="space-y-3">
-          {
-            behandelingenLinks.map((link) => (
-              <li>
-                <a href={link.href} class="text-[13px] text-ink-soft transition-colors hover:text-ink">
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+        <details open class="group/footer-nav">
+          <summary
+            class="mb-5 flex cursor-pointer list-none items-center justify-between text-[12px] font-semibold uppercase tracking-[0.08em] text-ink [&::-webkit-details-marker]:hidden md:cursor-default md:pointer-events-none"
+          >
+            <span>Behandelingen</span>
+            <svg
+              viewBox="0 0 20 20"
+              class="h-3.5 w-3.5 shrink-0 text-ink-soft transition-transform duration-300 group-open/footer-nav:rotate-180 md:hidden"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+            >
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </summary>
+          <ul class="space-y-3">
+            {
+              behandelingenLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="text-[13px] text-ink-soft transition-colors hover:text-ink">
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
       </div>
 
       <div class="md:col-span-3">
-        <h4 class="mb-5 text-[12px] font-semibold uppercase tracking-[0.08em] text-ink">Salon</h4>
-        <ul class="space-y-3">
-          {
-            salonLinks.map((link) => (
-              <li>
-                <a href={link.href} class="text-[13px] text-ink-soft transition-colors hover:text-ink">
-                  {link.label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
+        <details open class="group/footer-nav">
+          <summary
+            class="mb-5 flex cursor-pointer list-none items-center justify-between text-[12px] font-semibold uppercase tracking-[0.08em] text-ink [&::-webkit-details-marker]:hidden md:cursor-default md:pointer-events-none"
+          >
+            <span>Salon</span>
+            <svg
+              viewBox="0 0 20 20"
+              class="h-3.5 w-3.5 shrink-0 text-ink-soft transition-transform duration-300 group-open/footer-nav:rotate-180 md:hidden"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+            >
+              <path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </summary>
+          <ul class="space-y-3">
+            {
+              salonLinks.map((link) => (
+                <li>
+                  <a href={link.href} class="text-[13px] text-ink-soft transition-colors hover:text-ink">
+                    {link.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </details>
       </div>
 
       <div class="md:col-span-2">
