@@ -35,7 +35,9 @@ const baseTreatments = [
 
 const powerTreatments = [
   {
+    slug: 'power-oxygen-treatment',
     name: 'Power Oxygen Treatment',
+    isNew: true,
     tagline: 'Detox & bescherming voor een frisse, vermoeide huid.',
     duration: '60-75 min',
     price: '€77,50',
@@ -58,6 +60,7 @@ const powerTreatments = [
     ],
   },
   {
+    slug: 'power-hydration-treatment',
     name: 'Power Hydration Treatment',
     previousName: 'Power Hyaluronic Treatment',
     tagline: 'Intensieve hydratatie voor een zachte, volle en comfortabele huid.',
@@ -82,6 +85,7 @@ const powerTreatments = [
     ],
   },
   {
+    slug: 'power-c-glow-treatment',
     name: 'Power C Glow Treatment',
     previousName: 'Power Vitamine C Treatment',
     tagline: 'Glow & egalisatie voor een stralende huid met een gezonde teint.',
@@ -106,6 +110,7 @@ const powerTreatments = [
     ],
   },
   {
+    slug: 'power-retinol-lift-treatment',
     name: 'Power Retinol Lift Treatment',
     previousName: 'Power Retinol Treatment',
     tagline: 'Intensieve huidverjonging voor een stevigere, gladdere huid met minder rimpels.',
@@ -132,8 +137,10 @@ const powerTreatments = [
 ];
 
 const diamondTreatment = {
+  slug: 'art-of-beauty-diamond-treatment',
   name: 'Art of Beauty Diamond Treatment',
-  price: '€89,50',
+  isNew: true,
+  price: '€82,50',
   description:
     'De Art of Beauty Treatment, standaard uitgebreid met microdermabrasie om dieper in de huidlaag te komen voor een extra stralend resultaat. Hiermee til je onze klassieke gezichtsbehandeling naar een hoger niveau.',
 };
@@ -212,9 +219,16 @@ const serviceSchema = {
       <div class="mt-8 space-y-6">
         {
           powerTreatments.map((t) => (
-            <div class="rounded-2xl border border-line bg-bg p-6">
+            <div id={t.slug} class="scroll-mt-24 rounded-2xl border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 class="font-display text-xl text-ink">{t.name}</h3>
+                <h3 class="flex flex-wrap items-center gap-2 font-display text-xl text-ink">
+                  {t.name}
+                  {t.isNew && (
+                    <span class="rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">
+                      Nieuw
+                    </span>
+                  )}
+                </h3>
                 <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
               </div>
               {t.previousName && <p class="mt-0.5 text-xs italic text-ink-soft/70">Voorheen: {t.previousName}</p>}
@@ -289,9 +303,16 @@ const serviceSchema = {
       <h2 class="font-display text-2xl text-ink sm:text-3xl">Art of Beauty Diamond Treatment</h2>
       <p class="mt-2 text-sm text-ink-soft">Onze klassieke behandeling, standaard met de Diamond Upgrade.</p>
       <div class="mt-8">
-        <div class="rounded-2xl border border-line bg-bg-soft p-6">
+        <div id={diamondTreatment.slug} class="scroll-mt-24 rounded-2xl border border-line bg-bg-soft p-6">
           <div class="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 class="font-display text-xl text-ink">{diamondTreatment.name}</h3>
+            <h3 class="flex flex-wrap items-center gap-2 font-display text-xl text-ink">
+              {diamondTreatment.name}
+              {diamondTreatment.isNew && (
+                <span class="rounded-full bg-accent px-2 py-0.5 text-[10px] font-semibold uppercase tracking-[0.08em] text-white">
+                  Nieuw
+                </span>
+              )}
+            </h3>
             <span class="text-sm font-medium text-ink-soft">{diamondTreatment.price}</span>
           </div>
           <p class="mt-3 text-ink-soft">{diamondTreatment.description}</p>

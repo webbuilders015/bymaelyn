@@ -24,24 +24,17 @@ const reasons = [
 
 const steps = ['Huidanalyse & intake', 'Reiniging', 'Microdermabrasie', 'Kalmerend & beschermend masker'];
 
-const treatments = [
-  {
-    name: 'Diamond Upgrade',
-    price: '+ € 20',
-    description:
-      'Voeg microdermabrasie toe aan je Power C Glow, Power Hydration of Power Oxygen Treatment, zodat we nog dieper in de huidlaag komen voor een extra stralend en verfijnd resultaat. Niet te combineren met de Power Retinol Lift Treatment.',
-    href: '/gezichtsbehandeling/',
-    linkLabel: 'Bekijk onze Power Treatments',
-  },
-  {
-    name: 'Art of Beauty Diamond Treatment',
-    price: '€89,50',
-    description:
-      'De Art of Beauty Treatment, standaard uitgebreid met microdermabrasie om dieper in de huidlaag te komen voor een extra stralend resultaat.',
-    href: '/gezichtsbehandeling/',
-    linkLabel: 'Meer over de Art of Beauty Diamond Treatment',
-  },
+const powerTreatmentTiles = [
+  { name: 'Power C Glow Treatment', price: '€72,50', slug: 'power-c-glow-treatment' },
+  { name: 'Power Hydration Treatment', price: '€77,50', slug: 'power-hydration-treatment' },
+  { name: 'Power Oxygen Treatment', price: '€77,50', slug: 'power-oxygen-treatment' },
 ];
+
+const diamondTreatmentTile = {
+  name: 'Art of Beauty Diamond Treatment',
+  price: '€82,50',
+  slug: 'art-of-beauty-diamond-treatment',
+};
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -64,7 +57,7 @@ const serviceSchema = {
     {
       '@type': 'Offer',
       name: 'Art of Beauty Diamond Treatment',
-      price: '89.50',
+      price: '82.50',
       priceCurrency: 'EUR',
       url: site.bookingUrl,
       availability: 'https://schema.org/InStock',
@@ -150,22 +143,37 @@ const serviceSchema = {
       }
     </ol>
 
-    <h2 class="mt-12 font-display text-2xl text-ink">Behandelingen &amp; prijzen</h2>
-    <div class="mt-4 space-y-4">
+    <h2 class="mt-12 font-display text-2xl text-ink">Diamond Upgrade</h2>
+    <p class="mt-4 text-ink-soft">
+      Met de <strong class="font-medium text-ink">Diamond Upgrade</strong> (+ € 20) voegen we
+      microdermabrasie toe aan een Power Treatment, zodat we nog dieper in de huidlaag komen voor
+      een extra stralend en verfijnd resultaat.
+    </p>
+
+    <p class="mt-6 text-[11px] uppercase tracking-[0.1em] text-ink-soft">Combineerbaar met deze Power Treatments</p>
+    <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
       {
-        treatments.map((t) => (
-          <div class="rounded-2xl border border-line bg-bg-soft p-6">
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="font-display text-lg text-ink">{t.name}</h3>
-              <span class="text-sm font-medium text-ink-soft">{t.price}</span>
-            </div>
-            <p class="mt-3 text-ink-soft">{t.description}</p>
-            <a href={t.href} class="mt-3 inline-block text-sm text-accent underline decoration-accent underline-offset-4">
-              {t.linkLabel}
-            </a>
-          </div>
+        powerTreatmentTiles.map((t) => (
+          <a
+            href={`/gezichtsbehandeling/#${t.slug}`}
+            class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-4 py-3 transition-colors hover:border-accent/50"
+          >
+            <span class="text-sm font-medium text-ink">{t.name}</span>
+            <span class="shrink-0 text-xs text-ink-soft">{t.price}</span>
+          </a>
         ))
       }
+    </div>
+
+    <p class="mt-6 text-[11px] uppercase tracking-[0.1em] text-ink-soft">Standaard inbegrepen bij</p>
+    <div class="mt-3 grid grid-cols-1 sm:max-w-sm">
+      <a
+        href={`/gezichtsbehandeling/#${diamondTreatmentTile.slug}`}
+        class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-4 py-3 transition-colors hover:border-accent/50"
+      >
+        <span class="text-sm font-medium text-ink">{diamondTreatmentTile.name}</span>
+        <span class="shrink-0 text-xs text-ink-soft">{diamondTreatmentTile.price}</span>
+      </a>
     </div>
 
     {
