@@ -1,6 +1,13 @@
 ---
 import { mainNav } from '../data/site';
 import Logo from './Logo.astro';
+
+// Mobile menu only: reorder items to match what visitors look for first on a phone
+// (desktop nav below keeps the original mainNav order, unchanged).
+const mobileNavOrder = ['Behandelingen', 'Merken', 'Over mij', 'Reviews', 'Contact', 'Webshops'];
+const mobileNav = [...mainNav].sort(
+  (a, b) => mobileNavOrder.indexOf(a.label) - mobileNavOrder.indexOf(b.label)
+);
 ---
 
 <header class="sticky top-0 z-50 border-b border-line/70 bg-bg/90 backdrop-blur">
@@ -76,7 +83,7 @@ import Logo from './Logo.astro';
     <div id="menu-panel-root" class="menu-panel px-6 py-4">
       <ul class="flex flex-col gap-1 text-[15px] tracking-tight">
         {
-          mainNav.map((item, i) => (
+          mobileNav.map((item, i) => (
             <li>
               {item.children ? (
                 <button
@@ -106,7 +113,7 @@ import Logo from './Logo.astro';
     </div>
 
     {
-      mainNav.map(
+      mobileNav.map(
         (item, i) =>
           item.children && (
             <div id={`menu-panel-${i}`} class="menu-panel hidden px-6 py-4">
