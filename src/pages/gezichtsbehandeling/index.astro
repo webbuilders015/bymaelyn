@@ -59,6 +59,7 @@ const powerTreatments = [
   },
   {
     name: 'Power Hydration Treatment',
+    previousName: 'Power Hyaluronic Treatment',
     tagline: 'Intensieve hydratatie voor een zachte, volle en comfortabele huid.',
     duration: '60-75 min',
     price: '€77,50',
@@ -82,6 +83,7 @@ const powerTreatments = [
   },
   {
     name: 'Power C Glow Treatment',
+    previousName: 'Power Vitamine C Treatment',
     tagline: 'Glow & egalisatie voor een stralende huid met een gezonde teint.',
     duration: '60-75 min',
     price: '€72,50',
@@ -105,6 +107,7 @@ const powerTreatments = [
   },
   {
     name: 'Power Retinol Lift Treatment',
+    previousName: 'Power Retinol Treatment',
     tagline: 'Intensieve huidverjonging voor een stevigere, gladdere huid met minder rimpels.',
     duration: '60-75 min',
     price: '€82,50',
@@ -218,6 +221,7 @@ const serviceSchema = {
                 <h3 class="font-display text-xl text-ink">{t.name}</h3>
                 <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
               </div>
+              {t.previousName && <p class="mt-0.5 text-xs italic text-ink-soft/70">Voorheen: {t.previousName}</p>}
               <p class="mt-2 text-sm font-medium text-accent">{t.tagline}</p>
               <p class="mt-3 text-ink-soft">{t.description}</p>
 
