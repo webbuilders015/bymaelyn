@@ -131,18 +131,14 @@ const powerTreatments = [
   },
 ];
 
-const upgradeTreatments = [
-  {
-    name: 'Art of Beauty Diamond Treatment',
-    price: '€89,50',
-    description:
-      'De Art of Beauty Treatment, uitgebreid met microdermabrasie om dieper in de huidlaag te komen voor een extra stralend resultaat.',
-    href: '/microdermabrasie/',
-    linkLabel: 'Meer over microdermabrasie',
-  },
-];
+const diamondTreatment = {
+  name: 'Art of Beauty Diamond Treatment',
+  price: '€89,50',
+  description:
+    'De Art of Beauty Treatment, standaard uitgebreid met microdermabrasie om dieper in de huidlaag te komen voor een extra stralend resultaat. Hiermee til je onze klassieke gezichtsbehandeling naar een hoger niveau.',
+};
 
-const allTreatmentsForSchema = [...powerTreatments, ...baseTreatments, ...upgradeTreatments];
+const allTreatmentsForSchema = [...powerTreatments, diamondTreatment, ...baseTreatments];
 
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -290,12 +286,31 @@ const serviceSchema = {
 
   <section class="py-16">
     <div class="mx-auto max-w-4xl px-6">
+      <h2 class="font-display text-2xl text-ink sm:text-3xl">Art of Beauty Diamond Treatment</h2>
+      <p class="mt-2 text-sm text-ink-soft">Onze klassieke behandeling, standaard met de Diamond Upgrade.</p>
+      <div class="mt-8">
+        <div class="rounded-2xl border border-line bg-bg-soft p-6">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h3 class="font-display text-xl text-ink">{diamondTreatment.name}</h3>
+            <span class="text-sm font-medium text-ink-soft">{diamondTreatment.price}</span>
+          </div>
+          <p class="mt-3 text-ink-soft">{diamondTreatment.description}</p>
+          <a href="/microdermabrasie/" class="mt-4 inline-block text-sm text-accent underline decoration-accent underline-offset-4">
+            Meer over microdermabrasie
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-bg-soft py-16">
+    <div class="mx-auto max-w-4xl px-6">
       <h2 class="font-display text-2xl text-ink sm:text-3xl">Basis gezichtsbehandelingen</h2>
       <p class="mt-2 text-sm text-ink-soft">Onze onderhouds- en verzorgingsbehandelingen.</p>
       <div class="mt-8 space-y-6">
         {
           baseTreatments.map((t) => (
-            <div class="rounded-2xl border border-line bg-bg-soft p-6">
+            <div class="rounded-2xl border border-line bg-bg p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 class="font-display text-xl text-ink">{t.name}</h3>
                 <span class="text-sm font-medium text-ink-soft">{t.duration} · {t.price}</span>
@@ -316,31 +331,23 @@ const serviceSchema = {
     </div>
   </section>
 
-  <section class="bg-bg-soft py-16">
+  <section class="py-16">
     <div class="mx-auto max-w-4xl px-6">
       <h2 class="font-display text-2xl text-ink sm:text-3xl">Uitbreiding mogelijk</h2>
       <p class="mt-2 text-ink-soft">
-        Met de <strong class="font-medium text-ink">Diamond Upgrade</strong> (+ € 20) breid je een
-        behandeling uit met microdermabrasie, om nog dieper in de huidlaag te komen. Deze upgrade
-        is te combineren met de Power C Glow, Power Hydration en Power Oxygen Treatment, maar niet
-        met de Power Retinol Lift Treatment.
+        Elke Power Treatment is uit te breiden met de Diamond Upgrade.
       </p>
 
-      <div class="mt-8 max-w-sm">
-        {
-          upgradeTreatments.map((t) => (
-            <div class="flex flex-col rounded-2xl border border-line bg-bg p-6">
-              <div class="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 class="font-display text-lg text-ink">{t.name}</h3>
-              </div>
-              <span class="mt-1 text-sm font-medium text-ink-soft">{t.price}</span>
-              <p class="mt-3 flex-1 text-sm text-ink-soft">{t.description}</p>
-              <a href={t.href} class="mt-4 text-sm text-accent underline decoration-accent underline-offset-4">
-                {t.linkLabel}
-              </a>
-            </div>
-          ))
-        }
+      <div class="mt-8 rounded-2xl border border-accent/30 bg-accent/5 p-6">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.08em] text-accent">
+          Diamond Upgrade (+ € 20)
+        </p>
+        <p class="mt-2 text-ink-soft">
+          Bij de Diamond Upgrade voegen we een microdermabrasie-stap toe aan je behandeling,
+          zodat we nog dieper in de huidlaag komen voor een extra stralend en verfijnd resultaat.
+          Deze upgrade is te combineren met de Power C Glow, Power Hydration en Power Oxygen
+          Treatment, maar niet met de Power Retinol Lift Treatment.
+        </p>
       </div>
 
       <p class="mt-6 text-sm text-ink-soft">
