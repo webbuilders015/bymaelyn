@@ -4,6 +4,8 @@ import PageHero from '../../components/PageHero.astro';
 import Button from '../../components/Button.astro';
 import { site } from '../../data/site';
 
+const webshopUrl = site.webshops.find((w) => w.label === 'Skincare webshop')?.url ?? 'https://shop.bymaelyn.nl';
+
 const pillars = [
   {
     title: 'Wetenschap & waarheid',
@@ -86,6 +88,15 @@ const brandSchema = {
       }
     </div>
 
+    <div class="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6">
+      <h2 class="font-display text-xl text-ink">Liever direct online bestellen?</h2>
+      <p class="mt-2 text-ink-soft">
+        In onze webshop vind je het volledige Paula's Choice assortiment. Bestel gemakkelijk
+        online en kies voor gratis afhalen in de salon of laat het thuisbezorgen.
+      </p>
+      <Button href={webshopUrl} class="mt-5">Naar de webshop</Button>
+    </div>
+
     <p class="mt-10 text-ink-soft">
       Wil je advies of de producten van Paula's Choice aanschaffen? Maak dan hier gemakkelijk een
       afspraak, zo kunnen wij in onze schoonheidssalon alle tijd nemen om jou van het juiste
@@ -101,6 +112,6 @@ const brandSchema = {
         {site.contact.whatsapp}
       </a>.
     </p>
-    <Button href={site.bookingUrl} class="mt-6">Afspraak maken</Button>
+    <Button href={site.bookingUrl} variant="outline" class="mt-6">Afspraak maken</Button>
   </section>
 </BaseLayout>
