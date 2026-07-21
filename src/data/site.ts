@@ -14,6 +14,8 @@ export const site = {
     email: 'info@bymaelyn.nl',
     phone: '015-2155081',
     phoneHref: 'tel:015-2155081',
+    whatsapp: '06-18664586',
+    whatsappHref: 'https://wa.me/31618664586',
   },
   kvk: '84290609',
   btw: 'NL003950890B32',

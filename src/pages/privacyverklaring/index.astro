@@ -22,7 +22,8 @@ import { site } from '../../data/site';
       {site.name} is gevestigd op {site.address.street}, {site.address.postalCode} {site.address.city}.
       KVK-nummer: {site.kvk}. BTW-nummer: {site.btw}. Voor vragen over deze privacyverklaring kun je
       contact opnemen via <a href={`mailto:${site.contact.email}`} class="text-accent underline">{site.contact.email}</a> of
-      telefonisch via <a href={site.contact.phoneHref} class="text-accent underline">{site.contact.phone}</a>.
+      telefonisch via <a href={site.contact.phoneHref} class="text-accent underline">{site.contact.phone}</a>, of via
+      WhatsApp only op <a href={site.contact.whatsappHref} target="_blank" rel="noopener" class="text-accent underline">{site.contact.whatsapp}</a>.
     </p>
 
     <h2>2. Welke gegevens verzamelen wij</h2>
