@@ -67,15 +67,16 @@ const brandSchema = {
       }
     </ul>
 
-    <div class="mt-10 rounded-2xl border border-accent/30 bg-accent/5 p-6">
-      <h2 class="font-display text-xl text-ink">Liever direct online bestellen?</h2>
-      <p class="mt-2 text-ink-soft">
-        In onze webshop vind je het volledige Skeyndor assortiment. Bestel gemakkelijk online en
-        kies voor gratis afhalen in de salon of laat het thuisbezorgen.
-      </p>
-      <Button href={webshopUrl} class="mt-5">Naar de webshop</Button>
-    </div>
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
 
-    <Button href={site.bookingUrl} variant="outline" class="mt-6">Afspraak maken</Button>
+    <div class="mt-6 rounded-2xl border border-accent/30 bg-accent/5 p-6">
+      <h2 class="font-display text-xl text-ink">Skeyndor producten online bestellen</h2>
+      <p class="mt-2 text-ink-soft">
+        Wil je liever gemakkelijk zelf Skeyndor producten bestellen, zonder afspraak? In onze
+        webshop vind je het volledige Skeyndor assortiment. Bestel online en kies voor gratis
+        afhalen in de salon of laat het thuisbezorgen.
+      </p>
+      <Button href={webshopUrl} variant="outline" class="mt-5">Naar de webshop</Button>
+    </div>
   </section>
 </BaseLayout>
