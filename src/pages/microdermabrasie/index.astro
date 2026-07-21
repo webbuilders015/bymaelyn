@@ -36,6 +36,12 @@ const diamondTreatmentTile = {
   slug: 'art-of-beauty-diamond-treatment',
 };
 
+const allTreatmentsForSchema = [
+  { name: 'Diamond Upgrade (toeslag)', price: '€20,00' },
+  diamondTreatmentTile,
+  ...powerTreatmentTiles,
+];
+
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
@@ -45,24 +51,14 @@ const serviceSchema = {
   provider: { '@id': `${site.url}/#business` },
   areaServed: 'Delft',
   image: new URL('/images/treatments/microdermabrasie.jpg', site.url).toString(),
-  offers: [
-    {
-      '@type': 'Offer',
-      name: 'Diamond Upgrade',
-      price: '20.00',
-      priceCurrency: 'EUR',
-      url: site.bookingUrl,
-      availability: 'https://schema.org/InStock',
-    },
-    {
-      '@type': 'Offer',
-      name: 'Art of Beauty Diamond Treatment',
-      price: '82.50',
-      priceCurrency: 'EUR',
-      url: site.bookingUrl,
-      availability: 'https://schema.org/InStock',
-    },
-  ],
+  offers: allTreatmentsForSchema.map((t) => ({
+    '@type': 'Offer',
+    name: t.name,
+    price: t.price.replace('€', '').replace(',', '.'),
+    priceCurrency: 'EUR',
+    url: site.bookingUrl,
+    availability: 'https://schema.org/InStock',
+  })),
 };
 ---
 
