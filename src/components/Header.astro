@@ -83,7 +83,10 @@ const mobileNav = [...mainNav].sort(
     </a>
   </nav>
 
-  <div id="mobile-menu" class="hidden border-t border-line lg:hidden">
+  <div
+    id="mobile-menu"
+    class="absolute left-0 right-0 top-full hidden max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-line bg-bg shadow-lg shadow-ink/10 lg:hidden"
+  >
     <div id="menu-panel-root" class="menu-panel px-6 py-4">
       <ul class="flex flex-col gap-1 text-[15px] tracking-tight">
         {
@@ -151,20 +154,45 @@ const mobileNav = [...mainNav].sort(
   </div>
 </header>
 
+<button
+  id="mobile-menu-backdrop"
+  type="button"
+  aria-label="Sluit menu"
+  class="fixed inset-0 z-40 hidden bg-ink/30 backdrop-blur-[1px] lg:hidden"
+></button>
+
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('mobile-menu-backdrop');
 
   function resetToRootPanel() {
     menu?.querySelectorAll<HTMLElement>('.menu-panel').forEach((panel) => panel.classList.add('hidden'));
     document.getElementById('menu-panel-root')?.classList.remove('hidden');
   }
 
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    backdrop?.classList.add('hidden');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    backdrop?.classList.remove('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('overflow-hidden');
+    resetToRootPanel();
+  }
+
   toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.toggle('hidden') === false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    if (isOpen) resetToRootPanel();
+    const isHidden = menu?.classList.contains('hidden');
+    if (isHidden) openMenu();
+    else closeMenu();
   });
+
+  backdrop?.addEventListener('click', closeMenu);
 
   menu?.querySelectorAll<HTMLElement>('.menu-panel-trigger').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -180,5 +208,13 @@ const mobileNav = [...mainNav].sort(
       btn.closest('.menu-panel')?.classList.add('hidden');
       document.getElementById('menu-panel-root')?.classList.remove('hidden');
     });
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024) closeMenu();
   });
 </script>
