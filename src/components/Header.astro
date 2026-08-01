@@ -1,5 +1,5 @@
 ---
-import { mainNav } from '../data/site';
+import { mainNav, site } from '../data/site';
 import Logo from './Logo.astro';
 
 // Mobile menu only: reorder items to match what visitors look for first on a phone
@@ -29,7 +29,9 @@ const mobileNav = [...mainNav].sort(
     <Logo class="justify-self-center" imgClass="h-11" />
 
     <a
-      href="/afspraak-maken/"
+      href={site.bookingUrl}
+      target="_blank"
+      rel="noopener"
       class="justify-self-end inline-flex h-9 items-center rounded-full bg-accent px-4 text-[11px] tracking-[0.1em] text-bg"
     >
       Boeken
@@ -72,7 +74,9 @@ const mobileNav = [...mainNav].sort(
     </ul>
 
     <a
-      href="/afspraak-maken/"
+      href={site.bookingUrl}
+      target="_blank"
+      rel="noopener"
       class="inline-flex h-10 items-center rounded-full bg-accent px-6 text-[12px] tracking-[0.1em] text-bg transition-colors duration-300 hover:bg-accent-dark"
     >
       Afspraak maken
