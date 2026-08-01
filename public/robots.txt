@@ -1,3 +1,4 @@
+# LLMs.txt: https://bymaelyn.nl/llms.txt
 User-agent: *
 Allow: /
 
