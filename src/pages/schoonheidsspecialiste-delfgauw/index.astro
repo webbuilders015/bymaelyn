@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site, treatments } from '../../data/site';
+---
+
+<BaseLayout
+  title="Schoonheidsspecialiste Delfgauw - Art of Beauty by Maelyn"
+  description="Op zoek naar een schoonheidsspecialist in de buurt van Delfgauw? Art of Beauty by Maelyn is op fietsafstand gevestigd aan de Bagijnhof 1 in Delft."
+  image="/images/hero-salon.jpg"
+>
+  <PageHero
+    eyebrow="Regio"
+    title="Schoonheidsspecialiste Delfgauw"
+    lead="Op zoek naar een professionele en ervaren schoonheidsspecialiste in Delfgauw of omgeving? Zoek niet verder."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      In Delft vind je de schoonheidssalon van Art of Beauty by Maelyn, op fietsafstand van
+      Delfgauw, waar je terecht kunt voor een breed scala aan huidverbeterende
+      schoonheidsbehandelingen.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Als schoonheidsspecialiste ben ik gespecialiseerd in huidverbeterende
+      gezichtsbehandelingen, chemische peelings, microdermabrasie, waxen en diverse andere
+      schoonheidsbehandelingen, zoals het epileren en verven van je wenkbrauwen. Met mijn
+      uitgebreide kennis en ervaring op het gebied van schoonheid en huidverzorging voorzie ik je
+      graag van professioneel advies en help ik je de beste behandeling te kiezen die past bij
+      jouw specifieke huidtype en wensen.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Onze schoonheidssalon in Delft biedt een ontspannen en gezellige sfeer waar je jezelf meteen
+      op je gemak zult voelen. Ik werk met hoogwaardige producten van merken als Paula's Choice en
+      Skeyndor en de nieuwste technieken, zodat we samen altijd de beste resultaten behalen. Of je
+      nu langskomt voor een ontspannende gezichtsbehandeling of een meer intensieve
+      huidverbeteringsbehandeling: je verlaat de salon met een stralende en gezonde huid.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Neem gerust <a href="/contact/" class="underline decoration-accent underline-offset-4">contact</a>
+      met mij op om een afspraak te maken of om meer informatie te ontvangen over de behandelingen
+      en tarieven. Als schoonheidsspecialiste sta ik altijd voor je klaar om jouw natuurlijke
+      schoonheid naar voren te brengen!
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Onze behandelingen</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {
+        treatments.map((t) => (
+          <a
+            href={`/${t.slug}/`}
+            class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-5 py-4 transition-colors hover:border-accent/50"
+          >
+            <span class="text-sm font-medium text-ink">{t.title}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
+  </section>
+</BaseLayout>

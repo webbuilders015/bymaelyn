@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site, treatments } from '../../data/site';
+---
+
+<BaseLayout
+  title="Schoonheidsspecialist Rijswijk - Art of Beauty by Maelyn"
+  description="Op zoek naar een schoonheidsspecialist in de buurt van Rijswijk? Schoonheidssalon Art of Beauty by Maelyn zit onderaan de bekende trambrug in Delft."
+  image="/images/hero-salon.jpg"
+>
+  <PageHero
+    eyebrow="Regio"
+    title="Schoonheidsspecialist Rijswijk"
+    lead="Op zoek naar een professionele en ervaren schoonheidsspecialist in Rijswijk of omgeving? Bij Art of Beauty by Maelyn ben je aan het juiste adres."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Je vindt onze schoonheidssalon op de Bagijnhof 1 in Delft, onderaan de bekende trambrug —
+      op een steenworp afstand van Rijswijk. In de salon bied ik een breed scala aan
+      huidverbeterende schoonheidsbehandelingen voor zowel mannen als vrouwen.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Als schoonheidsspecialiste ben ik gespecialiseerd in huidverbeterende
+      gezichtsbehandelingen, chemische peelings, microdermabrasie, waxen en wenkbrauwen epileren
+      en verven. Of je nu komt voor een ontspannende gezichtsbehandeling of een gerichte
+      huidverbeteringsbehandeling: ik zorg voor de beste behandeling die past bij jouw specifieke
+      huidtype en wensen.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Onze schoonheidssalon in Delft biedt een ontspannen en gezellige sfeer waar jij je meteen
+      thuis zult voelen. Ik werk uitsluitend met hoogwaardige producten van merken als Paula's
+      Choice en Skeyndor, en met de nieuwste technieken, zodat we samen altijd de beste resultaten
+      behalen.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Neem gerust <a href="/contact/" class="underline decoration-accent underline-offset-4">contact</a>
+      met mij op om een afspraak te maken of voor meer informatie over de behandelingen en
+      tarieven. Als schoonheidsspecialist in de buurt van Rijswijk sta ik klaar om je te helpen en
+      je te laten stralen!
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Onze behandelingen</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {
+        treatments.map((t) => (
+          <a
+            href={`/${t.slug}/`}
+            class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-5 py-4 transition-colors hover:border-accent/50"
+          >
+            <span class="text-sm font-medium text-ink">{t.title}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
+  </section>
+</BaseLayout>

@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Button from '../../components/Button.astro';
+import { site, treatments } from '../../data/site';
+---
+
+<BaseLayout
+  title="Schoonheidsspecialiste Pijnacker - Art of Beauty by Maelyn"
+  description="Op zoek naar een schoonheidsspecialist in de buurt van Pijnacker? Art of Beauty by Maelyn is gevestigd aan de Bagijnhof 1 in Delft."
+  image="/images/hero-salon.jpg"
+>
+  <PageHero
+    eyebrow="Regio"
+    title="Schoonheidsspecialiste Pijnacker"
+    lead="Op zoek naar een professionele en ervaren schoonheidsspecialiste in de buurt van Pijnacker? Bij Art of Beauty by Maelyn ben je aan het juiste adres."
+  />
+
+  <section class="mx-auto max-w-4xl px-6 py-16">
+    <p class="text-ink-soft">
+      Onze schoonheidssalon is gevestigd op fietsafstand van Pijnacker, namelijk aan de Bagijnhof
+      1 in Delft. Als gediplomeerd schoonheidsspecialiste heb ik jarenlange ervaring in het vak en
+      ken ik de laatste technieken en trends op het gebied van huidverzorging.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Ik adviseer je graag over de beste behandeling voor jouw huidtype en -conditie. Of je nu een
+      ontspannende gezichtsbehandeling wilt, je huid wilt laten verbeteren met een chemische
+      peeling of microdermabrasie, je wenkbrauwen wilt laten verven of in model wilt laten
+      brengen, of wat haargroei wilt laten waxen: als schoonheidsspecialiste sta ik graag voor je
+      klaar.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      In mijn schoonheidssalon werk ik uitsluitend met hoogwaardige producten van bekende merken
+      als Paula's Choice en Skeyndor, zodat je verzekerd bent van een uitstekend resultaat.
+    </p>
+    <p class="mt-4 text-ink-soft">
+      Ben je geïnteresseerd in een van mijn behandelingen of wil je meer informatie? Neem dan
+      gerust <a href="/contact/" class="underline decoration-accent underline-offset-4">contact</a>
+      met mij op. Ik sta je graag te woord en verwelkom je graag in de schoonheidssalon in de buurt
+      van Pijnacker.
+    </p>
+
+    <h2 class="mt-12 font-display text-2xl text-ink">Onze behandelingen</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+      {
+        treatments.map((t) => (
+          <a
+            href={`/${t.slug}/`}
+            class="flex items-center justify-between gap-3 rounded-xl border border-line bg-bg-soft px-5 py-4 transition-colors hover:border-accent/50"
+          >
+            <span class="text-sm font-medium text-ink">{t.title}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <Button href={site.bookingUrl} class="mt-10">Afspraak maken</Button>
+  </section>
+</BaseLayout>
