@@ -10,6 +10,16 @@ import { site, treatments } from '../../data/site';
   description="Op zoek naar een schoonheidsspecialist in de buurt van Delfgauw? Art of Beauty by Maelyn is op fietsafstand gevestigd aan de Bagijnhof 1 in Delft."
   image="/images/hero-salon.jpg"
 >
+  <section class="relative h-[62vh] min-h-[380px] w-full" data-reveal>
+    <img src="/images/hero-home.webp" alt="Art of Beauty by Maelyn" class="h-full w-full object-cover" />
+    <a
+      href={site.bookingUrl}
+      class="absolute bottom-5 right-5 inline-flex h-12 items-center rounded-full bg-accent px-6 text-[13px] tracking-[0.08em] text-bg shadow-lg shadow-ink/20 transition-colors hover:bg-accent-dark md:bottom-8 md:right-8"
+    >
+      Maak afspraak
+    </a>
+  </section>
+
   <PageHero
     eyebrow="Regio"
     title="Schoonheidsspecialiste Delfgauw"
