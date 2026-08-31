@@ -24,6 +24,24 @@ export const POST: APIRoute = async ({ request }) => {
     const phone = String(data.get('phone') ?? '').trim();
     const message = String(data.get('message') ?? '').trim();
 
+    // Honeypot: real visitors never see or fill this field, bots often do.
+    const honeypot = String(data.get('website') ?? '').trim();
+
+    // Time-trap: a submission within 2.5s of the form loading is almost
+    // always a bot filling in the form instantly, not a real person typing.
+    const formTs = Number(data.get('form_ts') ?? 0);
+    const submittedTooFast = formTs > 0 && Date.now() - formTs < 2500;
+
+    if (honeypot || submittedTooFast) {
+      // Pretend success so spam scripts don't retry or flag the endpoint,
+      // but skip sending the email entirely.
+      console.warn('Contact form: blocked likely spam submission', { honeypot: Boolean(honeypot), submittedTooFast });
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     if (!name || !email || !message) {
       return new Response(JSON.stringify({ error: 'Vul alle verplichte velden in.' }), {
         status: 400,

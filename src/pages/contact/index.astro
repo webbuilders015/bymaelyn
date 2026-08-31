@@ -27,6 +27,11 @@ import { site } from '../../data/site';
         </p>
 
         <form id="contact-form" class="mt-6 space-y-4" method="post">
+          <div class="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+            <label for="website">Laat dit veld leeg</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <input type="hidden" id="contact-form-ts" name="form_ts" value="" />
           <div>
             <label for="name" class="block text-sm font-medium text-ink">Naam</label>
             <input
@@ -145,6 +150,8 @@ import { site } from '../../data/site';
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   const status = document.getElementById('contact-form-status');
+  const formTs = document.getElementById('contact-form-ts') as HTMLInputElement | null;
+  if (formTs) formTs.value = String(Date.now());
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
